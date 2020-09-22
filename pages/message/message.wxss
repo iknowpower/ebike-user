@@ -34,21 +34,27 @@ page{
 }
 
 .msg_title{
+  font-style: normal;
+  font-weight: 700;
   font-size:17px;
   margin-bottom:15px;
 }
 
 
 .msg_tip{
-  color:rgba(42,47,131,1);
+  font-weight: 500;
+  color: #24C672;
 }
 
 .msg_line{
   margin-top:15px;
   margin-bottom:10px;
   height:1px;
-  background:rgba(178,178,178,1);
+  background:rgba(235, 235, 235, 1);
 
+}
+.msg_content{
+  color: #777777;
 }
 
 .msg_link{
@@ -58,4 +64,5 @@ page{
 
 .msg_link_name{
   width:99%;
+  color: #777777;
 }

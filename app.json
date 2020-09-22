@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/main/main",
+    "pages/user/card/card_main",
+    "pages/user/card/tocard/tocard",
+    "pages/user/card/cz/cz_dc",
+    "pages/user/card/unbind/unbind",
+    "pages/user/card/card",
+    "pages/paycharge/paycharge",
+    "pages/cdxx/cdxx",
+    "pages/tsjy/tsjy",
+    "pages/charge/charge",
+    "pages/tsjy/newtsjy/newtsjy",
+    "pages/tsjy/tsjymx/tsjymx",
+    "pages/user/user",
+    "pages/user/cz/cz",
+    "pages/user/xfjl/xfjl",
+    "pages/user/hiscd/hiscd",
+    "pages/user/hiscd/tkd/tkd",
+    "pages/user/user-cdjl/user-cdjl",
+    "pages/user/bindphone/bindphone",
+    "pages/user/about/about",
+    "pages/cdsm/cdsm",
+    "pages/tipview/cdview/cdview",
+    "pages/user/redpkt/redpkt",
+    "pages/user/cmpn/cmpnList",
+    "pages/user/cmpn/cmpndetail/cmpndetail",
+    "pages/main/mainlist/mainlist",
+    "pages/charge/onecharge/onecharge",
+    "pages/user/card/cz/cz",
+    "pages/navi/navigation_ride/navigation",
+    "pages/navi/navigation_ride_detail/navigation",
+    "pages/message/message",
+    "pages/user/wallet/wallet",
+    "pages/user/cmpn/cmpnpackage/package",
+    "pages/user/cmpn/cmpnpackage/packageStation",
+    "pages/user/wallet/walletDetail/walletDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#108ee9",
+    "navigationBarTitleText": "驿吧充电"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxc92a56ebbba6826c"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于附近电站的查找"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

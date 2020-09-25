@@ -1,35 +1,5 @@
 <view class="page">
-  <!--<view wx:if="{{tipshow==='1'}}" class="page-tip">
-    <view class="tip-img">
-        <image src="/image/tip-addr.png" style="width:16px;height:20px;"mode="scaleToFill"/>
-    </view>
-    <view class="tip-txt">
-        {{tipname}}
-    </view>
-    <view class="tip-img" bindtap="goDetail">
-        <image src="/image/tip-in.png" style="width:20px;height:15px;" mode="scaleToFill"/>
-    </view>
-  </view>
-  <view wx:if="{{tipshow==='0'}}" class="page-tip">
-    <view class="tip-img">
-        <image src="/image/tip-bike.png" style="width:30px;height:17px;"mode="scaleToFill"/>
-    </view>
-    <view class="tip-txt">
-        欢迎使用驿吧充电！
-    </view>
-  </view>-->
-
-  <view class="page-tip">
-    <view class="tip-img-user" bindtap="goUserCenter">
-         <open-data type="userAvatarUrl" class="userinfo"></open-data>
-    </view>
-
-    <view class="tip-img-list" bindtap="goList">
-        <image src="/image/main-list.png" style="width:20px;height:18px;" mode="scaleToFill"/>
-    </view>
-  </view>
-  <view class="map_container">
-    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}"      show-location="true" markers="{{markers}}" bindmarkertap="markertap"
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" show-location="true" markers="{{markers}}" bindmarkertap="markertap"
         scale="{{scale}}"
         controls="{{controls}}"
         bindcontroltap="controltap"
@@ -37,83 +7,113 @@
         bindtap="tap"
         style="width: 100%; height:{{mainHeight}}"
     >
-    <cover-view class="controls"  wx:if="{{tipshow2==='1'}}" bindtap="goDetail">
-        <cover-view  class="page-tip">
-          <cover-view class="tip-img">
-              <cover-image src="/image/tip-addr.png" style="width:16px;height:20px;"mode="scaleToFill"/>
-          </cover-view>
-          <cover-view class="tip-txt">
-              {{tipname}}
-          </cover-view>
-          <cover-view class="tip-img">
-              <cover-image src="/image/tip-in.png" style="width:20px;height:15px;" mode="scaleToFill"/>
-          </cover-view>
+    <!-- 充电信息提示 -->
+    <cover-view class="cdxx_back cdxx_panel c_flex_space"  wx:if="{{cdxx_tipshow==='1'}}" bindtap="goCdxxDetail">
+        <cover-view  class="cdxx_txt">
+            当前有三条充电信息正在充电
+        </cover-view>
+        <cover-view>
+            <cover-image src="/image/mainpage/in.png" style="width:24rpx;height:24rpx" mode="scaleToFill">
+            </cover-image>
+        </cover-view>
+    </cover-view>
+    <!-- 点击地图设备后弹出的充电桩详情页面 -->
+    <cover-view class="dev_back {{cdxx_tipshow == '1'? 'dev_panel' :'cdxx_panel'}}"  wx:if="{{dev_tipshow==='1'}}" bindtap="goDetail">
+        <cover-view class="page-tip c_flex_space">
+            <cover-view class="c_flex">
+                <cover-view class="tip-img">
+                    <cover-image src="/image/mainpage/st_location.png" style="width:25px;height:25px;"mode="scaleToFill"/>
+                </cover-view>
+                <cover-view class="tip-txt">
+                    {{tipname}}
+                </cover-view>
+            </cover-view>
+            <cover-view class="tip-img">
+                <cover-image src="/image/mainpage/navi.png" style="width:20px;height:20px;" mode="scaleToFill"/>
+            </cover-view>
         </cover-view>
 
-        <cover-view  class="page-tip2">
+        <cover-view class="page-tip c_flex">
            <cover-view class="tip-cz">
               插座：
           </cover-view>
-          <cover-view class="tip-czimg">
-              <cover-image src="/image/main-dev-kx.png" style="width:20px;height:20px;" mode="scaleToFill"/>
+          <cover-view class="tip-czimg tip-color-kx">
+              闲
           </cover-view>
-          <cover-view class="tip-czs">
+          <cover-view class="tip-czs color-kx">
               {{kxnum}}个
           </cover-view>
-          <cover-view class="tip-czimg">
-              <cover-image src="/image/main-dev-cd.png" style="width:20px;height:20px;" mode="scaleToFill"/>
+          <cover-view class="tip-czimg tip-color-cd">
+              充
           </cover-view>
-          <cover-view class="tip-czs">
+          <cover-view class="tip-czs color-cd">
               {{cdnum}}个
           </cover-view>
-
-          <cover-view class="tip-img" catchtap="goNavi">
-              <cover-image src="/image/navi.png" style="width:40px;height:20px;" mode="scaleToFill"/>
-          </cover-view>
         </cover-view>
-      </cover-view>
-      <!-- 新增优惠活动页 -->
-      <!-- <cover-view class="ad_controls"  wx:if="{{tipshow2==='0'}}" bindtap="goPackage">
-              <cover-image src="/image/wallet/tg.png" mode="scaleToFill"/>
-      </cover-view> -->
-      <!-- 新增超市推广广告页 -->
-      <cover-view class="ad_controls2" wx:if="{{tipshow2==='0'}}">
-          <cover-view class="yz_flex_center" bindtap="goMall">
-              <cover-image src="{{adv_pic}}" style="width:90%;height:100%" mode="scaleToFill"/>
-          </cover-view>
-          <cover-view class="yz_flex_center"  bindtap="goClose">
-              <cover-image src="/image/mall/close.png" style="width:30px;height:30px;" mode="scaleToFill"/>
-          </cover-view>            
-      </cover-view>
+    </cover-view>
 
-      <cover-view wx:if="{{read == '0'}}" class="main_sendmsg" bindtap="goMainBtn" data-id="4">
-           <cover-image src="/image/main-msg-read.png" style="width:50px;height:50px;"mode="scaleToFill"/>
-      </cover-view>
+    <!-- 活动页面弹出 -->
+    <cover-view class="ad_controls2" wx:if="{{tg_tipshow==='1'}}">
+        <cover-view class="yz_flex_center" bindtap="goMall">
+            <cover-image src="{{adv_pic}}" style="width:90%;height:100%" mode="scaleToFill"/>
+        </cover-view>
+        <cover-view class="yz_flex_center"  bindtap="goClose">
+            <cover-image src="/image/mall/close.png" style="width:30px;height:30px;" mode="scaleToFill"/>
+        </cover-view>            
+    </cover-view>
 
-      <cover-view wx:if="{{read == '1'}}" class="main_sendmsg" bindtap="goMainBtn" data-id="4">
-           <cover-image src="/image/main-msg-noread.png" style="width:50px;height:50px;"mode="scaleToFill"/>
-      </cover-view>
+    <cover-view class="main_location" bindtap="goLocation">
+        <cover-image src="/image/mainpage/main_location.png" style="width:30px;height:30px;"mode="scaleToFill"/>
+    </cover-view>
 
-      <cover-view class="main_location" bindtap="goLocation">
-           <cover-image src="/image/main-location.png" style="width:50px;height:50px;"mode="scaleToFill"/>
-      </cover-view>
+    <cover-view class="back_icon main_msg c_flex_center" data-id="1" bindtap="goMainBtn">
+        <cover-image src="/image/mainpage/main_msg.png" style="width:23px;height:23px;"mode="scaleToFill"/>
+    </cover-view>
+    <cover-view class="back_icon main_cust c_flex_center">
+        <cover-image src="/image/mainpage/main_cust.png" style="width:23px;height:23px;"mode="scaleToFill"/>
+    </cover-view>
+    <!--让button 透明度为0-->
+    <cover-view class="main_cust">
+        <button open-type="contact" bindcontact="handleContact" class='btn'>
+        </button>
+    </cover-view>
 
-      <cover-view class="main_msg" data-id="1" bindtap="goMainBtn">
-           <cover-image src="/image/main-tsjy.png" style="width:50px;height:50px;"mode="scaleToFill"/>
-      </cover-view>
+    <cover-view class="back_icon main_tsjy c_flex_center" data-id="3" bindtap="goMainBtn">
+        <cover-image src="/image/mainpage/main_tsjy.png" style="width:23px;height:23px;"mode="scaleToFill"/>
+    </cover-view>
 
-      <cover-view class="main_mall" data-id="2" bindtap="goMainBtn">
-           <cover-image src="/image/main-sm.png" style="width:50px;height:50px;"mode="scaleToFill"/>
-      </cover-view>
+    <cover-view class="back_icon main_help c_flex_center" data-id="4" bindtap="goMainBtn">
+        <cover-image src="/image/mainpage/main_help.png" style="width:23px;height:23px;"mode="scaleToFill"/>
+    </cover-view>
 
-      <cover-view class="main_help" bindtap="goMall">
-           <cover-image src="/image/main-mall2.png" style="width:50px;height:50px;"mode="scaleToFill"/>
-      </cover-view>
+    <cover-view class="main_bottom c_flex_space">
+        <cover-view style="width:80rpx;text-align:center"  bindtap="goList">
+            <cover-view class="c_flex_row">
+                <cover-image src="/image/mainpage/station.png" style="height:25px;width:25px;"mode="scaleToFill"/>
+            </cover-view>
+            <cover-view>
+                附近电站
+            </cover-view>
+        </cover-view>
+        <cover-view style="width:72rpx;text-align:center" bindtap="goUserCenter">
+            <cover-view class="c_flex_row">
+                <cover-image src="/image/mainpage/center.png" style="height:25px;width:25px;"mode="scaleToFill"/>
+            </cover-view>
+            <cover-view>
+                个人中心
+            </cover-view>
+        </cover-view>
+    </cover-view>
 
-      <cover-view class="main_scan" data-id="3" bindtap="goMainBtn">
-           <cover-image src="/image/scan.png" style="height:50px;"mode="scaleToFill"/>
-      </cover-view>
+    <cover-view class="main_scan c_flex_center">
+        <cover-view class="main_scan_icon" data-id="5" bindtap="goMainBtn">
+            <cover-view style="padding:30rpx 54rpx 16rpx 54rpx">
+                <cover-image src="/image/mainpage/scan.png" style="height:25px;width:25px;"mode="scaleToFill"/>
+            </cover-view>
+            <cover-view class="main_sacan_text">
+                扫码充电
+            </cover-view>
+        </cover-view>
+    </cover-view>
     </map>
-  </view>
-
 </view>

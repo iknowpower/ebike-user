@@ -2,24 +2,38 @@
 
 page {
   background-color: #F7F7F7;
-  box-sizing: border-box;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #434242;
 }
 
-.yz_flex{
-  display: flex;
+.c_flex{
+  display: flex; 
   align-items: center;
 }
 
-.yz_flex_bottom{
-  display: flex;
-  align-items: baseline;
+.c_flex_row{
+  display: flex; 
+  justify-content: center;
 }
 
-.yz_flex_center{
+.c_flex_space{
+  display: flex; 
+  justify-content:space-between;
+  align-items: center;
+}
+
+.c_flex_center{
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.c_flex_baseline{
+  display: flex;
+  align-items: baseline;
+}
 .weui-search-bar__cancel-btn{
-  color:#3399FF;
+  color:#24C672;
 }

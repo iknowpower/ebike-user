@@ -3,27 +3,29 @@ var app = getApp();
 //地图展示附近100km之内的99个电站，无论地图缩放还是变大，如果中心点不变化不重新加载
 Page({
   data: {
-    tipshow:'0',
-    tipshow2:'2', // 推广图片
+    cdxx_tipshow:'0',// 
+    dev_tipshow:'0',// 充电设备提示页
+    tg_tipshow:'0', // 推广图片页
     tipname:'',
     stid:'',
-    scale: 16,
+    scale: 16,// 以下为地图属性
     longitude:'',
     latitude:'',
     markers:[],
     controls:[],
+    markIconPath:'/image/mainpage/st_location.png',
+    markIconWidth:50,
+    markIconHeight:50,
     mainHeight:500,
-    sfjz:false,///刚开始数据是否加载完成，防止regionMap重复调用
-    regionover:true,///一次regionMap结束后不能重复调用
     regionjd:'',//上一次移动的经度
     regionwd:'',//上一次移动的维度
+    sfjz:false,///刚开始数据是否加载完成，防止regionMap重复调用
+    regionover:true,///一次regionMap结束后不能重复调用
+    jd_end:'',
+    wd_end:'',//导航用
     ifshow:false,
     qcode:'',//关联二维码扫码进来是否已关联
     tzurl:'',//关联二维码跳转的url
-    jd_end:'',
-    wd_end:'',//导航用
-    read: '',// 通知信息是否已读
-    package:'',
     adv_pic:''//广告图片链接
   },
   
@@ -144,6 +146,7 @@ Page({
 
   getJwd:function(){
     var that = this;
+    console.log(222);
     wx.getSetting({
       success(setRes) {
         // 判断是否已授权
@@ -226,22 +229,6 @@ Page({
 
   sftg: function () {
     var that = this;
-    // wx.request({
-    //   url: app.httpUrl + '/ebike-charge/cmpn/getPkgList.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
-    //   success: (re) => {
-    //     var tipshow2;
-    //     if (re.data.package > 0){
-    //       tipshow2 = "0"
-    //     }else{
-    //       tipshow2 = "2"
-    //     }
-    //     that.setData({
-    //       package: re.data.package,
-    //       tipshow2: tipshow2
-    //     });
-    //   }
-    // });
-
     wx.request({
       url: app.httpUrl + '/ebike-charge/wxcommon/getCode.x', 
       data: {
@@ -276,10 +263,10 @@ Page({
         dis: 100,// 100km
       },
       success: (re) => {
+        console.log(re.data);
         if (re.data != null) {
           var st = re.data.stlist;
           var insStDate = new Array();
-          //var includeDate = new Array();
           var k = 0;
           for (var i = 0; i < st.length; i++) {
             var stDate = st[i];
@@ -287,9 +274,9 @@ Page({
             market.id = stDate.id;
             market.latitude = stDate.latitude;
             market.longitude = stDate.longitude;
-            market.width = 36;
-            market.height = 45;
-            market.iconPath = '/image/mark-kx.png';
+            market.width = that.data.markIconWidth;
+            market.height = that.data.markIconHeight;
+            market.iconPath = that.data.markIconPath;
             insStDate[i] = market;
             // // 显示1km内的圈
             // if(stDate.distance < 1){
@@ -404,9 +391,9 @@ Page({
                   market.id = stDate.id;
                   market.latitude = stDate.latitude;
                   market.longitude = stDate.longitude;
-                  market.width = 36;
-                  market.height = 45;
-                  market.iconPath = '/image/mark-kx.png';
+                  market.width = that.data.markIconWidth;
+                  market.height = that.data.markIconHeight;
+                  market.iconPath = that.data.markIconPath;
                   insStDate[i] = market;
                 }
 
@@ -467,7 +454,6 @@ Page({
               dis: 100,// 100km
             },
             success: (re) => {
-              
               if (re.data != null) {
                 var st = re.data.stlist;
                 var insStDate = new Array();
@@ -478,9 +464,9 @@ Page({
                   market.id = stDate.id;
                   market.latitude = stDate.latitude;
                   market.longitude = stDate.longitude;
-                  market.width = 36;
-                  market.height = 45;
-                  market.iconPath = '/image/mark-kx.png';
+                  market.width = that.data.markIconWidth;
+                  market.height = that.data.markIconHeight;
+                  market.iconPath = that.data.markIconPath;
                   insStDate[i] = market;
                 }
 
@@ -531,7 +517,7 @@ Page({
                 kxnum:re.data.kxnum,
                 cdnum: parseInt(re.data.plugCount) - parseInt(re.data.kxnum),
                 stid:re.data.id,
-                tipshow: '1',
+                dev_tipshow: '1',
                 jd_end: re.data.longitude,
                 wd_end: re.data.latitude
               });
@@ -545,15 +531,9 @@ Page({
     }
   },
   tap(e) {
-    var tipshow2;
-    if (this.data.package > 0) {
-      tipshow2 = "0"
-    } else {
-      tipshow2 = "2"
-    }
     this.setData({
-        tipshow: '0',
-        tipshow2: tipshow2
+        dev_tipshow: '0',
+        tg_tipshow: '0'
     });
   },
 
@@ -571,15 +551,19 @@ Page({
 
   goMainBtn(e) {
     var id = e.currentTarget.dataset.id;
-    // 定位
     var that = this;
     // 投诉建议
     if (id == 1) {
-      wx.navigateTo({ url: '../tsjy/tsjy' });
+      // 通知消息推送
+      wx.navigateTo({ url: '../message/message' });
     } else if (id == 2) {
+      wx.navigateTo({ url: '../tsjy/tsjy' });
+    } else if (id == 3) {
+      wx.navigateTo({ url: '../tsjy/tsjy' });
+    } else if (id == 4) {
       // 充电说明
       wx.navigateTo({ url: '../cdsm/cdsm' });
-    } else if (id == 3) {
+    } else if (id == 5) {
       // 扫码充电
       wx.scanCode({
         scanType: 'qrCode',
@@ -625,9 +609,6 @@ Page({
           }
         },
       });
-    } else if (id == 4) {
-      // 通知消息推送
-      wx.navigateTo({ url: '../message/message' });
     }
   },
 
@@ -677,12 +658,12 @@ Page({
       }
     })
   },
-  goPackage(e) {
-    //跳转到套餐活动页面
-    wx.navigateTo({
-      url: '../user/cmpn/cmpnList',
-    })
-  },
+  // goPackage(e) {
+  //   //跳转到套餐活动页面
+  //   wx.navigateTo({
+  //     url: '../user/cmpn/cmpnList',
+  //   })
+  // },
 
   goClose(){
     this.setData({

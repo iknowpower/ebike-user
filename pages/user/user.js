@@ -44,26 +44,21 @@ Page({
   },
   handleListItemTap(e) {
     var i = e.currentTarget.dataset.index;
-    console.log(i);
-    if(i ==2){
-      wx.navigateTo({ url: 'user-cdjl/user-cdjl' });
-    }else if(i ==0){
-      //wx.navigateTo({ url: 'cz/cz' });
-      wx.navigateTo({ url: 'wallet/wallet' });
-    }else if(i ==1){
-      wx.navigateTo({ url: 'xfjl/xfjl' });
-    }else if(i ==3){
-      wx.navigateTo({ url: 'hiscd/hiscd' });
-    }else if(i ==4){
-      wx.navigateTo({ url: 'about/about' });
-    }else if(i ==5){
-      wx.navigateTo({ url: '../tsjy/tsjy' });
-    }else if (i == 6) {
-      wx.navigateTo({ url: 'cmpn/cmpnList' });
-    }else if (i == 7) {
-      wx.navigateTo({ url: 'redpkt/redpkt' });
-    } else if (i == 8) {//充电卡
-      wx.navigateTo({ url: 'card/card_main' });
+    // 我的钱包
+    if(i ==0){
+      wx.navigateTo({ url: 'wallet/wallet'});//余额钱包
+    }else if(i == 1){
+      wx.navigateTo({ url: 'user-cdjl/user-cdjl'});//充电记录
+    }else if(i == 2) {
+      wx.navigateTo({ url: 'card/card_main'});//充电卡
+    }else if(i == 3) {
+      wx.navigateTo({ url: 'cmpn/cmpnList'});//活动
+    }else if(i == 4){
+      wx.navigateTo({ url: '../tsjy/tsjy'});//投诉建议
+    }else if(i == 5) {
+      wx.navigateTo({ url: 'redpkt/redpkt'});//红包
+    }else if(i == 6){
+      wx.navigateTo({ url: 'about/about'});//客服中心
     }else{
       wx.showModal({
         content: '此功能暂未开放！',

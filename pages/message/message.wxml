@@ -8,13 +8,13 @@
       <view class="msg_tip">
       尊敬的用户，您的充电已经结束
       </view>
-      <view>
+      <view class="msg_content">
       结束充电时间：{{item.chargeFinishTime}}
       </view>
-      <view>
+      <view class="msg_content">
       充电地点：{{item.chargeAddr}}
       </view>
-      <view>
+      <view class="msg_content">
       结束原因分析：{{item.finishReasonDesc}}
       </view>
       <view class="msg_tip">

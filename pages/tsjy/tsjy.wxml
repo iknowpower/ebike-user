@@ -1,30 +1,49 @@
 <view class="page">
 	<view class="item-text">
-	  <view wx:if="{{tcount == 0}}">
-		   <view class="re-center">
-		   		<view class="nor-img"><image src="/image/no-record-yxs.png" style="width:180px;height:190px;"/></view>
-		   	    <view class="nor-text">暂无记录</view>
-          </view>
-      </view>
+		<view wx:if="{{tcount == 0}}">
+			<view class="re-center">
+				<view class="nor-img">
+					<image src="/image/no-record-yxs.png" style="width:180px;height:190px;" />
+				</view>
+				<view class="nor-text">暂无记录</view>
+			</view>
+		</view>
 		<view wx:if="{{tcount != 0}}">
-        <view wx:for="{{tsjyList}}" wx:key="csworkorderId">
-		    <view class="item-text-sqxx" data-tsjyid = "{{item.csworkorderId}}" data-tsjyjg="{{item.tsjg}}" bindtap="tsjymx">
-		    	<view class="item-text-detail">
-		    		<view class="item-text-detail-l1">报修时间</view>
-		    		<view class="item-text-detail-l3">{{item.commitTimeFormat}}</view>
-            		<view wx:if="{{item.tsjg =='over'}}">
-		    			<view class="item-text-detail-l4"><image src="/image/yjj.png" style="width:25px;height:21px;"/></view>
-		    		</view>
-		    	</view>
-		    	<view class="item-text-detail2">
-		    		<view class="item-text-detail-l1">报修说明 </view>
-		    		<view class="item-text-detail-l2">{{item.csworkorderDesc}}</view>
-		    	</view>
-		    </view>
-	    </view>
-	    </view>
-    </view>
-    <view class="item-btn">
-      <view class="item-btn-tsjy" bindtap="tsjy">投诉/建议</view>
-    </view>
+			<view wx:for="{{tsjyList}}" wx:key="csworkorderId">
+				<view class="item-text-sqxx" data-tsjyid="{{item.csworkorderId}}" data-tsjyjg="{{item.tsjg}}" bindtap="tsjymx">
+					<view class="item-text-detail">
+						<view class="item-text-detail-l1">申请时间</view>
+						<view class="item-text-detail-l3">{{item.commitTimeFormat}}</view>
+						<view wx:if="{{item.tsjg =='over'}}">
+							<view class="item-text-detail-l4">
+								<image src="/image/yjj.png" style="width:25px;height:21px;" />
+							</view>
+						</view>
+					</view>
+					<view class="item-text-detail2">
+						<view class="item-text-detail-l1">申请说明 </view>
+						<view class="item-text-detail-l2">{{item.csworkorderDesc}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="item-btn">
+		<!-- <view class="item-btn-tsjy" bindtap="tsjy">投诉建议</view> -->
+		<view class="item-btn-tsjy" bindtap="tapOneDialogButton">投诉建议</view>
+	</view>
+	<mp-dialog title="建议类型" class="mp-dialog" show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton"
+		buttons="{{oneButton}}">
+		<view class='mp_dialog_view'>
+			<view class='mp_dialog_view1' bindtap="devicefault">
+				<image src="/image/charging_pile.png" style="width:80rpx;height:80rpx;" />
+				<text class="text_style" style="display:block">设备故障</text>
+			</view>
+			<view class='mp_dialog_view1' bindtap="otherproblems">
+				<image src="/image/other_problems.png" style="width:80rpx;height:80rpx;" />
+				<text class="text_style" style="display:block">其他问题</text>
+			</view>
+
+		</view>
+	</mp-dialog>
 </view>

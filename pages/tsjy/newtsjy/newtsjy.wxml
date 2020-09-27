@@ -1,12 +1,18 @@
-<view>
-   <view class="item-text-sm">{{textsm}}</view>
-   <view class="page-section">
+<view class="page">
+	<view class="item-text">
+		<view class="item-text-sm">{{textsm}}</view>
+		<view class="page-section">
 			<view class="page-section-demo">
-				<textarea bindinput="bindTextAreaBlur" auto-height placeholder="请输入内容不少于10个字" />
-			</view>
+				<textarea bindinput="bindTextAreaBlur" maxlength="140" style="width:100%;" placeholder="请描述遇到的问题，您的反馈会让我们变得更好～"
+					placeholder-style="color:#D8D8D8;font-size:15px" fixed="true" />
+				<!-- 数字位数变大时,确保角标位置不变 -->
+				<view  wx:if="{{textcount<10&&textcount>=0}}"  class="textarea_span">{{textcount}}/140</view>
+				<view  wx:if="{{textcount<100&&textcount>=10}}"  class="textarea_span_ten">{{textcount}}/140</view>
+				<view  wx:if="{{textcount<=140&&textcount>=100}}"  class="textarea_span_hundred">{{textcount}}/140</view>
+				</view>
 		</view>
   <view class="page-file">
-		<view class="page-file-title">图片（选填，提供问题截图）</view>
+		<view class="page-file-title">上传故障图片</view>
     <block wx:if="{{tempFilePath != ''}}">
 			<view class="image-show">
 				<view data-imsrc="{{tempFilePath}}" bindtap="previewImage" >
@@ -17,13 +23,16 @@
     </block>
     <block wx:if="{{tempFilePath === ''}}">
       <view class="image-plus" bindtap="chooseImage">
-        <view class="image-plus-vertical"></view>
+				<!-- <view class="image-plus-vertical"></view> -->
+				<image src="/image/camera.png"  style="width:66rpx;height:64rpx" mode="scaleToFill"></image>
       </view>
     </block>
 	</view>
+	</view>
+   
 	<view class="item-btn">
-		<view class="item-btn-qx" bindtap="goTsjy">取消</view>
-		<view class="item-btn-line"></view>
-		<view class="item-btn-qd" bindtap="saveFile">确定</view>
+		<!-- <view class="item-btn-qx" bindtap="goTsjy">取消</view>
+		<view class="item-btn-line"></view> -->
+		<view class="item-btn-qd" bindtap="saveFile">提交</view>
 	</view>
 </view>

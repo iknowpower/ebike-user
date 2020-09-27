@@ -1,6 +1,7 @@
 var app = getApp();
 Page({
   data: {
+    textcount:0,
     tempFilePath: '',
     filec:0,
     textareav:'',
@@ -19,7 +20,7 @@ Page({
         textsm:textsm
       })
     }else{
-      textsm='投诉或者建议内容：';
+      textsm='其他问题描述';
       this.setData({
         userid:option.userid,
         textsm:textsm
@@ -51,7 +52,8 @@ Page({
 
   bindTextAreaBlur: function(e) {
     this.setData({
-      textareav:e.detail.value
+      textareav:e.detail.value,
+      textcount:e.detail.value.length
     })
   },
 

@@ -1,4 +1,8 @@
 {
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  },
   "pages": [
     "pages/main/main",
     "pages/user/card/card_main",

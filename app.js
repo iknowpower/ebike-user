@@ -2,8 +2,8 @@
 App({
   codeid:'',
   httpUrl:'https://xcx.ebike-charge.com',//生产
-  //httpUrl:'https://xcxbeta.ebike-charge.com',//测试
-  //httpUrl: 'https://iesmsappletbeta.ebike-charge.com',//阿土本地测试
+  //httpUrl:'https://xcxbeta.ebike-charge.com',
+  //测试smsappletbeta.ebike-charge.com',//阿土本地测试
   globalData: {
     hasLogin: false,
     userPhone:'',

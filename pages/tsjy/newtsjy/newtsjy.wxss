@@ -1,88 +1,169 @@
+.page {
+  width: 100%;
+  font-family: MicrosoftYaHei;
+  font-size: 15px;
+  color: #323232;
+  background-color: #F7F7F7;
+}
+
+.item-text {
+  margin: 20rpx 14rpx;
+}
+
 .item-text-sm {
-	height:50px; 
-	line-height:50px;
-	margin-right:0px;
-	padding-left:25px;
-	background:rgba(255,255,255,1);
+  height: 45rpx;
+  line-height: 45rpx;
+  margin-right: 0px;
+  padding: 24rpx 0rpx 0rpx 22rpx;
+  background: rgba(255, 255, 255, 1);
+  color: #333333;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 550;
 }
 
 .page-section {
-  margin-top: 32rpx;
   background: #fff;
-  margin-bottom: 32rpx;
+  padding: 22rpx;
 }
 
 .page-section-demo {
-  padding: 32rpx;
+  height: 240rpx;
+  background: #FFFFFF;
+  border-radius: 4rpx;
+  border: 1rpx solid #D8D8D8;
+  padding: 20rpx 30rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+
+
+.textarea_style{
+  font-size: 20px;
+
+}
+
+/* textarea 角标样式 */
+.textarea_span{
+  margin: 20rpx 0rpx 0rpx 611rpx;
+  height: 28rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 28rpx;
+  position: relative;
+  top: -75rpx;
+  left: -33rpx;
+}
+.textarea_span_ten{
+  margin: 20rpx 0rpx 0rpx 611rpx;
+  height: 28rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 28rpx;
+  position: relative;
+  top: -75rpx;
+  left: -45rpx;
+}
+.textarea_span_hundred{
+  margin: 20rpx 0rpx 0rpx 611rpx;
+  height: 28rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 28rpx;
+  position: relative;
+  top: -75rpx;
+  left: -55rpx;
 }
 
 .item-btn-line {
-	float:left;
-	width:1px;
-	height:60px;
-	background:#E6E6E6;
+  float: left;
+  width: 1px;
+  height: 60px;
+  background: #E6E6E6;
 }
 
 .item-btn {
-	position:fixed;
-	bottom: 0;
-	height:60px;
-	width:100%;
-	background:rgba(255,255,255,1);
-	border-top:solid 1px #B3B3B3;
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  border-top: solid 1rpx #F7F7F7;
 }
 
 .item-btn-qx {
-	float:left;
-	height:60px;
-	width:49.5%;
-	line-height:60px;
-	text-align:center;
+  float: left;
+  height: 60px;
+  width: 49.5%;
+  line-height: 60px;
+  text-align: center;
 }
 
 .item-btn-qd {
-	float:left;
-	height:60px;
-	width:49.5%;
-	text-align:center;
-	line-height:60px;
-	color:#2DABE5;
+  height: 60px;
+  width: 100%;
+  text-align: center;
+  line-height: 60px;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 550;
+  color: #333333;
 }
 
 .image-plus {
-  width: 150rpx;
-  height: 150rpx;
-  margin: 10rpx 10rpx 10rpx 50rpx;
-  border: 1px solid #D9D9D9;
-  position: relative;
+  width: 220rpx;
+  height: 220rpx;
+  margin: 20rpx 10rpx 0rpx 22rpx;
+  border: 1rpx dashed #D8D8D8;
+  display: flex;
+  /*设置显示样式**/
+  align-items: center;
+  /**子view垂直居中*/
+  vertical-align: center;
+  /**垂直居中*/
   justify-content: center;
+  /**内容居中*/
+  flex-direction: row;
+  line-height: 220rpx;
 }
 
-.image-plus:before,
+/* .image-plus:before,
 .image-plus:after {
   content: " ";
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   background-color: #D9D9D9;
 }
+
 .image-plus:before {
   width: 2px;
   height: 39.5px;
 }
+
 .image-plus:after {
   width: 39.5px;
   height: 2px;
 }
+
 .image-plus:active {
   border-color: #999999;
 }
+
 .image-plus:active:before,
 .image-plus:active:after {
   background-color: #999999;
-}
+} */
 
 .image {
   width: 300rpx;
@@ -92,23 +173,29 @@
 
 .image-show {
   position: relative;
-  top:10rpx;
-  left:50rpx;
+  top: 10rpx;
+  left: 50rpx;
 }
 
-.image-close{
-  position:absolute;
-  top:10rpx;
-  left:230rpx;
+.image-close {
+  position: absolute;
+  top: 10rpx;
+  left: 230rpx;
 }
 
 .page-file {
-  margin-top: 32rpx;
   background: #fff;
   margin-bottom: 32rpx;
-  padding-bottom:32rpx;
+  padding-bottom: 32rpx;
 }
 
 .page-file-title {
-  padding: 32rpx 32rpx 32rpx 50rpx;
+  padding: 8rpx 22rpx 0rpx 22rpx;
+  height: 45rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 550;
+  color: #333333;
+  line-height: 45rpx;
 }
+

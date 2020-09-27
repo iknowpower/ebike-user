@@ -1,4 +1,4 @@
-@import '/style/wallet_back.wxss';
+
 .page{
   font-size:35px;
   font-family:MicrosoftYaHei;

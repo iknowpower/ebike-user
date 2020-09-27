@@ -11,6 +11,11 @@
   overflow: hidden;
 }
 
+.user_b{
+    padding: 15rpx 70rpx 100rpx 70rpx;
+    box-sizing: border-box;
+}
+
 .nickname{
   font-size:36rpx;
   font-family: PingFangSC-Medium, PingFang SC;

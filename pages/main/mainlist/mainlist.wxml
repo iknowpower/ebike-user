@@ -19,65 +19,59 @@
     </view>
 
     <view class="main_lb">
-      <view wx:for="{{stList}}" wx:key="id">
+      <block wx:for="{{stList}}" wx:key="id">
           <view class="main_list" bindtap="goDevDetail" data-stid="{{item.id}}">
-            <view class="main_list_flex">
-              <view class= "main_list_stname">
-                {{item.name}}
-              </view>
-              <block wx:if="{{item.cmpn_id != '0' && item.cmpn_id != null}}">
-                <view class="main_list_navi">
-                  <image src="/image/list-pkg.png" style="width:52px;height:47px;" mode="scaleToFill"/>
+            <view class="c_flex_center">
+              <view style="width:75%">
+                <view class= "main_list_stname">
+                  {{item.name}}
                 </view>
-               </block>
-               <block wx:if="{{item.cmpn_id == '0' || item.cmpn_id == null}}">
-                <view class="main_list_navi">
+                <view class= "main_list_addr_sm">
+                      {{item.stationAddr}}
                 </view>
-               </block>
-            </view>
-            <view wx:for="{{item.devList}}" wx:key="chargedeviceNo" wx:for-item="devItem">
-              <view class= "main_list_dev">
-                <view class="main-img">
-                  <image src="/image/main-lb-dev.png" style="width:15px;height:20px;" mode="scaleToFill"/>
-                </view>
-                <view class= "main_list_dev_no">
-                    {{devItem.chargedeviceNo}}
-                </view>
-                <view class="main-img">
-                <image src="/image/main-dev-kx.png" style="width:20px;height:20px;" mode="scaleToFill"/>
-                </view>
-                <view class= "main_list_dev_kxcz">
-                    {{devItem.kxnum}}个
-                </view>
-                <view class="main-img">
-                <image src="/image/main-dev-cd.png" style="width:20px;height:20px;" mode="scaleToFill"/>
-                </view>
-                <view class= "main_list_dev_cdcz">
-                    {{devItem.cdnum}}个
+                <view wx:for="{{item.devList}}" wx:key="chargedeviceNo" wx:for-item="devItem">
+                  <view class= "c_flex">
+                    <view class="c_flex">
+                      <image src="/image/mainpage/st_dev.png" style="width:17px;height:17px;" mode="scaleToFill"/>
+                    </view>
+                    <view class= "main_list_dev_no">
+                        {{devItem.chargedeviceNo}}
+                    </view>
+                    <view class="tip-czimg tip-color-kx">
+                        闲
+                    </view>
+                    <view class= "tip-czs color-kx">
+                        {{devItem.kxnum}}个
+                    </view>
+                    <view class="tip-czimg tip-color-cd">
+                        充
+                    </view>
+                    <view class= "tip-czs color-cd">
+                        {{devItem.cdnum}}个
+                    </view>
+                  </view>
                 </view>
               </view>
-            </view>
-            <view class= "main_list_addr" catchtap="goNavi" data-jd="{{item.longitude}}" data-wd="{{item.latitude}}">
-                <view class="main-img">
-                  <image src="/image/main-lb-addr.png" style="width:14px;height:15px;"mode="scaleToFill"/>
+              <view class="right c_flex_colum">
+                <view sytle="c_flex" catchtap="goNavi" data-jd="{{item.longitude}}" data-wd="{{item.latitude}}">
+                  <image src="/image/mainpage/station.png" style="width:25px;height:25px;" mode="scaleToFill"/>
                 </view>
-                <view class="main_list_addr_sm">
-                  {{item.stationAddr}}
+                <view>
+                  1.2km
                 </view>
+                <block wx:if="{{item.cmpn_id != '0' && item.cmpn_id != null}}">
+                  <view class="cmpn c_flex_center">
+                      优惠活动
+                  </view>
+                </block>
+                <block wx:else>
+                  <view class="money">
+                        1元/4小时
+                  </view>
+                </block>
+              </view>
             </view>
           </view>
-        </view>
+        </block>
     </view>
-    <!--
-    <view class="weui-panel weui-panel_access">
-        <view wx:for="{{stList}}" wx:key="id">
-            <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_text" bindtap="goDevDetail" data-stid="{{item.id}}">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">{{item.name}}</view>
-                    <view class="weui-media-box__desc">地址：{{item.stationAddr}}</view>
-                    <view class="weui-media-box__desc">：{{item.stationAddr}}</view>
-                </view>
-            </view>
-        </view>
-      </view>-->
 </view>

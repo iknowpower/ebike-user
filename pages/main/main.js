@@ -609,6 +609,39 @@ Page({
           }
         },
       });
+    //   var param={
+    //     "version": "1.0",
+    //     "profitSharing": true,
+    //     "product_id": "harry001",    
+    //     "body": "徐齐斌测试支付",
+    //     "outTradeNo": "00001",
+    //     "totalFee": "1",
+    //     "spbillCreateIp": "123.12.12.123",
+    //     "notifyUrl": "https://ssl.frp.touchfish.top/pay/notify/order",
+    //     "tradeType": "JSAPI",
+    //     "openid": "o3l-P4ukCTdzIzQ1NmxOgNzYX02o"
+    //   }
+    //   wx.request({
+    //     url: 'https://ssl.frp.touchfish.top/pay/createOrder', 
+    //     data: param,
+    //     method:'POST',
+    //     success: (re) => {
+    //       if(re.data != null){
+    //         this.setData({
+    //           tipname:re.data.name,
+    //           kxnum:re.data.kxnum,
+    //           cdnum: parseInt(re.data.plugCount) - parseInt(re.data.kxnum),
+    //           stid:re.data.id,
+    //           dev_tipshow: '1',
+    //           jd_end: re.data.longitude,
+    //           wd_end: re.data.latitude
+    //         });
+    //       }
+    //     },
+    //     fail: () => {
+    //       // 根据自己的业务场景来进行错误处理
+    //     },
+    // });
     }
   },
 

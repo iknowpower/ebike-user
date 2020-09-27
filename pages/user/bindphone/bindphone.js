@@ -6,7 +6,7 @@ Page({
     yzm:'',
     second:60,
     timer:null,
-    yzmtext:'获取验证码',
+    yzmtext:'验证码',
     sffsdx:false,//是否已发送短信，60秒内不能重复发送
     sfbdsj:false,// 是否点击绑定手机按钮，如点击，则不能再点
   },
@@ -61,14 +61,14 @@ Page({
           clearInterval(that.data.timer);//清除定时器
         }else{
           that.setData({
-            yzmtext:that.data.second +"秒后可重发",
+            yzmtext:that.data.second +"秒",
           })
         }
     }
     , 1000);
 
     that.setData({
-      yzmtext:that.data.second +"秒后可重发",
+      yzmtext:that.data.second +"秒",
       sffsdx:true,
     })
   },

@@ -1,21 +1,19 @@
+@import '/style/user_back.wxss';
+.page{
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+}
 .bd-back {
     position: relative;
     width:100%;
 }
 
-#code_img {
-    width: 100px;
-    height: 40px;
-    cursor: pointer;
-    vertical-align: top;
+.user_h{
+  height:217rpx;
 }
 
-.weui-flex {
-  display: flex;
-}
-.weui-flex__item {
-  flex: 1;
-}
 .weui-input {
   width: 100%;
   border: 0;
@@ -28,77 +26,61 @@
   line-height: 1.41176471;
 }
 
-.btn{
-padding:15px;
-}
-
-.yzimg{
-    position:absolute; top:20%; left:42%; 
-}
-
-.yztext{
-    position:absolute;
-    top:65%;
-    left:28%;
-    height:30px;
-    font-size:15px;
-    font-family:MicrosoftYaHei;
-    color:rgba(255,255,255,1);
-    line-height:0px;
-    text-align:center;
-}
-
 .cell{
-padding:10px 15px 10px 30px;
-align-items: center;
-border-bottom:1px solid rgba(230,230,230,1);
+  height:100rpx;
+  border-bottom:1px solid #EBEBEB;
+  margin-bottom:30rpx;
 }
 
-.weui-vcode-btn{
-margin-left:0px;
-padding:0px;
-text-align:center;
-background-color:#3399FF;
-color:red;
+.login_panel{
+  margin:0 3vw;
+  position: absolute;
+  top:154rpx;
+  width: 94vw;
+  height: 434rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding:30rpx;
+  box-sizing: border-box;
 }
 
 .bd-1{
-width:30%;
-}
-
-.bd-2{
-width:45%;
+  margin-left:20rpx;
+  width:60%;
 }
 
 .yzm-btn{
-width:160px;
-height:35px;
-background: linear-gradient(#3399FF, #7FD7FF);
-border-radius:5px;
-color:rgba(255,255,255,1);
-font-size:12px;
-text-align:center;
-line-height:35px;
+  width: 130rpx;
+  height: 48rpx;
+  border-radius: 29rpx;
+  border: 1px solid #24C672;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #24C672;
+  text-align:center;
+  line-height:48rpx;
 }
 
 .bd-btn{
-position:absolute;
-top:460px;
-margin-left:10%;
-margin-right:10%;
-background: linear-gradient(#3399FF, #7FD7FF);
-width:80%;
-height:50px;
-color:rgba(255,255,255,1);
-border-radius:5px;
-text-align:center;
-line-height:50px;
+  margin-left:14vw;
+  margin-right:14vw;
+  background: linear-gradient(90deg, #24C672 0%, #46DE9C 100%);
+  box-shadow: 0px 6rpx 8rpx 0px #24C672;
+  border-radius: 20rpx;
+  width:60vw;
+  height:82rpx;
+  color:rgba(255,255,255,1);
+  font-weight: 500;
+  text-align:center;
+  line-height:82rpx;
+  margin-top:60rpx;
 }
 
 .wechat_view{
   width:100%;
   position:absolute;
-  top:520px;
+  bottom:50px;
   font-size:22rpx;
   font-family:MicrosoftYaHei;
   color:rgba(128,128,128,1);

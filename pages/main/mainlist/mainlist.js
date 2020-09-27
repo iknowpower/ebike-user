@@ -61,11 +61,11 @@ Page({
           stList: re.data
         })
 
-        wx.hideLoading();
-
         if (sfsx) {
           wx.stopPullDownRefresh();
         }
+      },complete:()=>{
+        wx.hideLoading();
       }
     });
   },

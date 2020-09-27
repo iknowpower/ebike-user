@@ -3,81 +3,87 @@
 }
 
 .main_lb{
-  font-family:MicrosoftYaHei;
-  font-weight:400;
-  font-size:12px;
-  color:rgba(100,100,100,1);
-}
-
-.main_list_flex{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #777777;
 }
 
 .main_list{
-  width:95%;
-  margin:10px;
+  width:96vw;
   background:rgba(255,255,255,1);
-  box-shadow:0px 5px 10px 0px rgba(10,31,51,0.2);
-  border-radius:5px;
+  border-radius:4rpx;
+  margin:2vw;
+  padding:20rpx;
+  box-sizing: border-box;
 }
 
 .main_list_stname{
-  padding:10px 0 10px 20px;
-  font-size:17px;
-  font-weight:500;
-  color:rgba(50,50,50,1);
-  width:82%;
-  flex:1;
-}
-
-.main_list_navi{
-  display: flex;
-}
-
-.main_list_dev{
-  margin-left: 20px;
-  margin-bottom:8px;
-  display:flex;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
 }
 
 .main_list_dev_no{
   margin-left:5px;
-  width:200px;
-}
-
-.main_list_dev_kxcz{
-  margin-left:5px;
-  width:100px;
-}
-
-.main_list_dev_cdcz{
-  margin-left:5px;
-  width:100px;
-}
-
-.main_list_addr{
-  padding:7px 0 15px 20px;
-  display: flex;
-}
-
-.main-img{
-  display: flex;
-  justify-content: center;
-  align-items: top;
+  width:200rpx;
+  margin-right:30rpx;
 }
 
 .main_list_addr_sm{
-  margin-left:5px;
-  margin-right:10px;
-  line-height:15px;
+  margin:20rpx 0 10rpx 0;
   word-wrap: break-word;
 }
 
-.main_list_pkg{
-  position: relative;
-  left:400px;
-  top:0px;
-  z-index: 100;
+.tip-czimg{
+  margin-right:10rpx;
+  width:34rpx;
+  height:34rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 34rpx;
+  font-size: 20rpx;
+  color: #FFFFFF;
+}
+
+.tip-czs{
+  width:18%;
+}
+
+.tip-color-kx{
+  background: #24C672;
+}
+
+.tip-color-cd{
+  background: #E8BA2B;
+}
+
+.color-cd{
+  color: #E8BA2B;
+}
+
+.color-kx{
+  color: #24C672;
+}
+
+.money{
+  color: #24C672;
+  margin-top:60rpx;
+}
+
+.cmpn{
+  margin-top:60rpx;
+  width: 109rpx;
+  height: 34rpx;
+  background: #FFCC2C;
+  border-radius: 4rpx;
+  line-height:34rpx;
+  font-size: 20rpx;
+  color: #FFFFFF;
+  text-align:center;
+}
+
+.right{
+  width:25%;
+  text-align:center;
 }

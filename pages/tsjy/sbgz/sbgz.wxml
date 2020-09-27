@@ -1,5 +1,16 @@
 <view class="page">
 	<view class="item-text">
+    <view class="layout_flex">
+      <view class="item-text-sm">设备编号</view>
+      <view class="item_text_dn" >{{devno}}</view>
+    </view>
+    <view class="layout_flex">
+      <view class="item-text-sm">投诉类型</view>
+      <view  class="item_text_dn" >故障报修
+        <image class="svg_style" src="/image/down.svg" style="width:24rpx; height:24rpx"></image>
+      </view>
+     
+    </view>
 		<view class="item-text-sm">{{textsm}}</view>
 		<view class="page-section">
 			<view class="page-section-demo">
@@ -23,17 +34,14 @@
     </block>
     <block wx:if="{{tempFilePath === ''}}">
       <view class="image-plus" bindtap="chooseImage">
-				<!-- <view class="image-plus-vertical"></view> -->
-				<image src="/image/camera.png"  style="width:66rpx;height:64rpx" mode="scaleToFill"></image>
-				<text class="text_add_pic" >添加照片</text>
+        <image src="/image/camera.png"  style="width:66rpx;height:64rpx" mode="scaleToFill"></image>
+        <text class="text_add_pic" >添加照片</text>
       </view>
     </block>
 	</view>
 	</view>
    
 	<view class="item-btn">
-		<!-- <view class="item-btn-qx" bindtap="goTsjy">取消</view>
-		<view class="item-btn-line"></view> -->
 		<view class="item-btn-qd" bindtap="saveFile">提交</view>
 	</view>
 </view>

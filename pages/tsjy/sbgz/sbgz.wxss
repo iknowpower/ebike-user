@@ -6,8 +6,29 @@
   background-color: #F7F7F7;
 }
 
+.layout_flex {
+  display: flex;
+}
+
 .item-text {
   margin: 20rpx 14rpx;
+  background: #FFFFFF;
+  border-radius: 4rpx;
+}
+
+/* 设备编号值 */
+.item_text_dn {
+  border: 1rpx solid #D8D8D8;
+  width: 300rpx;
+  height: 58rpx;
+  padding-left: 20rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 58rpx;
+  margin-left: 30rpx;
+  margin-top: 23rpx;
 }
 
 .item-text-sm {
@@ -22,14 +43,6 @@
   font-weight: 550;
 }
 
-.text_add_pic {
-  height: 28rpx;
-  font-size: 20rpx;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
-  color: #D8D8D8;
-  line-height: 28rpx;
-}
 .page-section {
   background: #fff;
   padding: 22rpx;
@@ -48,13 +61,13 @@
 }
 
 
-.textarea_style{
+.textarea_style {
   font-size: 20px;
 
 }
 
 /* textarea 角标样式 */
-.textarea_span{
+.textarea_span {
   margin: 20rpx 0rpx 0rpx 611rpx;
   height: 28rpx;
   font-size: 20rpx;
@@ -66,7 +79,8 @@
   top: -75rpx;
   left: -33rpx;
 }
-.textarea_span_ten{
+
+.textarea_span_ten {
   margin: 20rpx 0rpx 0rpx 611rpx;
   height: 28rpx;
   font-size: 20rpx;
@@ -78,7 +92,8 @@
   top: -75rpx;
   left: -45rpx;
 }
-.textarea_span_hundred{
+
+.textarea_span_hundred {
   margin: 20rpx 0rpx 0rpx 611rpx;
   height: 28rpx;
   font-size: 20rpx;
@@ -132,6 +147,7 @@
   margin: 20rpx 10rpx 0rpx 22rpx;
   border: 1rpx dashed #D8D8D8;
   display: flex;
+  flex-direction: column;
   /*设置显示样式**/
   align-items: center;
   /**子view垂直居中*/
@@ -139,39 +155,16 @@
   /**垂直居中*/
   justify-content: center;
   /**内容居中*/
-  flex-direction: column;
-  line-height: 220rpx;
 }
 
-/* .image-plus:before,
-.image-plus:after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  background-color: #D9D9D9;
+.text_add_pic {
+  height: 28rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #D8D8D8;
+  line-height: 28rpx;
 }
-
-.image-plus:before {
-  width: 2px;
-  height: 39.5px;
-}
-
-.image-plus:after {
-  width: 39.5px;
-  height: 2px;
-}
-
-.image-plus:active {
-  border-color: #999999;
-}
-
-.image-plus:active:before,
-.image-plus:active:after {
-  background-color: #999999;
-} */
 
 .image {
   width: 300rpx;
@@ -207,3 +200,8 @@
   line-height: 45rpx;
 }
 
+.svg_style {
+  position: absolute;
+  right: 258rpx;
+  top: 140rpx;
+}

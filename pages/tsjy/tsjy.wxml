@@ -3,9 +3,9 @@
 		<view wx:if="{{tcount == 0}}">
 			<view class="re-center">
 				<view class="nor-img">
-					<image src="/image/no-record-yxs.png" style="width:180px;height:190px;" />
+					<image src="/image/no_record_green.png" style="width:340rpx;height:240rpx;" />
 				</view>
-				<view class="nor-text">暂无记录</view>
+				<view class="nor-text">暂无记录~</view>
 			</view>
 		</view>
 		<view wx:if="{{tcount != 0}}">

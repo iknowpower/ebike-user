@@ -88,14 +88,16 @@ Page({
     if(textareav==''){
       wx.showModal({
         content: sm + '说明内容不能为空！',
-        showCancel: false
+        showCancel: false,
+        confirmColor: '#333333'
       });
 
       return;
     }else if(textareav.length < 10){
       wx.showModal({
         content: sm + '说明内容不能少于10个字！',
-        showCancel: false
+        showCancel: false,
+        confirmColor: '#333333'
       });
 
       return;

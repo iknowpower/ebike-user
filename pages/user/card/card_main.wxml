@@ -1,7 +1,9 @@
 <view class="page" style="color:white">
   <view class="ye_flex top">
-    <view class="add_img" bindtap="gobindcard">
-      <image src="/image/card/add-card.png" style="width:34rpx;height:34rpx" mode="scaleToFill" />
+    <view class="add_img c_flex" bindtap="gobindcard">
+      <view class="c_flex img_m">
+        <image src="/image/card/add-card.png" style="width:34rpx;height:34rpx" mode="scaleToFill" />
+      </view>
       <view class="add_text">添加充电卡</view>
     </view>
     
@@ -9,44 +11,35 @@
       <view class="dc_text">代充</view>
     </view>
   </view>
-  <!-- <view class="line"></view> -->
-  <!-- <view class="item_tip">
-    <view class="item_tip_img">
-      <image src="/image/card/tips.png" style="width:12px;height:12px" mode="scaleToFill" />
-    </view>
-    <view class="item_tip_text">充电卡是自己绑定的充电卡并有充值服务；代充是为别人绑定的卡进行充值。</view>
-  </view> -->
-
   <scroll-view scroll-y="true" style="height: 569px">
     <block wx:if="{{hasCard==1}}">
       <view wx:for="{{cardList}}" wx:key="card_id"
-        class="{{index == 0?'ye_bk_1':'ye_bk'}} {{item.status == '3'?'card_back_miss': 'card_back' }}">
-        <view class="ye_flex ">
+        class="ye_bk {{item.status == '3'?'card_back_miss': 'card_back' }}">
+        <view class="c_flex">
           <view class="ye_bs">卡标识码</view>
           <view class="ye_text">{{item.card_1}}</view>
           <view class="ye_text">{{item.card_2}}</view>
           <view class="ye_text">{{item.card_3}}</view>
         </view>
 
-        <view class="ye_num">
+        <view class="ye_num c_flex_baseline">
           <text class="num_zs">{{item.num_zs}}</text>
           <text class="ye_dw">元</text>
         </view>
-        <view wx:if="{{item.status != '3'}}" class="ye_flex ye_btn">
-          <view class="bottom_btn" bindtap="gocz" data-cardid="{{item.card_id}}">充值</view>
-          <view class="bottom_btn_c2c" bindtap="gotocard" data-cardid="{{item.card_id}}">卡转卡</view>
-          <view class="bottom_btn" bindtap="gounbindcard" data-cardid="{{item.card_id}}">解绑</view>
-          <view class="bottom_btn_gs" bindtap="gomisscard" data-cardid="{{item.card_id}}" data-status="3">挂失</view>
+        <view wx:if="{{item.status != '3'}}" class="c_flex ye_btn">
+          <view class="card_btn" bindtap="gocz" data-cardid="{{item.card_id}}">充值</view>
+          <view class="card_btn" bindtap="gotocard" data-cardid="{{item.card_id}}">卡转卡</view>
+          <view class="card_btn" bindtap="gounbindcard" data-cardid="{{item.card_id}}">解绑</view>
+          <view class="card_btn" bindtap="gomisscard" data-cardid="{{item.card_id}}" data-status="3">挂失</view>
         </view>
         <view wx:if="{{item.status == '3'}}" class="ye_flex_center">
-          <view class="bottom_btn_jc" bindtap="gomisscard" data-cardid="{{item.card_id}}" data-status="1">
+          <view class="card_btn" bindtap="gomisscard" data-cardid="{{item.card_id}}" data-status="1">
             解除挂失
           </view>
         </view>
       </view>
     </block>
     <block wx:if="{{hasCard!=0}}">
-      <!-- <view class="re-center"> -->
       <view class="yz_cell_add" bindtap="gobindcard">
         <view class="nor-img">
           <image src="/image/card/empty_box.png" style="width:74.5px;height:40px;" />
@@ -55,7 +48,6 @@
       </view>
     </block>
     <block wx:if="{{hasCard==0}}">
-      <!-- <view class="re-center"> -->
       <view class="yz_cell">
         <view class="nor-img">
           <image src="/image/card/empty_box.png" style="width:74.5px;height:40px;" />
@@ -64,10 +56,4 @@
       </view>
     </block>
   </scroll-view>
-
-
-  <!-- <view class="bottom_view">
-    <view class="bottom_btn_add" bindtap="gobindcard">添加充电卡</view>
-    <view class="bottom_btn_dc" bindtap="godc">代充</view>
-  </view> -->
 </view>

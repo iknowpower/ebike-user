@@ -1,22 +1,11 @@
 @import "/style/back.wxss";
 @import "/style/card_back_miss.wxss";
 
-
-
-.ye_bk_1 {
-  height: 200rpx;
-  margin: 30rpx 72rpx 30rpx 72rpx;
-  padding: 30rpx 27rpx;
-  display: flex;
-  flex-direction: column;
-}
-
 .ye_bk {
-  height: 200rpx;
+  height: 260rpx;
   margin: 30rpx 72rpx;
   padding: 30rpx 27rpx;
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .ye_flex {
@@ -29,11 +18,15 @@
   justify-content: center;
 }
 
-.ye_btn {
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+.card_btn{
+  flex:1;
+  height: 48rpx;
+  width:96rpx;
+  border-radius: 4rpx;
+  border: 1px solid #FFFFFF;
   text-align: center;
+  line-height: 48rpx;
+  margin:0 15rpx;
 }
 
 .top {
@@ -120,19 +113,17 @@
 }
 
 .ye_num {
-  display: flex;
-  align-items: center;
-  vertical-align: center;
+  font-size: 48rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin:20rpx 0;
   justify-content: center;
-  flex-direction: row;
-  flex: 1;
 }
 
 .num_zs {
   font-size: 48rpx;
   font-weight: 500;
-  line-height: 67rpx;
-  height: 67rpx;
 }
 
 .num_xs {
@@ -140,104 +131,11 @@
 }
 
 .ye_dw {
-  margin-top: 21rpx;
   margin-left: 8rpx;
   font-size: 28rpx;
   font-weight: 500;
-  line-height: 40px;
 }
 
-.bottom_btn {
-  height: 38rpx;
-  border: 1rpx solid rgba(255, 255, 255, 1);
-  border-radius: 4rpx;
-  margin-right: 36rpx;
-  line-height: 38rpx;
-  padding: 5rpx 22rpx;
-  text-align: center;
-  align-items: center;
-  vertical-align: center;
-  justify-content: center;
-}
-
-.bottom_btn_gs {
-  height: 38rpx;
-  border: 1rpx solid rgba(255, 255, 255, 1);
-  padding: 5rpx 22rpx;
-  border-radius: 4rpx;
-  line-height: 38rpx;
-  text-align: center;
-  align-items: center;
-  vertical-align: center;
-  justify-content: center;
-}
-
-.bottom_btn_c2c {
-  margin-right: 36rpx;
-  height: 38rpx;
-  border: 1rpx solid rgba(255, 255, 255, 1);
-  padding: 5rpx 7rpx;
-  border-radius: 4rpx;
-  line-height: 38rpx;
-  text-align: center;
-  align-items: center;
-  vertical-align: center;
-  justify-content: center;
-}
-
-.bottom_btn_jc {
-  height: 38rpx;
-  line-height: 38rpx;
-  padding: 5rpx 7rpx;
-  border: 1rpx solid rgba(255, 255, 255, 1);
-  border-radius: 4rpx;
-  text-align: center;
-
-}
-
-
-
-.bottom_view {
-  width: 100%;
-  background-color: white;
-  color: white;
-  position: absolute;
-  bottom: 0;
-  height: 196rpx;
-  line-height: 196rpx;
-  font-size: 32rpx;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 550;
-}
-
-.bottom_btn_add {
-  width: 100%;
-  background-color: white;
-  color: #24C672;
-  text-align: center;
-  height: 98rpx;
-  line-height: 98rpx;
-  font-size: 32rpx;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 550;
-}
-
-.bottom_btn_dc {
-  width: 100%;
-  background-color: white;
-  color: #333333;
-  text-align: center;
-  height: 98rpx;
-  line-height: 98rpx;
-  font-size: 32rpx;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 550;
-}
-
-.re-center {
-  margin-top: 10px;
-  overflow: hidden;
-}
 
 .nor-img {
   padding-top: 49rpx;
@@ -272,3 +170,7 @@
   padding-bottom: 32rpx;
   border: 1rpx dashed #D8D8D8;
 }
+
+.img_m{
+  margin-top:5rpx;
+ }

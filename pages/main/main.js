@@ -65,13 +65,10 @@ Page({
 
   onLoad(options){
     if (options.msg){
-      wx.showModal({
-        title: '充电开始',
-        content: '请到个人中心-当前充电查看充电进度',
-        showCancel:false,
+      this.setData({
+        cdxx_tipshow:'1'
       })
     }
-
     console.log("关联二维码跳转options==" + JSON.stringify(options));  
     var that = this;
     app.getSessionId().then(function (sessionid) {    
@@ -87,11 +84,9 @@ Page({
           let q = decodeURIComponent(options.q)
           if (q) {
             console.log("全局onLaunch onload 参数 cdczno=" + utils.getQueryString(q, 'cdczno'))
-
             if (utils.getQueryString(q, 'cdczno')) {
               // 绑定手机后跳转到支付页面
               let code = utils.getQueryString(q, 'cdczno');
-
               //扫码判断插座状态
               wx.request({
                 url: app.httpUrl + '/ebike-charge/wxXcx/getCzgk.x',
@@ -127,7 +122,6 @@ Page({
                 tzurl: '../charge/onecharge/onecharge?devno=' + code,
                 qcode: code,
               });
-
               wx.navigateTo({
                 url: that.data.tzurl,
               })
@@ -146,7 +140,6 @@ Page({
 
   getJwd:function(){
     var that = this;
-    console.log(222);
     wx.getSetting({
       success(setRes) {
         // 判断是否已授权
@@ -252,7 +245,9 @@ Page({
   },
 
   showMainMap:function(longitude, latitude){
-    wx.showLoading();
+    wx.showLoading({
+      title: '正在加载中',
+    });
     var that = this;
     wx.request({
       url: app.httpUrl + '/ebike-charge/wxXcx/getStationList.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
@@ -263,7 +258,6 @@ Page({
         dis: 100,// 100km
       },
       success: (re) => {
-        console.log(re.data);
         if (re.data != null) {
           var st = re.data.stlist;
           var insStDate = new Array();
@@ -287,7 +281,6 @@ Page({
             //     k++;
             // }
           }
-
           // 地图中心的market
           var marketc = new Object();
           marketc.id = 'center';
@@ -325,14 +318,12 @@ Page({
             controls: controlsarray,
             sfjz: true,
           })
-
-          wx.hideLoading();
         }
       },
       fail: () => {
-        // 根据自己的业务场景来进行错误处理
+      },complete:()=>{
         wx.hideLoading();
-      },
+      }
     });
   },
 

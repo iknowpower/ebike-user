@@ -1,4 +1,4 @@
-// pages/user/xfjl/xfjl.js
+// pages/user/coupon/coupon.js
 Page({
 
   /**

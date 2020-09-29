@@ -14,7 +14,7 @@
   background:rgba(255,255,255,1);
   border-radius:4rpx;
   margin:2vw;
-  padding:20rpx;
+  padding:0 0 20rpx 20rpx;
   box-sizing: border-box;
 }
 
@@ -22,6 +22,7 @@
   font-size: 32rpx;
   font-weight: 500;
   color: #333333;
+  padding-top:20rpx;
 }
 
 .main_list_dev_no{
@@ -72,15 +73,9 @@
 }
 
 .cmpn{
-  margin-top:60rpx;
-  width: 109rpx;
-  height: 34rpx;
-  background: #FFCC2C;
-  border-radius: 4rpx;
-  line-height:34rpx;
-  font-size: 20rpx;
-  color: #FFFFFF;
-  text-align:center;
+  position: relative;
+  right: 0;
+  top: 0;
 }
 
 .right{

@@ -1,86 +1,104 @@
-var app = getApp();
+var app =getApp();
+
 Page({
   data: {
-    month: '',
-    startDate: '',
-    endDate: '',
-    userid:'',
-    cmpnid:'',
-    wdqjl:'',
-    reList: [],
-    info:{}
+    num_zs:'',
+    num_xs:'',
+    check:0,//金额框选中标志
+    zfje:'',//支付金额显示
+    cmpnList:[],
+    cmpncount:0
   },
-  onLoad(options) {
-    console.log(options);
-    this.setData({
-      userid: options.userid,
-      cmpnid: options.cmpnid,
-    })
-
-    var that = this;
-    wx.request({
-      url: app.httpUrl + '/ebike-charge/cmpn/initPackFlow.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
-      data: {
-        userid: that.data.userid,
-        cmpnid: that.data.cmpnid
-      },
-      success: (re) => {
-        // 授权成功并且服务器端登录成功
-        that.setData({
-          info: re.data.info
-        });
-      },
-      fail: () => {
-      },
+  onLoad() {
+    let that = this;
+    app.getSessionId().then(function(sessionid){
+      that.getAccount(sessionid);
     });
   },
 
-  onShow() {
-    var t = new Date();
-    var year = t.getFullYear();
-    var month = t.getMonth() + 1;
-    if (month >= 1 && month <= 9) {
-      month = "0" + month;
+  getAccount:function(sessionid){
+    wx.request({
+        url: app.httpUrl + '/ebike-charge/wxxcxUserCenter/getAccount.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
+        data: {
+          sessionid:sessionid,
+        },
+        success: (re) => {
+          if(re.data != null){
+              console.log(re.data);
+              var zs = re.data.account_num;
+              var xs = '';
+              if(re.data.account_xs == '1'){
+                  xs = '.' +  re.data.account_num_xs;
+              }
+              this.setData({
+                  num_zs:zs,
+                  num_xs:xs,
+                  cmpnList: re.data.cmpnList,
+                  cmpncount: re.data.cmpncount,
+              });
+          }
+        },
+        fail: () => {
+        },
+    });
+  },
+
+  innum(e){
+    var v = e.currentTarget.dataset.v;
+    this.setData({
+      check:v,
+      zfje:v,
+    })
+  },
+
+  ljcz(e){
+    // 金额不对
+    if(parseFloat(this.data.zfje) <=0 || parseFloat(this.data.zfje) >=9999){
+        wx.showModal({
+          title: '亲',
+          content: '请输入正确的支付金额！',
+          showCancel: false
+        });
+        return;
     }
-    var current = year + "-" + month;
-    var start = (year - 1) + "-01-01";
-    var end = current + "-01";
-    this.setData({
-      month: current,
-      startDate: start,
-      endDate: end,
-    });
-
-    this.getPkgList();
-  },
-
-  getPkgList(){
-    var that = this;
     wx.request({
-      url: app.httpUrl + '/ebike-charge/cmpn/getPackageFlow.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
+      url: app.httpUrl + '/ebike-charge/wxpay/goWxPayCz.x', 
       data: {
-        month: that.data.month,
-        userid: that.data.userid,
-        cmpnid: that.data.cmpnid
+        sessionid:app.globalData.sessionid,
+        czje:this.data.zfje
       },
       success: (re) => {
-        // 授权成功并且服务器端登录成功
-        that.setData({
-          wdqjl: re.data.wdqjl,
-          reList: re.data.reList,
-        });
+        // 跳转到充电信息页面
+        if(re.data.status == '0'){
+          var ddid = re.data.ddid;
+          wx.requestPayment({
+            timeStamp: re.data.payDto.timeStamp,
+            nonceStr: re.data.payDto.nonceStr,
+            package: re.data.payDto.package_str,
+            signType: re.data.payDto.signType,
+            paySign: re.data.payDto.paySign,
+            success: (res) => {
+              this.getAccount(app.globalData.sessionid);                     
+            },
+            fail: (res) => {
+            }
+          });
+        }else if(re.data.status == '10'|| re.data.status == '20'){
+          wx.showModal({
+            title: '充值失败',
+            content: re.data.msg,
+            showCancel: false
+          });
+        }
       },
       fail: () => {
       },
     });
   },
 
-  getM(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value);
+  bindKeyInput(e){
     this.setData({
-      month: e.detail.value
-    })
-
-    this.getPkgList();
-  }
-})
+      zfje: e.detail.value,
+    });
+  },
+});

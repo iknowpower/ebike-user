@@ -8,10 +8,9 @@ Page({
     wdqjl: '',
     num_zs: '0',
     num_xs: '0',
-    cdList: [],
+    accountList: [],
   },
   onLoad() {
-
   },
 
   onShow() {
@@ -34,11 +33,12 @@ Page({
   },
 
   getM(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value);
     this.setData({
       month: e.detail.value
     })
-
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: app.httpUrl + '/ebike-charge/wxxcxUserCenter/getHisHb.x', 
       data: {
@@ -46,7 +46,6 @@ Page({
         month: e.detail.value
       },
       success: (re) => {
-        console.log(re);
         // 授权成功并且服务器端登录成功
         this.setData({
           wdqjl: re.data.wdqjl,
@@ -55,10 +54,16 @@ Page({
       },
       fail: () => {
       },
+      complete:()=>{
+        wx.hideLoading();
+      }
     });
   },
 
   getCdList: function (month) {
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: app.httpUrl + '/ebike-charge/wxxcxUserCenter/initHb.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
       data: {
@@ -66,7 +71,6 @@ Page({
         month: month
       },
       success: (re) => {
-        console.log(re);
         // 授权成功并且服务器端登录成功
         this.setData({
           wdqjl: re.data.wdqjl,
@@ -77,6 +81,9 @@ Page({
       },
       fail: () => {
       },
+      complete:()=>{
+        wx.hideLoading();
+      }
     });
   },
 });

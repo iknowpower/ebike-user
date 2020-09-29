@@ -50,3 +50,16 @@ page {
 .weui-search-bar__cancel-btn{
   color:#24C672;
 }
+
+.bottom_btn{
+  position: fixed;
+  bottom: 0;
+  width:100vw;
+  height: 98rpx;
+  background: #FFFFFF;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #24C672;
+  line-height: 98rpx;
+}

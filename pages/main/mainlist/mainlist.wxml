@@ -21,11 +21,18 @@
     <view class="main_lb">
       <block wx:for="{{stList}}" wx:key="id">
           <view class="main_list" bindtap="goDevDetail" data-stid="{{item.id}}">
-            <view class="c_flex_center">
-              <view style="width:75%">
+              <view class="c_flex_space">
                 <view class= "main_list_stname">
-                  {{item.name}}
+                    {{item.name}}
                 </view>
+                <block wx:if="{{item.cmpn_id != '0' && item.cmpn_id != null}}">
+                    <view class="cmpn">
+                        <image src="/image/coupon.png" style="width:137rpx;height:61rpx"></image>
+                    </view>
+                </block>
+              </view>
+              <view class="c_flex_center">
+              <view style="width:82%">
                 <view class= "main_list_addr_sm">
                       {{item.stationAddr}}
                 </view>
@@ -59,16 +66,6 @@
                 <view>
                   1.2km
                 </view>
-                <block wx:if="{{item.cmpn_id != '0' && item.cmpn_id != null}}">
-                  <view class="cmpn c_flex_center">
-                      优惠活动
-                  </view>
-                </block>
-                <block wx:else>
-                  <view class="money">
-                        1元/4小时
-                  </view>
-                </block>
               </view>
             </view>
           </view>

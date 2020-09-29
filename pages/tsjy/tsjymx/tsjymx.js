@@ -2,8 +2,6 @@ var app = getApp();
 
 Page({
   data: {
-    atime:'2020-9-27 09:32:30',//申请时间
-    ades:'机器出现故障。。。。。。。。',//申请说明
     info:[],
     dcount:'',
     dinfo:[],

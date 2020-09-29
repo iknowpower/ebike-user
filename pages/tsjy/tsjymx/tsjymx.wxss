@@ -1,10 +1,4 @@
-.page {
-	width: 100%;
-	font-family: MicrosoftYaHei;
-	font-size: 15px;
-	color: #323232;
-	background-color: #F7F7F7;
-}
+
 
 .item-text {
 	margin: 20rpx 14rpx;
@@ -36,7 +30,6 @@
 	margin-top: 230rpx;
 	height: 37rpx;
 	font-size: 26rpx;
-	font-family: PingFangSC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #434242;
 	line-height: 37rpx;
@@ -74,7 +67,6 @@
 	float: left;
 	width: 18%;
 	font-size: 26rpx;
-	font-family: PingFangSC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #434242;
 }
@@ -86,7 +78,6 @@
 	white-space: nowrap;
 	overflow: hidden;
 	font-size: 26rpx;
-	font-family: PingFangSC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #777777;
 }
@@ -98,7 +89,6 @@
 	white-space: nowrap;
 	overflow: hidden;
 	font-size: 26rpx;
-	font-family: PingFangSC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #777777;
 }
@@ -212,7 +202,6 @@
 	margin-top: 230rpx;
 	height: 37rpx;
 	font-size: 26rpx;
-	font-family: PingFangSC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #24C672;
 	line-height: 37rpx;
@@ -227,7 +216,6 @@
 	margin-top: 230rpx;
 	margin-left: 20rpx;
 	font-size: 26rpx;
-	font-family: PingFangSC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #777777;
 	line-height: 37rpx;
@@ -264,7 +252,6 @@
 	padding: 20rpx 30rpx;
 	margin-top: 20rpx;
 	font-size: 26rpx;
-	font-family: PingFangSC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #333333;
 }
@@ -277,7 +264,6 @@
 	padding: 20rpx 30rpx;
 	margin-top: 250rpx;
 	font-size: 26rpx;
-	font-family: PingFangSC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #333333;
 }
@@ -354,7 +340,6 @@
 	width: auto;
 	height: 37rpx;
 	font-size: 26rpx;
-	font-family: PingFangSC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #434242;
 	line-height: 37rpx;
@@ -365,7 +350,6 @@
 	right: 55rpx;
 	height: 37rpx;
 	font-size: 26rpx;
-	font-family: PingFangSC-Regular, PingFang SC;
 	font-weight: 400;
 	color: #434242;
 	line-height: 37rpx;

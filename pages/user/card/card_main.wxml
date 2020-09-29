@@ -33,7 +33,7 @@
           <view class="card_btn" bindtap="gomisscard" data-cardid="{{item.card_id}}" data-status="3">挂失</view>
         </view>
         <view wx:if="{{item.status == '3'}}" class="ye_flex_center">
-          <view class="card_btn" bindtap="gomisscard" data-cardid="{{item.card_id}}" data-status="1">
+          <view class="card_btn_unreport_loss" bindtap="gomisscard" data-cardid="{{item.card_id}}" data-status="1">
             解除挂失
           </view>
         </view>

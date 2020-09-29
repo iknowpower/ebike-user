@@ -57,7 +57,7 @@
           </view>
         </view>
      </block>
-     <view class="bd-btn" bindtap="sure">确定转卡</view>
+     <view class="confirm_to_card" bindtap="sure">确定转卡</view>
      <view class="modal" wx:if="{{!hidden}}">
           <view class="modal-container" animation="{{animContentData}}">
             <view class="modal-close" bindtap="onModalCloseTap">×</view>

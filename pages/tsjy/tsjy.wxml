@@ -32,7 +32,7 @@
 		<!-- <view class="item-btn-tsjy" bindtap="tsjy">投诉建议</view> -->
 		<view class="item-btn-tsjy" bindtap="tapOneDialogButton">投诉建议</view>
 	</view>
-	<mp-dialog title="建议类型" class="mp-dialog" extClass="cancel_btn" mask="true" mask-closable="true" show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton"
+	<mp-dialog title="建议类型" class="mp_dialog"  extClass="cancel_btn" mask="{{true}}" mask-closable="{{false}}" show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton"
 		buttons="{{oneButton}}"  >
 		<view class='mp_dialog_view'>
 			<view class='mp_dialog_view1' bindtap="devicefault">

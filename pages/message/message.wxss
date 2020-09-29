@@ -1,11 +1,3 @@
-page {
-  background: #F7F7F7;
-  font-size: 15px;
-  font-family: MicrosoftYaHei;
-  font-weight: 400;
-  color: black;
-}
-
 .re-center {
   margin-top: 10px;
   overflow: hidden;
@@ -22,7 +14,6 @@ page {
   text-align: center;
   height: 37rpx;
   font-size: 26rpx;
-  font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #777777;
   line-height: 37rpx;
@@ -37,9 +28,9 @@ page {
 }
 
 .msg_title {
-  font-style: normal;
-  font-weight: 700;
   font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
   margin-bottom: 17rpx;
 }
 

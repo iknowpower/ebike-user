@@ -32,7 +32,7 @@
 		<!-- <view class="item-btn-tsjy" bindtap="tsjy">投诉建议</view> -->
 		<view class="item-btn-tsjy" bindtap="tapOneDialogButton">投诉建议</view>
 	</view>
-	<mp-dialog title="建议类型" class="mp_dialog"  extClass="cancel_btn" mask="{{true}}" mask-closable="{{false}}" show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton"
+	<view  class="mp_dialog"><mp-dialog title="建议类型"  extClass="cancel_btn" mask="{{true}}" mask-closable="{{false}}" show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton"
 		buttons="{{oneButton}}"  >
 		<view class='mp_dialog_view'>
 			<view class='mp_dialog_view1' bindtap="devicefault">
@@ -44,5 +44,6 @@
 				<text class="text_style" style="display:block">其他问题</text>
 			</view>
 		</view>
-	</mp-dialog>
+	</mp-dialog></view>
+	
 </view>

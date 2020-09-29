@@ -2,7 +2,7 @@
 	width: 100%;
 	font-family: MicrosoftYaHei;
 	font-size: 15px;
-	color: black;
+	color: black !important;
 	margin: 0;
 	background-color: #F7F7F7;
 }
@@ -112,7 +112,7 @@
 	font-size: 32rpx;
 	font-family: PingFangSC-Medium, PingFang SC;
 	font-weight: 500;
-	color: #333333;
+	color: #333333 !important;
 	line-height: 45rpx;
 
 }
@@ -144,6 +144,9 @@
 	height: 45rpx;
 	font-size: 32rpx;
 	font-weight: 500;
-	color: #333333 !important;
+	color: black;
 	line-height: 45rpx;
+}
+.weui-dialog__btn_primary{
+	color: black;
 }

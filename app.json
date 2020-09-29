@@ -38,7 +38,8 @@
     "pages/user/wallet/wallet",
     "pages/user/cmpn/cmpnpackage/package",
     "pages/user/cmpn/cmpnpackage/packageStation",
-    "pages/user/wallet/walletDetail/walletDetail"
+    "pages/user/wallet/walletDetail/walletDetail",
+    "pages/user/coupon/coupon"
   ],
   "window": {
     "backgroundTextStyle": "light",

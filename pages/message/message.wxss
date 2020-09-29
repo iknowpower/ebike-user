@@ -1,73 +1,76 @@
-page{
-  background:rgba(229,229,229,1);
-  font-size:15px;
-  font-family:MicrosoftYaHei;
-  font-weight:400;
-  color:#323232;
+page {
+  background: #F7F7F7;
+  font-size: 15px;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: black;
 }
 
 .re-center {
-  margin-top:10px;
+  margin-top: 10px;
   overflow: hidden;
 }
 
 .nor-img {
-   text-align:center; 
-   padding-top:30%;
+  text-align: center;
+  padding-top: 50%;
 }
 
 .nor-text {
-   position:relative;
-   top:5%;
-   margin-top:20px;
-   text-align:center;
-   font-size:20px;
-   color:#CCCCCC 100%;
+  position: relative;
+  top: 5%;
+  text-align: center;
+  height: 37rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #777777;
+  line-height: 37rpx;
 }
 
-.yz_cell{
-  margin:20rpx 14rpx;
-  background:rgba(255,255,255,1);
-  box-shadow:0px 5px 10px 0px rgba(10,31,51,0.2);
-  border-radius:4rpx;
-  padding:24rpx 22rpx 22rpx 22rpx;
+.yz_cell {
+  margin: 20rpx 14rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 5px 10px 0px rgba(10, 31, 51, 0.2);
+  border-radius: 4rpx;
+  padding: 24rpx 22rpx 22rpx 22rpx;
 }
 
-.msg_title{
+.msg_title {
   font-style: normal;
   font-weight: 700;
-  font-size:32rpx;
-  margin-bottom:17rpx;
+  font-size: 32rpx;
+  margin-bottom: 17rpx;
 }
 
 
-.msg_tip{
+.msg_tip {
   margin-top: 3rpx;
   margin-bottom: 3rpx;
   font-size: 26rpx;
   color: #24C672;
 }
 
-.msg_line{
-  margin-top:17rpx;
-  margin-bottom:20rpx;
-  height:1rpx;
-  background:#EBEBEB;
+.msg_line {
+  margin-top: 17rpx;
+  margin-bottom: 20rpx;
+  height: 1rpx;
+  background: #EBEBEB;
 }
 
-.msg_content{
+.msg_content {
   margin-top: 3rpx;
   margin-bottom: 3rpx;
   font-size: 26rpx;
   color: #777777;
 }
 
-.msg_link{
+.msg_link {
   display: flex;
   align-items: center;
 }
 
-.msg_link_name{
-  width:96%;
+.msg_link_name {
+  width: 96%;
   color: #777777;
 }

@@ -39,6 +39,7 @@
     "pages/user/cmpn/cmpnpackage/package",
     "pages/user/cmpn/cmpnpackage/packageStation",
     "pages/user/wallet/walletDetail/walletDetail",
+    "pages/tsjy/sbgz/sbgz",
     "pages/user/coupon/coupon"
   ],
   "window": {

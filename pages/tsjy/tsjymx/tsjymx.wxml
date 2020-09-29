@@ -3,31 +3,35 @@
 		<view class="item-text-sqxx">
 			<view class="item-text-detail">
 				<view class="item-text-detail-l1">申请时间</view>
-				<view class="item-text-detail-l3">2020-9-27 09:32:30</view>
+				<view class="item-text-detail-l3">{{atime}}</view>
 			</view>
 			<view class="item-text-detail2">
 				<view class="item-text-detail-l1">申请说明 </view>
 				<view class="page-section-demo1">
-					<textarea bindinput="bindTextAreaBlur" maxlength="140" style="width:100%;" placeholder="机器出现故障。。。。。。。。"
+					<textarea bindinput="bindTextAreaBlur" maxlength="140" style="width:100%;" placeholder="{{ades}}"
 						placeholder-style="color:#777777;font-size:26rpx" fixed="true" disabled="true" />
 					</view>
 			</view>
-			<view class="item-text-detail-horizontal ">
+			<view class="item-text-detail-horizontal">
 				<view class="item-text-title1">处理及反馈信息</view>
 				<view class="item-text-clsj">2020-9-27 09:32:30</view>
 				<view class="item-text-ycl">已处理</view>
 			</view>
-			
-			<view class="page-section-demo1">
+			<view class="page-section-demo2">
 					<textarea bindinput="bindTextAreaBlur" maxlength="140" style="width:100%;" placeholder="已派人维修，维修已完成"
 						placeholder-style="color:#777777;font-size:26rpx" fixed="true" disabled="true" />
 					</view>
-			<block wx:if="{{dcount == 0}}">
+			<!-- <block wx:if="{{dcount == 0}}">
 				<view class="item-text-img">
 					<image src="/image/no-record.png" style="height:92px;width:120px" mode="scaleToFill" />
 				</view>
-			</block> 
+			</block>  -->
 		</view>
+		<view class="item-text-sqxx1">
+			<view	class="text_clr">处理人</view>
+			<view class="text_clr1">XX</view>
+		</view>
+		<view class="text_problem_solved">问题已解决</view>
 
 		<!-- <view class="item-text-sqxx">
 			<block wx:if="{{dcount != 0}}">

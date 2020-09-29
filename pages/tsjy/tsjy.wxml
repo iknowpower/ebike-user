@@ -3,9 +3,9 @@
 		<view wx:if="{{tcount == 0}}">
 			<view class="re-center">
 				<view class="nor-img">
-					<image src="/image/no-record-yxs.png" style="width:180px;height:190px;" />
+					<image src="/image/no_record_green.png" style="width:340rpx;height:240rpx;" />
 				</view>
-				<view class="nor-text">暂无记录</view>
+				<view class="nor-text">暂无记录~</view>
 			</view>
 		</view>
 		<view wx:if="{{tcount != 0}}">
@@ -32,8 +32,8 @@
 		<!-- <view class="item-btn-tsjy" bindtap="tsjy">投诉建议</view> -->
 		<view class="item-btn-tsjy" bindtap="tapOneDialogButton">投诉建议</view>
 	</view>
-	<mp-dialog title="建议类型" class="mp-dialog" show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton"
-		buttons="{{oneButton}}">
+	<mp-dialog title="建议类型" class="mp-dialog" extClass="cancel_btn" mask="true" mask-closable="true" show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton"
+		buttons="{{oneButton}}"  >
 		<view class='mp_dialog_view'>
 			<view class='mp_dialog_view1' bindtap="devicefault">
 				<image src="/image/charging_pile.png" style="width:80rpx;height:80rpx;" />
@@ -43,7 +43,6 @@
 				<image src="/image/other_problems.png" style="width:80rpx;height:80rpx;" />
 				<text class="text_style" style="display:block">其他问题</text>
 			</view>
-
 		</view>
 	</mp-dialog>
 </view>

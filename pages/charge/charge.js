@@ -8,21 +8,27 @@ Page({
     czzs:'/（总）',
     devDate:[],
     stationid:'',
+    cmpnid:''
   },
   onLoad(option) {
+    console.log("充电设备页面：",option);
       this.setData({
         stationid:option.id,
+        cmpnid:option.cmpnid
       });
   },
 
   onShow(option) {
-  wx.showLoading();
+  wx.showLoading({
+    title:'加载中'
+  });
    wx.request({
         url: app.httpUrl + '/ebike-charge/wxXcx/getDevInfo.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
         data: {
           stationid: this.data.stationid
         },
         success: (re) => {
+          console.log(re.data);
             var devDate = re.data.devDate;
             for(var i=0;i<devDate.length;i++){
                 var devczzt = devDate[i].devCzzt;
@@ -35,16 +41,8 @@ Page({
                 }
                 devDate[i].czCount = czcount;
                 if(devczzt == '1'){
-                    devDate[i].czshow='';
-                    devDate[i].up='';
-                    devDate[i].devHeight='80px';
-                    devDate[i].czHeight=69*czcount + 'px';
                 }else{
-                    devDate[i].czshow='true';
-                    devDate[i].up='true';
                     devDate[i].czCount = czcount;
-                    devDate[i].devHeight=80 + (72*czcount) + 'px';
-                    devDate[i].czHeight=69*czcount + 'px';
                 }
             }
             this.setData({
@@ -53,45 +51,6 @@ Page({
               czkxs: re.data.czkxs + '（空闲）',
               czzs:'/' + re.data.czzs +'（总）',
               devDate:devDate,
-            // devDate:[
-            //     {
-            //       devczzt:'true',
-            //       devno:'0000000000000013',
-            //       czshow:'true',
-            //       up:'true',
-            //       czCount:3,
-            //       devHeight:80 + (72*3) + 'px',
-            //       czHeight:69*3 + 'px',
-            //       czDate:[
-            //         {xh:1,plugno:'13131313131'},
-            //         {xh:2,plugno:'13131313132'},
-            //         {xh:3,plugno:'13131313132'},
-            //         {xh:4,plugno:'13131313132'},
-            //         {xh:5,plugno:'13131313132'},
-            //         {xh:6,plugno:'13131313132'},
-            //         {xh:7,plugno:'13131313132'},
-            //         {xh:8,plugno:'13131313132'},
-            //         {xh:9,plugno:'13131313132'},
-            //         {xh:10,plugno:'13131313132'}
-            //       ]
-            //     },
-            //     {
-            //       sfkx:'true',
-            //       devno:'0000000000000014',
-            //       czshow:'true',
-            //       czCount:2,
-            //       devHeight:80 + (72*2) + 'px',
-            //       czHeight:69*2 + 'px',
-            //       up:"true",
-            //       czDate:[
-            //         {xh:1,plugno:'13131313131'},
-            //         {xh:2,plugno:'13131313132'},
-            //         {xh:3,plugno:'13131313132'},
-            //         {xh:4,plugno:'13131313132'},
-            //         {xh:5,plugno:'13131313132'}
-            //       ]
-            //     }
-            //   ]
           }); 
 
           wx.hideLoading();

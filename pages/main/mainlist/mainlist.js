@@ -70,8 +70,7 @@ Page({
     });
   },
   goDevDetail(e) {
-    console.log(e.currentTarget.dataset.stid);
-    wx.navigateTo({ url: '../../charge/charge?id=' + e.currentTarget.dataset.stid });
+    wx.navigateTo({ url: '../../charge/charge?id=' + e.currentTarget.dataset.stid + '&cmpnid=' + e.currentTarget.dataset.cmpnid});
   },
 
   goNavi(e) {

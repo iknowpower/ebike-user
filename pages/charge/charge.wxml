@@ -1,57 +1,34 @@
 <view class= "page">
-    <view class="item-top item">
-        <view>
-            <text>电站名称：</text>
-        </view>
-        <view class="item-2">
-          {{stname}}
-        </view>
-      </view>
-      <view class="item">
-        <view>
-            <text>电站地址：</text>
-        </view>
-        <view class="item-3">
-          {{staddr}}
-        </view>
-    </view>
-    <view class="item item-bo">
-        <view>
-            <text>插座状况：</text>
+    <view class="item-top c_flex">
+        <view class="c_flex item-image">
+            <image src="/image/cdsb.png" style="width:40px;height:40px"></image>
         </view>
         <view>
-           <text style="color:#3399FF">{{czkxs}}</text><text>{{czzs}}</text>
+            <view class="item-name c_flex">
+                <text>{{stname}}</text>
+                <block wx:if="{{cmpnid != '' || cmpnid != 'null'}}"><text style="color:#24C672;font-size:26rpx;">（有活动）</text></block>
+            </view>
+            <view class="item-addr">
+                {{staddr}}
+            </view>
         </view>
     </view>
     <view wx:if="{{devDate}}">
         <block wx:for="{{devDate}}" wx:key="chargedeviceNo">
-        <view class="item-dev-mar {{item.opStatus == '0' ? 'item-dev-detail-lx' : (item.devCzzt == '1'? 'item-dev-detail' :'item-dev-detail-kx')}}"  style="height:{{item.devHeight}}">
-            <view class="dev-flex">
-                <view class="dev-image">
-                    <image src="/image/dev.png" class ="charge-image" mode="scaleToFill"/>
+        <view class="item-dev-mar">
+            <view class="c_flex"> 
+                <view class="c_flex">
+                    <view>设备编号：</view><view>{{item.chargedeviceNo}}</view>
                 </view>
-                <view class="dev-name">
-                    设备编号：{{item.chargedeviceNo}}
+                <view class="dev_name c_flex">
+                    <view>插座：</view><text style="color:#24C672">{{czkxs}}</text><text>{{czzs}}</text>
                 </view>
             </view>
-            <view wx:if="{{item.czshow}}" class="item-kg" style="height:{{item.czHeight}}">
+            <view class="item-kg">
                 <block wx:for="{{item.plugList}}" wx:key="chargeplugNo" wx:for-index="idx" wx:for-item="czItem">
-                    <view class="win-cz-k" data-cdzt = "{{czItem.opStatus}}" data-cdczno = "{{czItem.chargeplugNo}}" bindtap="goCd">
-                        <view>
-                            <view wx:if="{{czItem.opStatus === '0'}}"><image src="/image/cz_on.png" class ="kg-image" mode="scaleToFill"/></view>
-                            <view wx:elif="{{czItem.opStatus === '1'}}"><image src="/image/cdz.gif" class ="kg-image" mode="scaleToFill"/></view>
-                            <view wx:else><image src="/image/cz_off.png" class ="kg-image" mode="scaleToFill"/></view>
-                        </view>
-                        <view class="win-cz-2">
-                            {{czItem.plugSn}}
-                        </view>
-                    </view>
+                        <view class="win-cz-k {{czItem.opStatus === '0'?'color_kx':(czItem.opStatus === '1'?'color_cd':'color_lx')}}" data-cdzt = "{{czItem.opStatus}}" data-cdczno = "{{czItem.chargeplugNo}}" bindtap="goCd">{{czItem.plugSn}}空闲</view>
                 </block>
-            </view>
-            
-            <view class="down" data-index="{{index}}" data-czcount="{{item.czCount}}" data-sfup="{{item.up}}" bindtap="upCz">
-                <image src="{{item.up ? '/image/show-up.png' : '/image/show-down.png'}}" class ="down-image" mode="scaleToFill" />
-            </view>       
+            </view>  
         </view>
         </block>
     </view>

@@ -1,0 +1,25 @@
+.item-top{
+  width: 100vw;
+  height: 121rpx;
+  background: #FFFFFF;
+  padding:20rpx;
+  box-sizing: border-box;
+}
+
+.item-image{
+  margin-right:10rpx;
+}
+
+.item-name{
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+}
+
+.item-addr{
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #777777;
+}

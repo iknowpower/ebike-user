@@ -20,7 +20,7 @@
 
     <view class="main_lb">
       <block wx:for="{{stList}}" wx:key="id">
-          <view class="main_list" bindtap="goDevDetail" data-stid="{{item.id}}">
+          <view class="main_list" bindtap="goDevDetail" data-stid="{{item.id}}" data-cmpnid="{{item.cmpn_id}}">
               <view class="c_flex_space">
                 <view class= "main_list_stname">
                     {{item.name}}

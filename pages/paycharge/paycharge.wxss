@@ -1,5 +1,6 @@
 @import '/style/modal.wxss';
 @import '/style/modal_back.wxss';
+@import '/style/common.wxss';
 .page
 {
 	font-family: MicrosoftYaHei;

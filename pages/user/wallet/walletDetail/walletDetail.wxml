@@ -13,51 +13,68 @@
       <view class="cz_title">
         充值金额
       </view>
-      <view wx:if="{{cmpncount !=0}}" class="c_flex">
-        <block wx:for="{{cmpnList}}" wx:key="cmpn_id">
-          <view class="f_czs">
-            充{{item.recharge_money}}送{{item.presend_redpkt_money}}元
-          </view>
-        </block>
-      </view>
     </view>
     <view class="grid-item-wrapper grid-margin">
       <view class="grid-text {{check==10?'czcss-click':''}}" data-v="10" bindtap="innum">
         <view class="w50">10元</view>
-        <block wx:if="{{item.recharge_money == '10'}}">
-          <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+        <block wx:if="{{cmpncount !=0}}">
+          <block wx:for="{{cmpnList}}" wx:key="cmpn_id">
+            <block wx:if="{{item.recharge_money == '10'}}">
+               <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+            </block>
+          </block>
         </block>
       </view>
       <view class="grid-text {{check==20?'czcss-click':''}}" data-v="20" bindtap="innum">
         <view class="w50">20元</view>
-        <block wx:if="{{item.recharge_money == '20'}}">
-          <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+        <block wx:if="{{cmpncount !=0}}">
+          <block wx:for="{{cmpnList}}" wx:key="cmpn_id">
+            <block wx:if="{{item.recharge_money == '20'}}">
+              <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+            </block>
+          </block>
         </block>
       </view>
       <view class="grid-text {{check==50?'czcss-click':''}}" data-v="50" bindtap="innum">
         <view class="w50">50元</view>
-        <block wx:if="{{item.recharge_money == '50'}}">
-          <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+        <block wx:if="{{cmpncount !=0}}">
+          <block wx:for="{{cmpnList}}" wx:key="cmpn_id">
+            <block wx:if="{{item.recharge_money == '50'}}">
+              <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+            </block>
+          </block>
         </block>
       </view>
     </view>
     <view class="grid-item-wrapper">
       <view class="grid-text {{check==100?'czcss-click':''}}" data-v="100" bindtap="innum">
         <view class="w50">100元</view>
-        <block wx:if="{{item.recharge_money == '100'}}">
-          <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+        <block wx:if="{{cmpncount !=0}}">
+          <block wx:for="{{cmpnList}}" wx:key="cmpn_id">
+            <block wx:if="{{item.recharge_money == '100'}}">
+              <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+            </block>
+          </block>
         </block>
       </view>
       <view class="grid-text {{check==200?'czcss-click':''}}" data-v="200" bindtap="innum">
         <view class="w50">200元</view>
-        <block wx:if="{{item.recharge_money == '200'}}">
-          <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+        <block wx:if="{{cmpncount !=0}}">
+          <block wx:for="{{cmpnList}}" wx:key="cmpn_id">
+            <block wx:if="{{item.recharge_money == '200'}}">
+              <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+            </block>
+          </block>
         </block>
       </view>
       <view class="grid-text {{check==300?'czcss-click':''}}" data-v="300" bindtap="innum">
         <view class="w50">300元</view>
-        <block wx:if="{{item.recharge_money == '300'}}">
-          <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+        <block wx:if="{{cmpncount !=0}}">
+          <block wx:for="{{cmpnList}}" wx:key="cmpn_id">
+            <block wx:if="{{item.recharge_money == '300'}}">
+              <view class="cmpn_d">充{{item.recharge_money}}送{{item.presend_redpkt_money}}元</view>
+            </block>
+          </block>
         </block>
       </view>
     </view>

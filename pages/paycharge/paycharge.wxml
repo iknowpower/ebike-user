@@ -1,17 +1,82 @@
 <view class="page">
-  <view wx:if="{{showPackage}}" class="tg yz_flex_center" bindtap="powerDrawer" data-statu="open">
+  <!-- <view wx:if="{{showPackage}}" class="tg yz_flex_center" bindtap="powerDrawer" data-statu="open">
       <view class="yz_flex m5">
            <image src="/image/wallet/bike-elc.png" style="width:22px;height:18px" mode="scaleToFill"/>
       </view>
       <view>
             此充电桩正在参与套餐活动...
       </view>
+  </view> -->
+	<view class="item-top c_flex">
+        <view class="c_flex item-image">
+            <image src="/image/cdsb.png" style="width:40px;height:40px"></image>
+        </view>
+        <view>
+            <view class="item-name c_flex">
+                <text>{{stname}}</text>
+                <block wx:if="{{cmpnid != '' || cmpnid != '0'}}"><text style="color:#24C672;font-size:26rpx;">（有活动）</text></block>
+            </view>
+            <view class="item-addr">
+                {{staddr}}
+            </view>
+        </view>
+	</view>
+	<view class="cz_bk">
+    <view class="c_flex">
+      <view class="cz_title">
+        充电金额
+      </view>
+    </view>
+    <view class="grid-item-wrapper grid-margin">
+      <view class="grid-text {{check==1?'czcss-click':''}}" data-v="1" bindtap="innum">
+        <view class="w50">1元</view>
+      </view>
+      <view class="grid-text {{check==2?'czcss-click':''}}" data-v="2" bindtap="innum">
+        <view class="w50">2元</view>
+      </view>
+      <view class="grid-text {{check==3?'czcss-click':''}}" data-v="3" bindtap="innum">
+        <view class="w50">3元</view>
+      </view>
+    </view>
+    <view class="grid-item-wrapper">
+      <view class="grid-text {{check==4?'czcss-click':''}}" data-v="4" bindtap="innum">
+        <view class="w50">4元</view>
+      </view>
+      <view class="grid-text {{check==5?'czcss-click':''}}" data-v="5" bindtap="innum">
+        <view class="w50">5元</view>
+      </view>
+      <view class="grid-text {{check==6?'czcss-click':''}}" data-v="6" bindtap="innum">
+        <view class="w50">6元</view>
+      </view>
+    </view>
   </view>
+  <view class="cz_zdy c_flex">
+    <view class="cz_czje_sm">
+        自定义金额
+    </view>
+    <view>
+      <input type="number" bindinput="bindKeyInput" class="cz_czje_num" id="num" placeholder="请输入"
+        value="{{zfje}}" />
+    </view>
+  </view>
+  <view class="c_flex tip">
+      <view class="c_flex">
+        <image src="/image/tips.png" style="width:8px;height:8px" mode="scaleToFill" />
+      </view>
+      <view class="tiptext">充值余额暂不支持退款和提现，请合理安排充值金额。</view>
+	</view>
+	<block wx:if="{{showUserBtn}}">
+		<button class="bottom_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="ljzf">
+				立即支付
+		</button>
+	</block>
+	<block wx:else>
+		<button class="bottom_btn" data-zfje="{{zfje}}" bindtap="ljcz">立即支付</button>
+	</block>
+</view>
+
   <view class="item-wx">
-   	<view class="item-wx-text2">
-				<view class="text-n">{{stationinfo.name}}</view>
-				<view class="text-s">（设备编号：{{stationinfo.chargeDevNo}} 插座：{{pluginfo.plugSn}}）</view>
-		</view>
+
 		<view wx:if="{{sfmzf=='0'}}">	
       <block wx:if="{{stationinfo.chargeType =='01' || stationinfo.chargeType =='02'}}">
    		<view class="item_margin">
@@ -201,6 +266,5 @@
       <view>
          {{item.package_price}}元
       </view>
-  </view>
 </view>
 </view>

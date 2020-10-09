@@ -24,7 +24,8 @@ Page({
     cmpn_id:'',
     showModalStatus:false,
     showPackage:false,
-    showUserBtn:false
+    showUserBtn:false,
+    showDialog:false
   },
   onLoad(option) {
     // console.log('option.id ==' + option.id);
@@ -103,13 +104,14 @@ Page({
         alichecked: true,
       })
     }
-    this.setData({
-      flag: 1
-    })
+    this.showModule('open');
   },
 
   //按时按量确认支付
   ljzf(e){
+    this.setData({
+      showDialog:false
+    })
     if(this.data.showUserBtn && e.detail.userInfo){
       var that = this;
       app.getSessionId().then(function(sessionid){
@@ -173,9 +175,8 @@ Page({
           alichecked:true,
         })
     }
-    this.setData({
-      flag:1
-    })
+
+    this.showModule('open');
   },
 
   mfcd(){
@@ -319,11 +320,11 @@ Page({
     if(this.data.radiov == '0'){
       //余额支付的时候余额必须大于支付金额，否则提示
       if(parseFloat(this.data.account) < parseFloat(this.data.zfje)){
-          this.setData({
-            yebzzf:'不足以支付！'
-          })
-
-          return;
+        this.showModule('close');
+        this.setData({
+          showDialog:true
+        })
+        return;
       }
        wx.request({
           url: app.httpUrl + '/ebike-charge/wxpay/goWxYezf.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
@@ -359,10 +360,10 @@ Page({
     }else if (this.data.radiov == '2') {
       //红包支付的时候红包必须大于支付金额，否则提示
       if (parseFloat(this.data.hbaccount) < parseFloat(this.data.zfje)) {
+        this.showModule('close');
         this.setData({
-          hbbzzf: '不足以支付！'
+          showDialog:true
         })
-
         return;
       }
       wx.request({
@@ -473,14 +474,12 @@ Page({
     }
   },
 
-  powerDrawer(e) {
-    if(this.data.packageCount > 1){
-      var currentStatu = e.currentTarget.dataset.statu;
-
+  // 支付方式界面弹出
+  showModule(currentStatu){
       /* 动画部分 */
       // 第1步：创建动画实例 
       var animation = wx.createAnimation({
-        duration: 200,  //动画时长
+        duration: 100,  //动画时长
         timingFunction: "linear", //线性
         delay: 0  //0则不延迟
       });
@@ -489,7 +488,7 @@ Page({
       this.animation = animation;
 
       // 第3步：执行第一组动画
-      animation.opacity(0).rotateX(-100).step();
+      animation.opacity(1).translateY(391).step();
 
       // 第4步：导出动画对象赋给数据对象储存
       this.setData({
@@ -499,7 +498,7 @@ Page({
       // 第5步：设置定时器到指定时候后，执行第二组动画
       setTimeout(function () {
         // 执行第二组动画
-        animation.opacity(1).rotateX(0).step();
+        animation.opacity(1).translateY(0).step();
         // 给数据对象储存的第一组动画，更替为执行完第二组动画的动画对象
         this.setData({
           animationData: animation
@@ -513,7 +512,7 @@ Page({
             }
           );
         }
-      }.bind(this), 200)
+      }.bind(this), 100)
       // 显示
       if (currentStatu == "open") {
         this.setData(
@@ -522,12 +521,11 @@ Page({
           }
         );
       }
-    }else{
-      wx.navigateTo({
-        url: '../user/cmpn/cmpnpackage/package?cmpn_id=' + this.data.packageList[0].cmpn_id
-      })
-    }
-    
+  },
+
+  powerDrawer(e) {
+    let currentStatu = e.currentTarget.dataset.statu;
+    this.showModule(currentStatu);
   },
 
   gocmpn(e) {
@@ -547,7 +545,6 @@ Page({
       method:'POST',
       success: (re) => {
         app.globalData.userRegion = param.userRegion;
-        console.log(app.globalData.userRegion);
       },
       fail: () => {
       },
@@ -555,5 +552,17 @@ Page({
         
       }
   });
+  },
+
+  ljcz(){
+    wx.navigateTo({
+      url: '../user/wallet/walletDetail/walletDetail',
+    })
+  },
+
+  close(){
+    this.setData({
+      showDialog:false
+    })
   }
 });

@@ -20,12 +20,29 @@
     <!-- 点击地图设备后弹出的充电桩详情页面 -->
     <cover-view class="dev_back {{cdxx_tipshow == '1'? 'dev_panel' :'cdxx_panel'}}"  wx:if="{{dev_tipshow==='1'}}" bindtap="goDetail">
         <cover-view class="page-tip c_flex_space">
-            <cover-view class="c_flex">
+            <cover-view class="c_flex_top">
                 <cover-view class="tip-img">
                     <cover-image src="/image/mainpage/st_location.png" style="width:25px;height:25px;"mode="scaleToFill"/>
                 </cover-view>
                 <cover-view class="tip-txt">
-                    {{tipname}}
+                    <cover-view>{{tipname}}</cover-view>
+                    <cover-view class="page-tip c_flex">
+                        <cover-view>
+                            插座：
+                        </cover-view>
+                        <cover-view class="tip-czimg tip-color-kx">
+                            闲
+                        </cover-view>
+                        <cover-view class="tip-czs color-kx">
+                            {{kxnum}}个
+                        </cover-view>
+                        <cover-view class="tip-czimg tip-color-cd">
+                            充
+                        </cover-view>
+                        <cover-view class="tip-czs color-cd">
+                            {{cdnum}}个
+                        </cover-view>
+                     </cover-view>
                 </cover-view>
             </cover-view>
             <cover-view class="tip-img">
@@ -33,23 +50,7 @@
             </cover-view>
         </cover-view>
 
-        <cover-view class="page-tip c_flex">
-           <cover-view class="tip-cz">
-              插座：
-          </cover-view>
-          <cover-view class="tip-czimg tip-color-kx">
-              闲
-          </cover-view>
-          <cover-view class="tip-czs color-kx">
-              {{kxnum}}个
-          </cover-view>
-          <cover-view class="tip-czimg tip-color-cd">
-              充
-          </cover-view>
-          <cover-view class="tip-czs color-cd">
-              {{cdnum}}个
-          </cover-view>
-        </cover-view>
+        
     </cover-view>
 
     <!-- 活动页面弹出 -->

@@ -47,6 +47,11 @@ page {
   display: flex;
   align-items: baseline;
 }
+
+.c_flex_top{
+  display: flex;
+  align-items: start;
+}
 .weui-search-bar__cancel-btn{
   color:#24C672;
 }

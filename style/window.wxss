@@ -1,0 +1,31 @@
+.win_panel{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.window{
+  position: absolute;
+  bottom:0;
+  left:0;
+  width: 100vw;
+  background: #FFFFFF;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.panel_btn{
+  position: relative;
+  bottom:0;
+  height:100rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #24C672;
+  line-height: 100rpx;
+  text-align: center;
+}

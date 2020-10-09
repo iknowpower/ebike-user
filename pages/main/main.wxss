@@ -27,7 +27,6 @@
   background: #FFFFFF;
   border-radius: 20rpx;
   width:94vw;
-  height:157rpx;
 }
 
 .dev_panel{
@@ -125,11 +124,7 @@
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #777777;
-  margin-top:20rpx;
-}
-
-.tip-cz{
-  margin-left:52rpx;
+  margin:20rpx 0;
 }
 
 .tip-czimg{
@@ -162,4 +157,8 @@
 
 .tip-czs{
   margin-right:37rpx;
+}
+
+.tip-txt{
+  margin-top:10rpx;
 }

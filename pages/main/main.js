@@ -129,6 +129,26 @@ Page({
           }
         }
 
+        // 查找是否有充电信息，在首页展示
+        wx.request({
+          url: app.httpUrl + '/ebike-charge/wxxcxUserCenter/getDqCdList.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
+          data: {
+            sessionid: sessionid,
+          },
+          success: (re) => {
+            console.log(re);
+            // 授权成功并且服务器端登录成功
+            var wdqjl  = re.data.wdqjl;
+            if(wdqjl == '2'){
+              that.setData({
+                cdxx_tipshow:'1'
+              });  
+            }      
+          },
+          fail: () => {
+          },
+        });
+
         that.getSfread(sessionid);
         that.sftg();//是否显示推广页面
         if (that.data.tzurl == '') {

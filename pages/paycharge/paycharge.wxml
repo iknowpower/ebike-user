@@ -1,5 +1,5 @@
 <view class="page">
-  <!-- <view wx:if="{{showPackage}}" class="tg yz_flex_center" bindtap="powerDrawer" data-statu="open">
+	<!-- <view wx:if="{{showPackage}}" class="tg yz_flex_center" bindtap="powerDrawer" data-statu="open">
       <view class="yz_flex m5">
            <image src="/image/wallet/bike-elc.png" style="width:22px;height:18px" mode="scaleToFill"/>
       </view>
@@ -8,263 +8,205 @@
       </view>
   </view> -->
 	<view class="item-top c_flex">
-        <view class="c_flex item-image">
-            <image src="/image/cdsb.png" style="width:40px;height:40px"></image>
-        </view>
-        <view>
-            <view class="item-name c_flex">
-                <text>{{stname}}</text>
-                <block wx:if="{{cmpnid != '' || cmpnid != '0'}}"><text style="color:#24C672;font-size:26rpx;">（有活动）</text></block>
-            </view>
-            <view class="item-addr">
-                {{staddr}}
-            </view>
-        </view>
+		<view class="c_flex item-image">
+			<image src="/image/cdsb.png" style="width:40px;height:40px"></image>
+		</view>
+		<view>
+			<view class="item-name c_flex">
+				<text>{{stationinfo.name}}</text>
+			</view>
+			<view class="item-addr">
+				设备编号：{{stationinfo.chargeDevNo}} 插座：{{pluginfo.plugSn}}
+			</view>
+		</view>
 	</view>
-	<view class="cz_bk">
-    <view class="c_flex">
-      <view class="cz_title">
-        充电金额
-      </view>
-    </view>
-    <view class="grid-item-wrapper grid-margin">
-      <view class="grid-text {{check==1?'czcss-click':''}}" data-v="1" bindtap="innum">
-        <view class="w50">1元</view>
-      </view>
-      <view class="grid-text {{check==2?'czcss-click':''}}" data-v="2" bindtap="innum">
-        <view class="w50">2元</view>
-      </view>
-      <view class="grid-text {{check==3?'czcss-click':''}}" data-v="3" bindtap="innum">
-        <view class="w50">3元</view>
-      </view>
-    </view>
-    <view class="grid-item-wrapper">
-      <view class="grid-text {{check==4?'czcss-click':''}}" data-v="4" bindtap="innum">
-        <view class="w50">4元</view>
-      </view>
-      <view class="grid-text {{check==5?'czcss-click':''}}" data-v="5" bindtap="innum">
-        <view class="w50">5元</view>
-      </view>
-      <view class="grid-text {{check==6?'czcss-click':''}}" data-v="6" bindtap="innum">
-        <view class="w50">6元</view>
-      </view>
-    </view>
-  </view>
-  <view class="cz_zdy c_flex">
-    <view class="cz_czje_sm">
-        自定义金额
-    </view>
-    <view>
-      <input type="number" bindinput="bindKeyInput" class="cz_czje_num" id="num" placeholder="请输入"
-        value="{{zfje}}" />
-    </view>
-  </view>
-  <view class="c_flex tip">
-      <view class="c_flex">
-        <image src="/image/tips.png" style="width:8px;height:8px" mode="scaleToFill" />
-      </view>
-      <view class="tiptext">充值余额暂不支持退款和提现，请合理安排充值金额。</view>
+	<block wx:if="{{sfmzf=='0'}}">
+		<block wx:if="{{stationinfo.chargeType =='01' || stationinfo.chargeType =='02'}}">
+			<view class="cz_bk">
+				<view class="c_flex">
+					<view class="cz_title">
+						充电金额
+					</view>
+				</view>
+				<view class="grid-item-wrapper grid-margin">
+					<view class="grid-text {{check==1?'czcss-click':''}}" data-v="1" bindtap="innum">
+						<view class="w50">1元</view>
+					</view>
+					<view class="grid-text {{check==2?'czcss-click':''}}" data-v="2" bindtap="innum">
+						<view class="w50">2元</view>
+					</view>
+					<view class="grid-text {{check==3?'czcss-click':''}}" data-v="3" bindtap="innum">
+						<view class="w50">3元</view>
+					</view>
+				</view>
+				<view class="grid-item-wrapper">
+					<view class="grid-text {{check==4?'czcss-click':''}}" data-v="4" bindtap="innum">
+						<view class="w50">4元</view>
+					</view>
+					<view class="grid-text {{check==5?'czcss-click':''}}" data-v="5" bindtap="innum">
+						<view class="w50">5元</view>
+					</view>
+					<view class="grid-text {{check==6?'czcss-click':''}}" data-v="6" bindtap="innum">
+						<view class="w50">6元</view>
+					</view>
+				</view>
+			</view>
+			<view class="cz_zdy c_flex">
+				<view class="cz_czje_sm">
+					自定义金额
+				</view>
+				<view>
+					<input type="number" bindinput="bindKeyInput" class="cz_czje_num" id="num" placeholder="请输入"
+						value="{{zfje}}" />
+				</view>
+			</view>
+			<view class="cz_bk">
+				<view class="c_flex_baseline">
+					<view class="cz_title">收费标准：{{stationinfo.chargeTypeName}}收费
+					</view>
+					<view class="cz_desc">（最低消费：{{stationinfo.minCharge}}元）
+					</view>
+				</view>
+				<view wx:if="{{stationinfo.chargeType=='01'}}">
+					<view class="grid-item-wrapper grid-margin">
+						<view class="item_div1_text">
+							<view>{{glbz1}}</view>
+							<view>{{stationinfo.unitPrice1}}小时/元</view>
+						</view>
+						<view class="item_div1_text">
+							<view>{{glbz2}}</view>
+							<view>{{stationinfo.unitPrice2}}小时/元</view>
+						</view>
+					</view>
+					<view class="grid-item-wrapper">
+						<view class="item_div1_text">
+							<view>{{glbz3}}</view>
+							<view>{{stationinfo.unitPrice3}}小时/元</view>
+						</view>
+						<view class="item_div1_text">
+							<view>{{glbz4}}</view>
+							<view>{{stationinfo.unitPrice4}}小时/元</view>
+						</view>
+					</view>
+				</view>
+				<view wx:if="{{stationinfo.chargeType=='02'}}">
+					<view class="item_div1_text c_flex_center">
+						{{stationinfo.unitPrice1}}kWh/元
+					</view>
+				</view>
+			</view>
+		</block>
+		<block wx:if="{{stationinfo.chargeType =='03'}}">
+			<view class="cz_bk">
+				<view class="cz_title">收费标准
+				</view>
+				<view class="cz_sm">按次收费，支付{{stationinfo.unitPrice1}}元即可享受充满为止的充电服务
+				</view>
+			</view>
+		</block>
+	</block>
+	<block wx:if="{{sfmzf=='1'}}">
+		<view class="cz_bk">
+			<view class="cz_title">收费标准：不收费
+			</view>
+		</view>
+	</block>
+	<view class="item_tip c_flex_top">
+		<view class="item_tip_img">
+			<image src="/image/tips.png" style="width:12px;height:12px" mode="scaleToFill" />
+		</view>
+		<block wx:if="{{sfmzf=='1'}}">
+			<view>本充电站为您提供免费充电服务！</view>
+		</block>
+		<block wx:if="{{sfmzf=='0'}}">
+			<block wx:if="{{stationinfo.chargeType =='03'}}">
+				<view>本充电站为您提供公益性充电服务，不以盈利为目的，仅收取平台运营费，充电不退费。</view>
+			</block>
+			<block wx:if="{{stationinfo.chargeType =='01' || stationinfo.chargeType =='02'}}">
+				<view wx:if="{{stationinfo.isReturn=='N'}}">
+					<view>单次充电充满后未消费的金额不退费，请酌情设定充电金额。</view>
+				</view>
+				<view wx:if="{{stationinfo.isReturn!='N'}}">
+					<view>单次充电充满后未消费的金额将原路退回</view>
+					<view>计费间隔：{{stationinfo.closingPeriod}}分钟</view>
+					<view>以30分钟计费间隔为例：不到30分钟按照30分钟计费，超过30分钟不到60分钟，按60分钟计费，以此类推。</view>
+				</view>
+			</block>
+		</block>
 	</view>
-	<block wx:if="{{showUserBtn}}">
-		<button class="bottom_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="ljzf">
-				立即支付
-		</button>
+	<view class="win_panel" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+	<view animation="{{animationData}}" class="window panel_h" wx:if="{{showModalStatus}}">
+			<view>
+				<radio-group bindchange="radioChange">
+					<view class="c_flex_space radio-ye">
+						<view class="c_flex">
+								<view>
+									<image src="/image/pay/pay_account.png" style="width:24px;height:24px" mode="scaleToFill" />
+								</view>
+								<view>
+									<label for="yezf" class="item-ye">余额支付 （余额：{{account}}元 {{yebzzf}}）</label>
+								</view>
+						</view>
+						<radio id="yezf" value="0"  checked="{{yechecked}}" />
+					</view>
+
+					<view class="c_flex_space radio-ye">
+						<view class="c_flex">
+								<view>
+									<image src="/image/pay/pay_red.png" style="width:24px;height:24px" mode="scaleToFill" />
+								</view>
+								<view>
+									<label for="hbzf" class="item-ye">红包支付 （余额：{{hbaccount}}元 {{hbbzzf}}）</label>
+								</view>
+						</view>
+						<radio id="hbzf" value="2" checked="{{hbchecked}}" />
+					</view>
+
+					<view class="c_flex_space radio-ye">
+						<view class="c_flex">
+								<view>
+									<image src="/image/pay/pay_wechat.png" style="width:24px;height:24px" mode="scaleToFill" />
+								</view>
+								<view>
+									<label for="wxpay" class="item-ye">微信支付</label>
+								</view>
+						</view>
+						<radio id="wxpay" value="1" checked="{{alichecked}}" />
+					</view>
+				</radio-group>
+			</view>
+			<view class="panel_btn" bindtap="qrzf">
+					确认支付
+			</view>
+		</view>
+</view>
+<block wx:if="{{showUserBtn}}">
+	<button class="bottom_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="ljzf">
+		立即支付
+	</button>
+</block>
+<block wx:else>
+	<block wx:if="{{sfmzf=='0'}}">
+		<block wx:if="{{stationinfo.chargeType =='01'}}">
+			<button class="bottom_btn" bindtap="ljzf">立即支付</button>
+		</block>
+		<block wx:if="{{stationinfo.chargeType =='03'}}">
+			<button class="bottom_btn" bindtap="aczf" data-v="{{stationinfo.unitPrice1}}">立即支付</button>
+		</block>
 	</block>
 	<block wx:else>
-		<button class="bottom_btn" data-zfje="{{zfje}}" bindtap="ljcz">立即支付</button>
+		<button class="bottom_btn" bindtap="mfcd">开始免费支付</button>
 	</block>
-</view>
+</block>
 
-  <view class="item-wx">
-
-		<view wx:if="{{sfmzf=='0'}}">	
-      <block wx:if="{{stationinfo.chargeType =='01' || stationinfo.chargeType =='02'}}">
-   		<view class="item_margin">
-	   		<view class="cz_czje">充电金额</view>
-	   		<view class="grid-item-wrapper">
-			      <view class="grid-text"><view class="{{check==1?'czcss-click':''}}" data-v="1" bindtap="innum">1元</view></view>
-			      <view class="grid-text"><view class="{{check==2?'czcss-click':''}}" data-v="2" bindtap="innum">2元</view></view>
-			      <view class="grid-text"><view class="{{check==3?'czcss-click':''}}" data-v="3" bindtap="innum">3元</view></view>
+<view class="fadeIn" wx:if="{{showDialog}}">
+	<view class="weui-mask"></view>
+	<view class="weui-dialog">
+			<view class="weui-dialog__hd"><strong class="weui-dialog__title">支付失败</strong></view>
+			<view class="weui-dialog__bd">账户金额不足，请充值使用！</view>
+			<view class="weui-dialog__ft">
+					<a class="weui-dialog__btn weui-dialog__btn_default" bindtap="ljzf">继续支付</a>
+					<a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="ljcz">去充值</a>
 			</view>
-	
-			<view class="grid-item-wrapper">
-				<view class="grid-text"><view class="{{check==4?'czcss-click':''}}"  data-v="4" bindtap="innum">4元</view></view>
-				<view class="grid-text"><view class="{{check==5?'czcss-click':''}}"  data-v="5" bindtap="innum">5元</view></view>
-				<view class="grid-text"><view class="{{check==6?'czcss-click':''}}"  data-v="6" bindtap="innum">6元</view></view>
-			</view>
-	   		<view class="cz_czje_zdy">
-				<input type="number" bindinput="bindKeyInput" class="cz_czje_num"  id="num" placeholder="请输入支付金额" value="{{zfje}}"/>
-	   		</view>
-	   		<view class="cz_czje_btn">
-				 	<block wx:if="{{showUserBtn}}">
-						<button class="cz_czje_btntext" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="ljzf">
-							确认支付
-						</button>
-					</block>
-					<block wx:else>
-						<button class="cz_czje_btntext" bindtap="ljzf">确定</button>
-					</block>
-	   		</view>
-	   	</view>
-   		<view class="item_title2">
-		   <view>收费标准：{{stationinfo.chargeTypeName}}收费
-		   </view>
-		   <view class="item_sf">（最低消费：{{stationinfo.minCharge}}元）
-		   </view>
-		  </view>
-   		<view class="item_margin">
-			<view wx:if="{{stationinfo.chargeType=='01'}}">
-				<view class="grid-item-wrapper">
-					<view class="item_div1_text">
-							<view class="item_div1_text_p">{{glbz1}}</view>
-							<view>{{stationinfo.unitPrice1}}小时/元</view>
-					</view>
-					<view class="item_div1_text">
-						<view class="item_div1_text_p">{{glbz2}}</view>
-						<view>{{stationinfo.unitPrice2}}小时/元</view>
-					</view>
-				</view>
-				<view class="grid-item-wrapper">
-					<view class="item_div1_text">
-							<view class="item_div1_text_p">{{glbz3}}</view>
-							<view>{{stationinfo.unitPrice3}}小时/元</view>
-					</view>
-					<view class="item_div1_text">
-						<view class="item_div1_text_p">{{glbz4}}</view>
-						<view>{{stationinfo.unitPrice4}}小时/元</view>
-					</view>
-				</view>
-			</view>
-			<view wx:if="{{stationinfo.chargeType=='02'}}">
-				<view class="item_div2_text">
-					{{stationinfo.unitPrice1}}kWh/元
-				</view>
-			</view>
-		</view>
-    </block>
-    <block wx:if="{{stationinfo.chargeType =='03'}}">
-        <view class="img-center">
-          <image src="/image/mfcd.png" style="width:270px;height:218px" mode="scaleToFill"/>
-        </view>
-        <view class="cz_czje_btn">
-          <button class="cz_czje_btntext" bindtap="aczf" data-v="{{stationinfo.unitPrice1}}">去支付</button>
-        </view>
-        <view class="item_title">
-          收费标准：按次收费，支付{{stationinfo.unitPrice1}}元即可享受充满为止的充电服务。
-        </view>
-    </block>
-		</view>
-		<view wx:if="{{sfmzf=='1'}}">
-			<view class="img-center">
-				<image src="/image/mfcd.png" style="width:270px;height:218px" mode="scaleToFill"/>
-			</view>
-			<view class="cz_czje_btn">
-				<button class="cz_czje_btntext" bindtap="mfcd">开始免费充电</button>
-			</view>
-			<view class="item_title">
-				收费标准：不收费
-			</view>
-		</view>
-   		<view class="item_tip">
-   			<view class="item_tip_img">
-				<image src="/image/tips.png" style="width:12px;height:12px" mode="scaleToFill"/>
-			</view>
-			<view wx:if="{{sfmzf=='1'}}">
-				<view class="item_tip_text">本充电站为您提供免费充电服务！</view>
-			</view>
-			<view wx:if="{{sfmzf=='0'}}">
-        <block wx:if="{{stationinfo.chargeType =='03'}}">
-            <view class="item_tip_text">本充电站为您提供公益性充电服务，不以盈利为目的，仅收取平台运营费，充电不退费。</view>
-        </block>
-        <block wx:if="{{stationinfo.chargeType =='01' || stationinfo.chargeType =='02'}}">
-            <view wx:if="{{stationinfo.isReturn=='N'}}">
-              <view class="item_tip_text">单次充电充满后未消费的金额不退费，请酌情设定充电金额。</view>
-            </view>
-            <view wx:if="{{stationinfo.isReturn!='N'}}">
-              <view class="item_tip_text">单次充电充满后未消费的金额将原路退回。</view>
-              <view class="item_tip_text2">计费间隔：{{stationinfo.closingPeriod}}分钟</view>
-              <view class="item_tip_text2">（以30分钟计费间隔为例：不到30分钟按照30分钟计费，超过30分钟不到60分钟，按60分钟计费，以此类推。）</view>
-            </view>
-        </block>			
-			</view>
-   		</view>
 	</view>
-
-	<view class="winzf"  wx:if="{{flag==1}}">
-		<view class="winzf-wrapper">
-			<view class="grid-item-wrapper tip-img">
-				<view class="f-col">
-					<view class="zfsm">支付前请先做好以下准备：</view>
-					<view class="zfsm">1：将电动自行车与充电器插好。</view>
-					<view class="zfsm">2：将充电器插入充电插座。</view>
-				</view>
-				<view class="tip-close" bindtap="back">
-					<image src="/image/close.png" style="width:20px;height:20px"mode="scaleToFill"/>
-				</view>
-			</view>
-			<view class="item-radio">
-				<radio-group bindchange="radioChange">
-					<view class="grid-item-wrapper radio-ye">
-						<view class="item-center">
-							<image src="/image/yezf.png" style="width:20px;height:20px" mode="scaleToFill"/>
-						</view>
-						
-						<label for="yezf" class="item-ye item-center">余额支付 （余额：{{account}}元 {{yebzzf}}）</label>
-						<radio id="yezf" value="0" class="item-center" checked="{{yechecked}}"/>
-					</view>
-
-          <view class="grid-item-wrapper radio-ye">
-						<view class="item-center">
-							<image src="/image/zf-hb.png" style="width:20px;height:20px" mode="scaleToFill"/>
-						</view>
-						
-						<label for="hbzf" class="item-ye item-center">红包支付 （余额：{{hbaccount}}元 {{hbbzzf}}）</label>
-						<radio id="hbzf" value="2" class="item-center" checked="{{hbchecked}}"/>
-					</view>
-
-					<view class="grid-item-wrapper radio-alipay">
-						<view class="item-center">
-							<image src="/image/wxzf.png" style="width:20px;height:20px" mode="scaleToFill"/>
-						</view>
-						<label for="wxpay"  class="item-ye item-center">微信支付</label>
-						<radio id="wxpay" value="1"class="item-center"  checked="{{alichecked}}"/>
-					</view>	
-				</radio-group>
-		    </view>
-				<view class="zf_btntext" bindtap="qrzf">
-					确认支付
-				</view>
-		</view>
-	</view>
-  <!--mask-->
-<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
-<!--content-->
-<!--使用animation属性指定需要执行的动画-->
-<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
-  <!--drawer content-->
-  <view class="drawer_title yz_flex_center">
-      <view class="title_1">
-      </view>
-      <view class="title_text">
-          会员套餐
-      </view>
-      <view  class="title_1">
-      </view>
-  </view>
-  <view class="modal_sel">
-      选择类型
-  </view>
-  <view class="modal_back drawer_content" wx:for="{{packageList}}" wx:key="{{cmpn_id}}" bindtap="gocmpn" data-id ="{{item.cmpn_id}}">
-      <view>
-          <image src="/image/wallet/VIP.png" style="width:19px;height:17px" mode="scaleToFill"/>
-      </view>
-      <view class="modal_text">
-          <block wx:if="{{item.package_type == '1'}}">包月套餐</block>
-          <block wx:if="{{item.package_type == '2'}}">包季套餐</block>
-          <block wx:if="{{item.package_type == '3'}}">包年套餐</block>
-      </view>
-      <view>
-         {{item.package_price}}元
-      </view>
-</view>
 </view>

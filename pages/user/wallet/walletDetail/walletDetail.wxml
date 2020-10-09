@@ -88,7 +88,7 @@
         value="{{zfje}}" />
     </view>
   </view>
-  <view class="c_flex tip">
+  <view class="c_flex tip">-12
       <view class="c_flex">
         <image src="/image/tips.png" style="width:8px;height:8px" mode="scaleToFill" />
       </view>

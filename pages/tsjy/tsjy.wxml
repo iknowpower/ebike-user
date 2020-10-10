@@ -1,4 +1,5 @@
 <view class="page">
+	
 	<view class="item-text">
 		<view wx:if="{{tcount == 0}}">
 			<view class="re-center">
@@ -14,15 +15,19 @@
 					<view class="item-text-detail">
 						<view class="item-text-detail-l1">申请时间</view>
 						<view class="item-text-detail-l3">{{item.commitTimeFormat}}</view>
-						<view wx:if="{{item.tsjg =='over'}}">
-							<view class="item-text-detail-l4">
-								<image src="/image/yjj.png" style="width:25px;height:21px;" />
-							</view>
-						</view>
 					</view>
 					<view class="item-text-detail2">
 						<view class="item-text-detail-l1">申请说明 </view>
 						<view class="item-text-detail-l2">{{item.csworkorderDesc}}</view>
+					</view>
+					<view class="item-text-detail-l4" wx:if="{{item.tsjg =='over'}}">
+						<!-- <view class="item-text-detail-l4">
+								<image src="/image/yjj.png" style="width:25px;height:21px;" />
+							</view> -->
+						<view>已解决</view>
+					</view>
+					<view class="item-text-detail-l5" wx:if="{{item.tsjg !='over'}}">
+						<view>未解决</view>
 					</view>
 				</view>
 			</view>
@@ -32,18 +37,20 @@
 		<!-- <view class="item-btn-tsjy" bindtap="tsjy">投诉建议</view> -->
 		<view class="item-btn-tsjy" bindtap="tapOneDialogButton">投诉建议</view>
 	</view>
-	<view  class="mp_dialog"><mp-dialog title="建议类型"  extClass="cancel_btn" mask="{{true}}" mask-closable="{{false}}" show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton"
-		buttons="{{oneButton}}"  >
-		<view class='mp_dialog_view'>
-			<view class='mp_dialog_view1' bindtap="devicefault">
-				<image src="/image/charging_pile.png" style="width:80rpx;height:80rpx;" />
-				<text class="text_style" style="display:block">设备故障</text>
+	<view class="mp_dialog">
+		<mp-dialog title="建议类型" extClass="cancel_btn" mask="{{true}}" mask-closable="{{false}}"
+			show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton" buttons="{{oneButton}}">
+			<view class='mp_dialog_view'>
+				<view class='mp_dialog_view1' bindtap="devicefault">
+					<image src="/image/charging_pile.png" style="width:80rpx;height:80rpx;" />
+					<text class="text_style" style="display:block">设备故障</text>
+				</view>
+				<view class='mp_dialog_view1' bindtap="otherproblems">
+					<image src="/image/other_problems.png" style="width:80rpx;height:80rpx;" />
+					<text class="text_style" style="display:block">其他问题</text>
+				</view>
 			</view>
-			<view class='mp_dialog_view1' bindtap="otherproblems">
-				<image src="/image/other_problems.png" style="width:80rpx;height:80rpx;" />
-				<text class="text_style" style="display:block">其他问题</text>
-			</view>
-		</view>
-	</mp-dialog></view>
-	
+		</mp-dialog>
+	</view>
+
 </view>

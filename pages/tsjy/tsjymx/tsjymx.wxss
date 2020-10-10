@@ -1,7 +1,8 @@
-
-
 .item-text {
-	margin: 20rpx 14rpx;
+	padding: 20rpx 14rpx;
+	height: 92vh;
+	width: auto;
+	overflow: auto;
 }
 
 .item-text-sqxx {
@@ -11,14 +12,7 @@
 	border-radius: 5px;
 }
 
-.item-text-sqxx1 {
-	display: flex;
-	flex-direction: row;
-	padding: 24rpx 22rpx;
-	margin: 20rpx 14rpx;
-	background: rgba(255, 255, 255, 1);
-	border-radius: 5px;
-}
+
 
 .item-text-title {
 	height: 40px;
@@ -27,7 +21,6 @@
 }
 
 .item-text-title1 {
-	margin-top: 230rpx;
 	height: 37rpx;
 	font-size: 26rpx;
 	font-weight: 400;
@@ -49,12 +42,6 @@
 	line-height: 40rpx;
 }
 
-.item-text-detail-horizontal {
-	height: 40rpx;
-	line-height: 40rpx;
-	display: flex;
-	flex-direction: row;
-}
 
 .item-text-detail2 {
 	display: flex;
@@ -64,7 +51,6 @@
 }
 
 .item-text-detail-l1 {
-	float: left;
 	width: 18%;
 	font-size: 26rpx;
 	font-weight: 400;
@@ -198,23 +184,18 @@
 	width: 12%;
 }
 
-.item-text-ycl {
-	margin-top: 230rpx;
-	height: 37rpx;
-	font-size: 26rpx;
-	font-weight: 400;
-	color: #24C672;
-	line-height: 37rpx;
-	float: right;
-	position: fixed;
-	right: 50rpx;
-
-}
-
 .item-text-clsj {
 	height: 37rpx;
-	margin-top: 230rpx;
-	margin-left: 20rpx;
+	margin-top: 20rpx;
+	font-size: 26rpx;
+	font-weight: 400;
+	color: #777777;
+	line-height: 37rpx;
+}
+
+.item-text-clsm{
+	height: auto;
+	margin-top: 6rpx;
 	font-size: 26rpx;
 	font-weight: 400;
 	color: #777777;
@@ -253,7 +234,7 @@
 	margin-top: 20rpx;
 	font-size: 26rpx;
 	font-weight: 400;
-	color: #333333;
+	color: #777777;
 }
 
 .page-section-demo2 {
@@ -262,7 +243,6 @@
 	border-radius: 4rpx;
 	border: 1rpx solid #D8D8D8;
 	padding: 20rpx 30rpx;
-	margin-top: 250rpx;
 	font-size: 26rpx;
 	font-weight: 400;
 	color: #333333;
@@ -344,6 +324,7 @@
 	color: #434242;
 	line-height: 37rpx;
 }
+
 .text_clr1 {
 	float: right;
 	position: fixed;
@@ -351,6 +332,20 @@
 	height: 37rpx;
 	font-size: 26rpx;
 	font-weight: 400;
-	color: #434242;
+	color: #24C672;
 	line-height: 37rpx;
 }
+
+.box {
+	width: auto;
+	height: auto;
+	background: #FFFFFF;
+	border-radius: 4rpx;
+}
+
+
+.item_divider{
+	height: 1rpx;
+	background: #EBEBEB;
+}
+

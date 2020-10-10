@@ -31,6 +31,7 @@ Page({
           tsjg:option.tsjg
         },
         success: (re) => {
+          console.log(re);
           // 授权成功并且服务器端登录成功
           wx.hideLoading();
           this.setData({

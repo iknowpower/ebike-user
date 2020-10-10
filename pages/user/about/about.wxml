@@ -2,7 +2,7 @@
   <view class="lx-img c_flex_center"><image src="/image/ebike.png" style="width:346rpx;height:86rpx"/></view>
   <view class="c_flex_center phone">
       <view>
-        售后专线
+        服务专线
       </view>
       <view class="item-2" bindtap="makePhoneCall">
         0571-81110722

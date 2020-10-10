@@ -1,0 +1,21 @@
+<view class="page">
+  <view class="top">
+    <view class="shape_bk">
+      以下有您遇到的问题吗？点击问题查看
+    </view>
+
+    <view class="shape_bk">
+      <view class="item_question">
+        常见问题
+      </view>
+      <view wx:for="{{aList}}" wx:key="index">
+        <view class="item_text" data-question="{{index+1}}.{{item.question}}" data-answer="{{item.answer}}" bindtap="itemBindTap"  ><text>{{index+1}}.{{item.question}}</text></view>
+        <view class="item_line" hidden="{{index==aList.length-1?true:false}}"></view>
+      </view>
+    </view>
+
+    <view class="box"></view>
+
+  </view>
+  <view class="bottom" bindtap="lxkf">联系客服</view>
+</view>

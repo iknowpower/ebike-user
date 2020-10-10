@@ -1,0 +1,80 @@
+.shape_bk {
+  margin: 20rpx 30rpx 0 30rpx;
+  height: auto;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 45rpx;
+  padding: 30rpx;
+}
+
+.shape_bk1 {
+  margin: 20rpx 30rpx 0 30rpx;
+  height: auto;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 45rpx;
+  padding: 40rpx 45rpx 30rpx 45rpx ;
+}
+
+.item_question {
+  padding-bottom: 4rpx;
+}
+
+.item_text {
+  height: auto;
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 40rpx;
+}
+
+.box {
+  height: 50rpx;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+  height: 93vh;
+  width: 100%;
+  overflow: auto;
+}
+
+
+.helpfulness {
+  font-size: 26rpx;
+  text-align: center;
+  width: 128rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  background: #DFFCED;
+  color: #24C672;
+  border-radius: 24rpx 0px 0px 24rpx;
+
+}
+
+.dHelp {
+  margin-left: 8rpx;
+  font-size: 26rpx;
+  text-align: center;
+  width: 128rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  background: #FFF8E1;
+  color: #FFCC2C;
+  border-radius: 0 24rpx 24rpx 0;
+
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row-reverse; 
+  margin-top: 40rpx;
+}

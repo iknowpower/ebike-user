@@ -1,18 +1,21 @@
 <view class="page">
 	<view class="item-text">
-    <view class="layout_flex">
-      <view class="item-text-sm">设备编号</view>
-      <view class="item_text_dn" >{{devno}}</view>
-    </view>
-    <view class="layout_flex">
-      <view class="item-text-sm">投诉类型</view>
-      <view  class="item_text_dn" >故障报修
-				<image class="svg_style" src="/image/down.svg" style="width:24rpx; height:24rpx"></image>
-				<single-dropdown-select prop-array='{{selectArray}}'  bind:select='select' />
+		<view class="layout_flex">
+			<view class="item-text-sm">设备编号</view>
+			<view class="input_number">
+				<input maxlength="18" placeholder="请输入设备编号" placeholder-class="input_number_placeholder" fixed="true" />
 			</view>
-			
-     
-    </view>
+			<!-- <view class="item_text_dn" >{{devno}}</view> -->
+		</view>
+		<view class="layout_flex">
+			<view class="item-text-sm">投诉类型</view>
+			<view class="item_text_dn">故障报修
+				<image class="svg_style" src="/image/down.png" style="width:24rpx; height:24rpx"></image>
+				<single-dropdown-select prop-array='{{selectArray}}' bind:select='select' />
+			</view>
+		
+
+		</view>
 		<view class="item-text-sm">{{textsm}}</view>
 		<view class="page-section">
 			<view class="page-section-demo">

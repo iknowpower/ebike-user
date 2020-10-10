@@ -1,0 +1,53 @@
+.shape_bk {
+  margin: 20rpx 30rpx 0 30rpx;
+  height: auto;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 45rpx;
+  padding: 30rpx;
+}
+
+.item_question {
+  padding-bottom: 4rpx;
+}
+
+.item_text {
+  margin-top: 30rpx;
+  height: auto;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #434242;
+  line-height: 40rpx;
+}
+
+.item_line {
+  height: 1rpx;
+  margin-top: 30rpx;
+  width: 100%;
+  background: #EBEBEB;
+}
+.box{
+  height: 50rpx;
+}
+.top {
+  position: absolute;
+  top: 0;
+  height: 93vh;
+  width: 100%;
+  overflow: auto;
+}
+
+.bottom {
+  text-align: center;
+  background: white;
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+}

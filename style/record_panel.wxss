@@ -23,14 +23,12 @@
 }
 
 .cell {
-  height: 120rpx;
   padding: 20rpx 0;
   box-sizing: border-box;
   border-bottom: 1px solid #EBEBEB;
 }
 
 .cell:last-child {
-  height: 120rpx;
   padding: 20rpx 0 0 0;
   box-sizing: border-box;
   border: none;
@@ -71,4 +69,21 @@
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #777777;
+}
+
+.colspan_panel{
+  background: #E7FFF2;
+  border-radius: 4rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  margin:20rpx;
+  padding:20rpx;
+  box-sizing: border-box;
+  line-height:30rpx;
+}
+
+.margin_space{
+  margin:0 30rpx;
 }

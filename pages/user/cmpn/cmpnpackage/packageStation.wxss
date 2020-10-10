@@ -1,27 +1,33 @@
 page{
-  font-size:24rpx;
-  font-family:MicrosoftYaHei;
-  font-weight:400;
-  color:rgba(61,61,61,1);
-  background-color: #fefefe
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #434242;
 }
 
 .list{
-  margin:30rpx 50rpx;
+  margin:30rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding:30rpx;
+  box-sizing: border-box;
 }
 
 .list_title{
-  font-size:32rpx;
-  color:rgba(40,40,40,1);
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
 }
 
 .list_text{
-  margin-top:16rpx;
-  margin-bottom:14rpx;
+  padding:16rpx 0 14rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #EBEBEB;
 }
 
 .list_addr{
-  margin-left:18rpx;
+  margin-left:5rpx;
   font-size:22rpx;
-  color:rgba(107,105,105,1);
+  color: #999999;
 }

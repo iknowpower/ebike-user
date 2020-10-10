@@ -40,7 +40,8 @@
     "pages/user/cmpn/cmpnpackage/packageStation",
     "pages/user/wallet/walletDetail/walletDetail",
     "pages/tsjy/sbgz/sbgz",
-    "pages/user/coupon/coupon"
+    "pages/user/coupon/coupon",
+    "pages/user/about/about_center"
   ],
   "window": {
     "backgroundTextStyle": "light",

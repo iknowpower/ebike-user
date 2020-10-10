@@ -136,12 +136,13 @@ Page({
             sessionid: sessionid,
           },
           success: (re) => {
-            console.log(re);
             // 授权成功并且服务器端登录成功
             var wdqjl  = re.data.wdqjl;
+            var dqcdList =re.data.dqcdList;
             if(wdqjl == '2'){
               that.setData({
-                cdxx_tipshow:'1'
+                cdxx_tipshow:'1',
+                cdxx_count:dqcdList.length
               });  
             }      
           },
@@ -713,5 +714,11 @@ Page({
     this.setData({
       tipshow2:'2'
     })
+  },
+
+  goCdxxDetail(){
+   wx.navigateTo({
+     url: '../user/user-cdjl/user-cdjl',
+   })
   },
 });

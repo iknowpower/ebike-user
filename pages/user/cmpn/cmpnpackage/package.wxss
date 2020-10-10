@@ -1,58 +1,55 @@
-.pkg_padd{
-  height:280rpx;
-  padding:20rpx 30rpx 20rpx 40rpx;
-  font-size:44rpx;
-  font-family:MicrosoftYaHei;
-  font-weight:400;
-  color:rgba(255,255,255,1);
+@import '/style/account.wxss';
+.page{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #434242;
+  height:92vh;
+  overflow: auto;
 }
 
-page{
-  font-size:24rpx;
-  font-family:MicrosoftYaHei;
-  font-weight:400;
-  color:rgba(61,61,61,1);
-  background-color: #fefefe;
+.cmpn{
+  padding:40rpx 32rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  margin:20rpx 3vw;
+  width:94vw;
+  height:220rpx;
 }
 
 .pkg_text{
-  font-size:34rpx;
-  font-family:CTCuHeiSJ;
-  margin-right:20rpx;
+  margin-left:30rpx;
+  font-size: 24rpx;
 }
 
-.pkg_text2{
-  margin-top:10rpx;
-  font-size:24rpx;
-  font-family:CTCuHeiSJ;
-  width:55%;
+.mtop{
+  margin-top:35rpx;
+}
+
+.pkg_price{
+  font-size: 48rpx;
 }
 
 .pkg_hours{
-    width:120rpx;
-    color:#FFFFFF;
-    font-size:20rpx;
-    border-radius: 20rpx;
-    border:1px solid #FFFFFF;
-    text-align: center;
+  margin-left:8rpx;
+  font-size: 28rpx;
 }
 
-.m10{
-  margin-top:60rpx;
-  margin-bottom:30rpx;
-  margin-left:100rpx;
-}
-
-
-.pkg_price{
-  text-align:center;
-  width:140rpx;
-  margin-left:14rpx;
-  margin-right:20rpx;
+.pkg_text2{
+  font-size: 24rpx;
+  color: #FFDF05;
+  margin-top:100rpx;
 }
 
 .list{
-  margin:30rpx 50rpx 138rpx 50rpx;
+  margin:0 3vw 30rpx 3vw;
+  padding:30rpx;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 20rpx;
 }
 
 .list_title{
@@ -61,37 +58,13 @@ page{
 }
 
 .list_text{
-  margin-top:16rpx;
-  margin-bottom:14rpx;
+  padding:16rpx 0 14rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #EBEBEB;
 }
 
 .list_addr{
-  margin-left:18rpx;
+  margin-left:5rpx;
   font-size:22rpx;
-  color:rgba(107,105,105,1);
-}
-
-.yz_btn{
-  position: fixed;
-  bottom:24rpx;
-  height:90rpx;
-  width:96%;
-  font-size:34rpx;
-  color: #fff;
-  border-radius: 10rpx;
-  background-color: #108ee9;
-  border-color: #108ee9;
-  text-align: center;
-  margin:24rpx 2% 0 2%;
-  line-height:90rpx;
-}
-
-.recharge{
-  width:120rpx;
-  color:#FFDF05;
-  font-size:26rpx;
-  border-radius: 20rpx;
-  border:1px solid #FFDF05;
-  text-align: center;
-  margin-top:10rpx;
+  color: #999999;
 }

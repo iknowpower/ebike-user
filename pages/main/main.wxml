@@ -10,7 +10,7 @@
     <!-- 充电信息提示 -->
     <cover-view class="cdxx_back cdxx_panel c_flex_space"  wx:if="{{cdxx_tipshow==='1'}}" bindtap="goCdxxDetail">
         <cover-view  class="cdxx_txt">
-            当前有三条充电信息正在充电
+            当前有{{cdxx_count}}个插座正在充电
         </cover-view>
         <cover-view>
             <cover-image src="/image/mainpage/in.png" style="width:24rpx;height:24rpx" mode="scaleToFill">

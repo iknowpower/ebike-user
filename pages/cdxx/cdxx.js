@@ -20,15 +20,17 @@ Page({
   },
   onLoad(option) {
     const id = option.id;
-    console.log('充电插座编号' + id);
+    
     var url = '';
     if(option.type =='user-cdxx'){
+      console.log('充电订单id' + id);
       url = app.httpUrl + '/ebike-charge/wxxcxUserCenter/goDqcdxx.x';
       this.setData({
         recordid:id,
         optype:option.type
       })
     }else{
+      console.log('充电插座编号' + id);
       url = app.httpUrl + '/ebike-charge/wxXcx/getDqcdxxDetail.x';
       this.setData({
         cdczno:id,

@@ -1,85 +1,62 @@
-.stream {
-  display: flex;
-  flex-direction: column;
-  padding: 10rpx;
-}
-.post + .post {
-  margin-top: 10rpx;
-}
-.post {
-  display: flex;
+@import '/style/record_panel.wxss';
+@import "/style/back.wxss";
+.page{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
 }
 
-.postUser {
-  flex: 0 1 auto;
-  padding-bottom: 20rpx;
+.cd_top{
+  margin:20rpx 15vw;
 }
-.postUser__name {
-  width: 180rpx;
-  color: #57727C;
-  font-size: 24rpx;
-  font-weight: 700;
-  line-height: 1;
+
+.cd_tab{
+  width: 240rpx;
+  height: 80rpx;
+  line-height:80rpx;
   text-align: center;
-  margin-top: 60rpx;
-}
-.postBody {
-  flex: 1 1 0%;
-  position: relative;
-  padding: 30rpx;
-  border: 2rpx solid #CAD0D2;
-  border-radius: 8rpx;
-}
-.postBody:after,
-.postBody:before {
-  right: 100%;
-  top: 70rpx;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.postBody:after {
-  border-color: transparent;
-  border-right-color: #ffffff;
-  border-width: 16rpx;
-  margin-top: -16rpx;
-}
-.postBody:before {
-  border-color: transparent;
-  border-right-color: #CAD0D2;
-  border-width: 18rpx;
-  margin-top: -18rpx;
-}
-.postBody__content {
-  color: #57727C;
-  font-size: 24rpx;
-}
-.postBody__date {
-  margin-top: 10rpx;
-  color: #86969C;
-  font-size: 20rpx;
-  text-transform: uppercase;
-  letter-spacing: 2rpx;
 }
 
-.re-center {
-  margin-top:10px;
-  overflow: hidden;
+.tab_left{
+  border-radius: 50rpx 0 0 50rpx;
 }
 
-.nor-img {
-   text-align:center; 
-   padding-top:30%;
+.tab_right{
+  border-radius: 0 50rpx 50rpx 0;
 }
 
-.nor-text {
-   position:relative;
-   top:5%;
-   margin-top:20px;
-   text-align:center;
-   font-size:20px;
-   color:#CCCCCC 100%;
+.cd_run{
+  color: #FFFFFF;
+  background: #24C672;
+}
+.cd_his{
+  background: #FFFFFF;
+  color: #666666;
+}
+
+.cdxx_panel{
+  padding:0 32rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height:105rpx;
+  margin:10rpx 3vw;
+}
+
+.cdxx_txt{
+  font-size: 32rpx;
+  color: #FFFFFF;
+}
+
+.m20{
+  margin-top:20rpx;
+}
+
+.dev_c{
+  margin-left:12rpx;
+  margin-right:24rpx;
+  font-size: 26rpx;
 }

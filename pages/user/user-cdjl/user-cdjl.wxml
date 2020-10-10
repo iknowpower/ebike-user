@@ -1,28 +1,124 @@
-<view class="stream">
-      <view wx:if = "{{wdqjl=='2'}}">
-        <block wx:for="{{dqcdList}}" wx:key="recordId">
-         <view class="post">
-            <view class="postUser">
-              <view class="postUser__name">{{item.chargeTime}}</view>
+<view class="page">
+  <view class="cd_top c_flex" wx:if="{{wdqjl == '2'}}">
+    <view class="cd_tab tab_left {{show=='run'?'cd_run':'cd_his'}}" data-status="1" bindtap="getDetail">
+      正在充电
+    </view>
+    <view class="cd_tab tab_right {{show=='his'?'cd_run':'cd_his'}}" data-status="2" bindtap="getDetail">
+      充电记录
+    </view>
+  </view>
+  <view wx:if="{{show == 'run'}}">
+    <block wx:for="{{dqcdList}}" wx:key="recordId">
+      <view class="cdxx_back cdxx_panel c_flex_space" bindtap="goCdxxDetail" data-id="{{item.recordId}}">
+        <view class="cdxx_txt c_flex">
+          <view class="c_flex">
+            <image src="/image/plug.png" style="width:34rpx;height:34rpx" mode="scaleToFill">
+            </image>
+          </view>
+          <view class="dev_c">
+            {{item.chargedeviceNo}}
+          </view>
+          <view>
+            插座序号{{item.plugSn}} 
+          </view>
+          <view>
+            正在充电
+          </view>
+        </view>
+        <view>
+          <image src="/image/mainpage/in.png" style="width:24rpx;height:24rpx" mode="scaleToFill">
+          </image>
+        </view>
+      </view>
+    </block>
+  </view>
+    <view class="list_panel m20" wx:if="{{show == 'his'}}">
+    <view class="c_flex_space panel_top">
+      <view class="panel_title">
+        历史充电记录
+      </view>
+      <view class="c_flex">
+        <view class="list-text">
+          <picker mode="date" value="{{month}}" fields="month" start="{{startDate}}" end="{{endDate}}"
+            bindchange="getM">{{month}}</picker>
+        </view>
+        <view class="c_flex">
+          <image src="/image/record/cal.png" style="width:17px;height:17px" />
+        </view>
+      </view>
+    </view>
+    <block wx:if="{{hiscdjl =='2'}}">
+      <view wx:for="{{hiscdList}}" wx:key="orderId" class= "cell">
+        <view class="c_flex_space">
+          <view class="c_flex">
+            <view class="c_flex cellimg">
+              <image src="/image/record/time.png" style="width:17px;height:17px" />
             </view>
-            <view class="postBody" data-id = "{{item.recordId}}" bindtap="gocdxx">
-              <view class="postBody__content">
-                {{item.cdzname}}
+            <view>
+              <view>{{item.chargeTime}}</view>
+              <view class="celltext">{{item.cdzname}}</view>
+            </view>
+          </view>
+          <block wx:if="{{item.income != '0' && item.income != '0.00'}}">
+            <block wx:if="{{item.orderId == null || item.orderId == ''}}">
+              <view class="celltext-st" catchtap="gotk" data-userid="{{item.chargeUserId}}" data-type="10" data-id="{{item.recordId}}">申请退款</view>
+            </block>
+            <block wx:if="{{item.orderId != null && item.orderId != ''}}">
+              <block wx:if="{{item.orderStatus == 'W' && item.sftf == 'Y'}}">
+                <view class="celltext-st" catchtap="gotk" data-type="20" data-id="{{item.orderId}}">处理中</view>
+              </block>
+              <block wx:if="{{item.orderStatus == 'S' && item.sftf == 'Y'}}">
+                <view class="celltext-st" catchtap="gotk" data-type="30" data-id="{{item.orderId}}">退款成功</view>
+              </block>
+              <block wx:if="{{item.orderStatus == 'F' && item.sftf == 'Y'}}">
+                <view class="celltext-st" catchtap="gotk" data-type="40" data-id="{{item.orderId}}">退款失败</view>
+              </block>
+            </block>
+          </block>
+        </view>
+        <view class="colspan_panel"> 
+          <view class="c_flex">
+              <view style="flex:1">
+                  充电开始时间：<text style="color:#24C672">{{item.chargeOpenTime}}</text>
               </view>
-              <view class="postBody__content">
-                设备编号：{{item.chargedeviceNo}}
+              <view style="flex:1;margin-left:30rpx">
+                  充电类型：<text style="color:#24C672">{{item.chargeTypeName}}</text>
               </view>
-              <view class="postBody__date">
-                插座序号：{{item.plugSn}}
+          </view>
+          <view class="c_flex">
+              <view style="flex:1">
+                  充电结束时间：<text style="color:#24C672">{{item.chargeFinishTime}}</text>
               </view>
+              <view style="flex:1;margin-left:30rpx">
+                  插座序号：<text style="color:#24C672">{{item.plugSn}}</text>
+              </view>
+          </view>
+          <view class="c_flex">
+              <view style="flex:1">
+                  用户充电金额：<text style="color:#24C672">{{item.chargeMoney}}</text>
+              </view>
+              <view style="flex:1;margin-left:30rpx">
+                  退费金额：<text style="color:#24C672">{{item.returnMoney}}</text>
+              </view>
+          </view>
+        </view>
+        <view class="c_flex_space margin_space">
+            <view style="font-size:22rpx">
+                实付款
+            </view>
+            <view class="celltext-add">
+              {{item.income}}元
             </view>
         </view>
-      </block>
-    </view>
-    <view wx:if="{{wdqjl == '1'}}">
-        <view class="re-center">
-            <view class="nor-img"><image src="/image/no-cdlist.png" style="width:180px;height:180px"/></view>
-            <view class="nor-text">暂无充电记录</view>
+      </view>
+    </block>
+    <view wx:if="{{hiscdjl == '1'}}">
+      <view class="re-center">
+        <view class="nor-img">
+          <image src="/image/empty/no_record.png" style="width:170px;height:120px" />
         </view>
+        <view class="nor-text">暂无记录～</view>
+      </view>
     </view>
-    </view>
+  </view>
+</view>

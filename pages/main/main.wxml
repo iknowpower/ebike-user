@@ -25,11 +25,8 @@
                     <cover-image src="/image/mainpage/st_location.png" style="width:25px;height:25px;"mode="scaleToFill"/>
                 </cover-view>
                 <cover-view class="tip-txt">
-                    <cover-view>{{tipname}}</cover-view>
-                    <cover-view class="page-tip c_flex">
-                        <cover-view>
-                            插座：
-                        </cover-view>
+                    <cover-view style="margin-bottom:20rpx">{{tipname}}</cover-view>
+                    <cover-view class="c_flex">
                         <cover-view class="tip-czimg tip-color-kx">
                             闲
                         </cover-view>
@@ -87,7 +84,7 @@
         <cover-image src="/image/mainpage/main_help.png" style="width:23px;height:23px;"mode="scaleToFill"/>
     </cover-view>
 
-    <cover-view class="main_bottom c_flex_space">
+    <view class="main_bottom main_bottom_back c_flex_space">
         <cover-view style="width:80rpx;text-align:center"  bindtap="goList">
             <cover-view class="c_flex_row">
                 <cover-image src="/image/mainpage/station.png" style="height:25px;width:25px;"mode="scaleToFill"/>
@@ -104,7 +101,7 @@
                 个人中心
             </cover-view>
         </cover-view>
-    </cover-view>
+    </view>
 
     <cover-view class="main_scan c_flex_center">
         <cover-view class="main_scan_icon" data-id="5" bindtap="goMainBtn">

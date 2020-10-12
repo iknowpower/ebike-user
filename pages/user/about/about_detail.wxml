@@ -4,5 +4,13 @@
     </view>
     <view class="content">
         <text>{{content}}</text>
+        <view class="c_flex,buttons">
+            <view class="dHelp" bindtap="unlike">没帮助 <image hidden="{{show_unlike}}" src="/image/unlike.png"
+                    style="height:30rpx;width:30rpx;margin-left:5rpx"></image>
+            </view>
+            <view class="helpfulness" bindtap="like">有帮助 <image hidden="{{show_like}}" src="/image/like.png"
+                    style="height:30rpx;width:30rpx;margin-left:5rpx"></image>
+            </view>
+        </view>
     </view>
 </view>

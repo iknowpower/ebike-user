@@ -27,14 +27,14 @@
 						<view class="text_clr1">处理</view>
 					</view>
 					<view class="item-text-clsm"><text>处理说明：{{item.handleDesc}}"</text></view>
-				  <view class="item_divider" hidden="{{index===dinfo.length-1?true:false}}"></view>
+					<view class="item_divider" hidden="{{index===dinfo.length-1?true:false}}"></view>
 				</block>
 			</block>
 		</view>
 
 
 
-		<view class="text_problem_solved">问题已解决</view>
+
 
 		<!-- <view class="item-text-sqxx">
 			<block wx:if="{{dcount != 0}}">
@@ -76,7 +76,9 @@
 			</view>
 		</block>
 	</view>
-
+	<block wx:if="{{tsjg === 'over' }}">
+		<view class="bottom_btn,text_problem_solved">问题已解决</view>
+	</block>
 	<block wx:if="{{tsjg != 'over' && info.csworkorderNode == '10'}}">
 		<view class="item-btn">
 			<view class="item-btn-qx" data-lx="no" bindtap="rePage">问题未解决</view>

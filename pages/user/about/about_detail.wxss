@@ -2,6 +2,7 @@
 
 .content{
   width:94vw;
+  height: auto;
   font-size: 26rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
@@ -10,4 +11,43 @@
   box-sizing:  border-box;
   background: #FFFFFF;
   border-radius: 20rpx;
+}
+
+.helpfulness {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  font-size: 26rpx;
+  text-align: center;
+  width: auto;
+  height: auto;
+  line-height: auto;
+  background: #DFFCED;
+  color: #24C672;
+  border-radius: 24rpx 0px 0px 24rpx;
+  padding: 6rpx 23rpx 5rpx 27rpx;
+
+}
+
+.dHelp {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  padding: 6rpx 27rpx 5rpx 23rpx;
+  margin-left: 8rpx;
+  font-size: 26rpx;
+  text-align: center;
+  width: auto;
+  height: auto;
+  line-height: auto;
+  background: #FFF8E1;
+  color: #FFCC2C;
+  border-radius: 0 24rpx 24rpx 0;
+
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row-reverse; 
+  margin-top: 40rpx;
 }

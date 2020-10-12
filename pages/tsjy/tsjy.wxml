@@ -33,7 +33,7 @@
 			</view>
 		</view>
 	</view>
-	<view class="item-btn">
+	<view class="bottom_btn">
 		<!-- <view class="item-btn-tsjy" bindtap="tsjy">投诉建议</view> -->
 		<view class="item-btn-tsjy" bindtap="tapOneDialogButton">投诉建议</view>
 	</view>

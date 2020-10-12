@@ -5,24 +5,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    show_like: true,
+    show_unlike:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({
-        name:options.name,
-        content:options.content
-      })
+    this.setData({
+      name: options.name,
+      content: options.content
+    })
+  },
+
+
+  like: function () {
+    this.animation.translateY(-50).step()
+    this.setData({
+      animation: this.animation.export(),
+      show_like: false,
+      show_unlike:true
+    })
+  },
+  unlike: function () {
+    this.animation.translateY(-50).step()
+    this.setData({
+      animation: this.animation.export(),
+      show_like: true,
+      show_unlike:false
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.animation = wx.createAnimation()
   },
 
   /**

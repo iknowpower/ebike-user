@@ -46,7 +46,7 @@
 	</view>
 	</view>
    
-	<view class="item-btn">
+	<view class="bottom_btn">
 		<view class="item-btn-qd" bindtap="saveFile">提交</view>
 	</view>
 </view>

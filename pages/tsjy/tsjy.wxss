@@ -90,12 +90,12 @@
 	float: left;
 	width: 100%;
 	text-align: center;
-	height: 45rpx;
+	height: 98rpx;
 	font-size: 32rpx;
 	font-family: PingFangSC-Medium, PingFang SC;
 	font-weight: 500;
 	color: #333333;
-	line-height: 50px;
+	line-height: 98rpx;
 }
 
 .re-center {

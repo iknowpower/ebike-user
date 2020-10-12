@@ -116,13 +116,13 @@
 }
 
 .item-btn-qd {
-  height: 60px;
+  height: 98rpx;
   width: 100%;
   text-align: center;
-  line-height: 60px;
+  line-height: 98rpx;
   font-size: 32rpx;
   font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 550;
+  font-weight: 500;
   color: #333333;
 }
 
@@ -205,5 +205,20 @@
   font-weight: 550;
   color: #333333;
   line-height: 45rpx;
+}
+
+.bottom_btn{
+  position: fixed;
+  bottom: 0;
+  width:100vw;
+  height: 98rpx;
+  background: #FFFFFF;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 98rpx;
+  text-align: center;
+
 }
 

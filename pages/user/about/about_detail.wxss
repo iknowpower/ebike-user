@@ -1,0 +1,13 @@
+@import 'about_center.wxss';
+
+.content{
+  width:94vw;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  padding: 40rpx 45rpx;
+  box-sizing:  border-box;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+}

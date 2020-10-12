@@ -1,5 +1,14 @@
 <view class="page">
-    <view class="about_panel">
+    <view class="about_top">
+      以下有您遇到的问题吗？点击问题查看
+    </view>
+    <view class="about_c">
+        <view>
+          常见问题
+        </view>
+        <view wx:for="{{aboutList}}" wx:key="id" class="about_l" data-name="{{item.name}}" data-content="{{item.content1}}" bindtap="goDetail">
+            <text>{{item.value}}.{{item.name}}</text>
+        </view>
     </view>
 </view>
-<button class="bottom_btn" bindtap="goAbout">联系客服</button>
+<button class="bottom_btn cust_btn" bindtap="goAbout">联系客服</button>

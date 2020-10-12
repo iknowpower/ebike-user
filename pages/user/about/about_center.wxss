@@ -1,1 +1,47 @@
 /* pages/user/about/about_center.wxss */
+.page{
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  height:92vh;
+  margin:20rpx 3vw;
+}
+
+.about_top{
+  width: 94vw;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  margin-bottom:20rpx;
+}
+
+.about_c{
+  width: 94vw;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.about_l{
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #434242;
+  height:100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.about_l:last-child{
+  border:none;
+}
+
+.cust_btn{
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}

@@ -1,4 +1,4 @@
-// pages/user/about/about_center.js
+var app = getApp();
 Page({
 
   /**
@@ -18,8 +18,9 @@ Page({
         code_type: 'EBIKE_CUSTOMER_SERVICE'
       },
       success: (re) => {
+        console.log(re.data.info);
         if (re.data.info){
-            that.setData({
+            this.setData({
               aboutList: re.data.info
             });
         }
@@ -35,6 +36,13 @@ Page({
   goAbout(){
     wx.navigateTo({
       url: 'about',
+    })
+  },
+
+  goDetail(e){
+    console.log(e.currentTarget.dataset.content);
+    wx.navigateTo({
+      url: 'about_detail?content=' + e.currentTarget.dataset.content + "&name=" + e.currentTarget.dataset.name,
     })
   }
 })

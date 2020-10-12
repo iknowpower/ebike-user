@@ -58,7 +58,8 @@ Page({
     }else if(i == 5) {
       wx.navigateTo({ url: 'redpkt/redpkt'});//红包
     }else if(i == 6){
-      wx.navigateTo({ url: 'about/about'});//客服中心
+      // wx.navigateTo({ url: 'kfzx/kfzx'});//客服中心
+      wx.navigateTo({ url: 'about/about_center'});//客服中心
     }else{
       wx.showModal({
         content: '此功能暂未开放！',

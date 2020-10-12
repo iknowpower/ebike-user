@@ -1,15 +1,17 @@
+
 <view class="page">
   <view class="lx-img c_flex_center"><image src="/image/ebike.png" style="width:346rpx;height:86rpx"/></view>
   <view class="c_flex_center phone">
-      <view>
-        服务专线
-      </view>
-      <view class="item-2" bindtap="makePhoneCall">
-        0571-81110722
-      </view>
+    <view>
+      服务专线
+    </view>
+    <view  class="item-2" bindtap="makePhoneCall">
+      0571-81110722
+    </view>
   </view>
   <view class="lx-img c_flex_center"><image src="/image/ewm.png" style="width:290rpx;height:290rpx"/></view>
   <view class="phone">
       添加客服微信二维码
   </view>
+
 </view>

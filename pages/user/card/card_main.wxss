@@ -112,7 +112,7 @@
 
 .ye_text {
   font-size: 26rpx;
-  line-height: 37rpx;
+  line-height: 35rpx;
   margin-right: 10rpx;
 }
 

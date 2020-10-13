@@ -77,7 +77,7 @@
 		</block>
 	</view>
 	<block wx:if="{{tsjg === 'over' }}">
-		<view class="bottom_btn,text_problem_solved">问题已解决</view>
+		<button class="bottom_btn">问题已解决</button>
 	</block>
 	<block wx:if="{{tsjg != 'over' && info.csworkorderNode == '10'}}">
 		<view class="item-btn">

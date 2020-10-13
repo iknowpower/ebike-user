@@ -105,7 +105,7 @@
 
     <cover-view class="main_scan c_flex_center">
         <cover-view class="main_scan_icon" data-id="5" bindtap="goMainBtn">
-            <cover-view style="padding:30rpx 54rpx 16rpx 54rpx">
+            <cover-view style="padding:30rpx 30px 16rpx 31px">
                 <cover-image src="/image/mainpage/scan.png" style="height:25px;width:25px;"mode="scaleToFill"/>
             </cover-view>
             <cover-view class="main_sacan_text">

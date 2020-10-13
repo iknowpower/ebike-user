@@ -78,7 +78,7 @@
 
 .item_tip {
   display: flex;
-  height: 53rpx;
+  height: 53px;
   color: rgba(144, 144, 144, 1);
   padding-left: 30rpx;
   padding-top: 20rpx;
@@ -87,8 +87,8 @@
 
 .item_tip_img {
   display: flex;
-  align-items: center;
   margin-right: 5px;
+  margin-top: 8px;
 }
 
 .item_tip_text {

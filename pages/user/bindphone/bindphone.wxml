@@ -7,16 +7,16 @@
 					<image src="/image/login/account.png" style="width:21px;height:21px"></image>
 				</view>
 				<view class="bd-1">
-					<input type="number" bindinput="bindKeyInputPhone" class="weui-input" placeholder="请输入手机号"/>
+					<input type="number" bindinput="bindKeyInputPhone" class="weui-input" placeholder-style="color:#D8D8D8" placeholder="请输入手机号"/>
 				</view>
 			</view>
 			
 			<view class="cell c_flex_space">
 				<view class="c_flex">
 					<view>
-						<image src="/image/login/account.png" style="width:21px;height:21px"></image>
+						<image src="/image/login/password.png" style="width:21px;height:21px"></image>
 					</view>
-					<view class="bd-1"><input class="weui-input" bindinput="bindKeyInputYzm" type="number" placeholder="请输入验证码"/></view>
+					<view class="bd-1"><input class="weui-input" bindinput="bindKeyInputYzm" type="number" placeholder-style="color:#D8D8D8" placeholder="请输入验证码"/></view>
 				</view>
 				<view class="yzm-btn" bindtap="getyzm">{{yzmtext}}</view>
 			</view>

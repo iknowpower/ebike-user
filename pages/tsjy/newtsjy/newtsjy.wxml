@@ -31,9 +31,7 @@
 	</view>
 	</view>
    
-	<view class="bottom_btn">
-		<!-- <view class="item-btn-qx" bindtap="goTsjy">取消</view>
-		<view class="item-btn-line"></view> -->
-		<view class="item-btn-qd" bindtap="saveFile">提交</view>
-	</view>
+	
+		<button class="bottom_btn item-btn-qd" bindtap="saveFile">提交</button>
+	
 </view>

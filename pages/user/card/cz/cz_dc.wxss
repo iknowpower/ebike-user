@@ -1,46 +1,43 @@
 page{
-  background:rgba(255,255,255,1);
+  background:#F7F7F7;
   font-size:24rpx;
   font-family:MicrosoftYaHei;
   font-weight:400;
-  color:rgba(144,144,144,1);
+  columns: #333333;
 }
 
-.title{
-  margin:20rpx 0 30rpx 30rpx;
+
+.dc_bk{
+  margin:20rpx 3vw;
+  width:94vw;
+	padding:30rpx;
+  box-sizing: border-box;
+	background:#FFFFFF;
+	border-radius: 20rpx; 
 }
 
-.weui-flex{
-  display: flex;
-  margin-bottom:30rpx;
-}
-
-.sel-img{
-  display: flex;
-  align-items: center;
-  margin-left:30rpx;
-  margin-right:10rpx;
-}
-
-.weui-input {
-  border:1px solid rgba(51,153,255,1);
-  border-radius:5px;
+.input_bs {
+  padding-left: 20rpx;
+  border:1rpx solid #D8D8D8;
+  border-radius:4rpx;
   background-color: transparent;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 58rpx;
+  line-height: 58rpx;
 }
 
 .bd-1{
-  width:150rpx;
-  font-size:30rpx;
-  color:rgba(100,100,100,1);
-  line-height: 80rpx;
+  width: 120rpx;
+  font-size:28rpx;
+  color:#333333;
+  line-height: 58rpx;
+  height: 58rpx;
 }
 
 .bd-2{
-  font-size:30rpx;
-  color:rgba(100,100,100,1);
-  line-height: 80rpx;
+  margin-left: 28rpx;
+  font-size:28rpx;
+  color:#333333;
+  line-height: 58rpx;
 }
 
 .bd-btn{
@@ -58,24 +55,23 @@ page{
 }
 
 .dc-btn{
-  width:150rpx;
-  height:80rpx;
+  width:auto;
+  padding: 0 26rpx;
+  height:48rpx;
   margin-left:30rpx;
-  margin-right:30rpx;
-  background: linear-gradient(#3399FF, #7FD7FF);
-  border-radius:5px;
+  background: #24C672;
+  border-radius:4rpx;
   color:rgba(255,255,255,1);
-  font-size:30rpx;
+  font-size:26rpx;
   text-align:center;
-  line-height:80rpx;
+  line-height:48rpx;
 }
 
 .item_tip {
   display: flex;
   height:36rpx;
 	color:rgba(144,144,144,1);
-	padding-left: 66rpx;
-	padding-top:40rpx;
+	padding-left: 54rpx;
 }
 
 .item_tip_img {
@@ -92,7 +88,7 @@ page{
 .item_tip_text2 {
 	width:90%;
 	color:#646464;
-  padding-left: 100rpx;
+  padding-left: 80rpx;
 }
 
 .hc_info{
@@ -103,7 +99,6 @@ page{
 
 .hc_text{
   padding-left:30rpx;
-  padding-top:30rpx;
 }
 
 .hc_text2{

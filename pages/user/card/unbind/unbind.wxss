@@ -1,89 +1,67 @@
-page{
-  background:rgba(255,255,255,1);
-  font-size:24rpx;
-  font-family:MicrosoftYaHei;
-  font-weight:400;
-  color:rgba(144,144,144,1);
+@import "../../wallet/walletDetail/walletDetail.wxss";
+
+
+.color_3 {
+  color: #333333;
 }
 
-.title{
-  margin:20rpx 0 30rpx 30rpx;
+.margin_top_30 {
+  margin-top: 30rpx;
 }
 
-.weui-flex{
+.margin_top_19 {
+  margin-top: 19rpx;
+}
+
+.yzm_border {
+  width: 270rpx;
+  height: 58rpx;
+  border-radius: 4rpx;
+  border: 1rpx solid #D8D8D8;
+  padding-left: 20rpx;
   display: flex;
-  margin-bottom:20rpx;
+  align-items: center;
 }
 
-.weui-input {
-  border:1px solid rgba(51,153,255,1);
-  border-radius:5px;
-  background-color: transparent;
-  height: 80rpx;
-  line-height: 80rpx;
-  width:100%;
+.input_tip {
+  font-size: 28rpx;
+  color: #D8D8D8;
+  height: 37rpx;
+  line-height: 37rpx;
 }
 
-.bd-1{
-  font-size:30rpx;
-  color:rgba(100,100,100,1);
-  line-height: 80rpx;
-  margin-right:25rpx;
-  margin-left:50rpx;
+.yzm-btn {
+  margin-left: 28rpx;
+  width: 180rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  background: #24C672;
+  text-align: center;
+  border-radius: 4rpx;
+  border: 1rpx solid #24C672;
+  color: white;
+  font-size: 26rpx;
+
 }
 
-.bd-2{
-  width:40%;
+.phone {
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #333333;
 }
 
-.yzm-btn{
-  width:200rpx;
-  height:80rpx;
-  margin-left:30rpx;
-  margin-right:30rpx;
-  background: linear-gradient(#3399FF, #7FD7FF);
-  border-radius:5px;
-  color:rgba(255,255,255,1);
-  font-size:30rpx;
-  text-align:center;
-  line-height:80rpx;
-}
 
-.phone{
-  height: 80rpx;
-  line-height: 80rpx;
-  color:rgba(100,100,100,1);
-  font-size:30rpx;
-}
-
-.bd-btn{
-  margin-top:50rpx;
-  margin-left:10%;
-  margin-right:10%;
-  background: linear-gradient(#3399FF, #7FD7FF);
-  width:80%;
-  height:50px;
-  color:rgba(255,255,255,1);
-  border-radius:5px;
-  text-align:center;
-  line-height:50px;
-  font-size:36rpx;
-}
 
 .item_tip {
-  height:36rpx;
-	color:rgba(144,144,144,1);
-	padding-left: 50rpx;
-	padding-top:40rpx;
-}
-
-.item_tip_img {
-	float:left;
-	margin-right:10rpx;
+  color: #666666;
+  padding-left: 54rpx;
 }
 
 .item_tip_text {
-	float:left;
-	width:90%;
-	color:#646464;
+  margin-left: 10rpx;
+  height: 20rpx;
+  font-size: 14rpx;
+  color: #666666;
+  line-height: 20rpx;
+
 }

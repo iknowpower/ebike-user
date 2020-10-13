@@ -116,13 +116,6 @@
 }
 
 .item-btn-qd {
-  height: 98rpx;
-  width: 100%;
-  text-align: center;
-  line-height: 98rpx;
-  font-size: 32rpx;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
   color: #333333;
 }
 

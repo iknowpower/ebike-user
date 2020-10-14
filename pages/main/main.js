@@ -23,26 +23,53 @@ Page({
     regionover:true,///一次regionMap结束后不能重复调用
     jd_end:'',
     wd_end:'',//导航用
-    ifshow:false,
     qcode:'',//关联二维码扫码进来是否已关联
     tzurl:'',//关联二维码跳转的url
     adv_pic:''//广告图片链接
   },
   
   onShow(){
-    if (app.globalData.userPhone == '' && this.data.ifshow) {
-        // 绑定后跳转到首页
-        wx.navigateTo({ url: '../user/bindphone/bindphone?phone=&url=main' });
-    }
+    let that = this;
+    app.getSessionId().then(function (sessionid) {    
+      that.getSfread(sessionid);
+      // 查找是否有充电信息，在首页展示
+      wx.request({
+        url: app.httpUrl + '/ebike-charge/wxxcxUserCenter/getDqCdList.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
+        data: {
+          sessionid: sessionid,
+        },
+        success: (re) => {
+          // 授权成功并且服务器端登录成功
+          var wdqjl  = re.data.wdqjl;
+          var dqcdList =re.data.dqcdList;
+          if(wdqjl == '2'){
+            that.setData({
+              cdxx_tipshow:'1',
+              cdxx_count:dqcdList.length
+            });  
+          } else{
+            that.setData({
+              cdxx_tipshow:'0'
+            });  
+          }     
+        },
+        fail: () => {
+        },
+      });
+
+      
+      if (app.globalData.userPhone == '') {
+          // 绑定后跳转到首页
+          wx.navigateTo({ url: '../user/bindphone/bindphone?phone=&url=main' });
+      }
+    });
 
     // 关联二维码等进来时没获取过定位信息等情况
     if (this.data.tzurl != '') {
       this.getJwd();
     }
-
     // 刷新首页打开充电站信息
     if(this.data.tipshow2 == '1'){
-      let that = this;
       wx.request({
         url: app.httpUrl + '/ebike-charge/wxXcx/getStName.x',
         data: {
@@ -70,93 +97,67 @@ Page({
       })
     }
     console.log("关联二维码跳转options==" + JSON.stringify(options));  
-    var that = this;
-    app.getSessionId().then(function (sessionid) {    
-      if (app.globalData.userPhone == '') {
-        // 绑定后跳转到首页
-        wx.navigateTo({ url: '../user/bindphone/bindphone?phone=&url=main' });
-      }else{
-        that.setData({
-          ifshow: true,
-        });
+    // if (app.globalData.userPhone == '') {
+    //   // 绑定后跳转到首页
+    //   wx.navigateTo({ url: '../user/bindphone/bindphone?phone=&url=main' });
+    // }else{
+    //   this.setData({
+    //     ifshow: true,
+    //   });
 
-        if (options.q) {
-          let q = decodeURIComponent(options.q)
-          if (q) {
-            console.log("全局onLaunch onload 参数 cdczno=" + utils.getQueryString(q, 'cdczno'))
-            if (utils.getQueryString(q, 'cdczno')) {
-              // 绑定手机后跳转到支付页面
-              let code = utils.getQueryString(q, 'cdczno');
-              //扫码判断插座状态
-              wx.request({
-                url: app.httpUrl + '/ebike-charge/wxXcx/getCzgk.x',
-                data: {
-                  cdczno: code
-                },
-                success: (re) => {
-                  // 插座不是空闲，跳转到提示页面
-                  if (re.data.status != '0') {
-                    // 跳转到提示页面
-                    that.setData({
-                      tzurl: '../tipview/cdview/cdview?status=' + re.data.status
-                    });
-                  } else {
-                    that.setData({
-                      tzurl: '../paycharge/paycharge?id=' + code,
-                      qcode: code,
-                    });
-                  }
+      if (options.q) {
+        let q = decodeURIComponent(options.q)
+        if (q) {
+          console.log("全局onLaunch onload 参数 cdczno=" + utils.getQueryString(q, 'cdczno'))
+          if (utils.getQueryString(q, 'cdczno')) {
+            // 绑定手机后跳转到支付页面
+            let code = utils.getQueryString(q, 'cdczno');
+            //扫码判断插座状态
+            wx.request({
+              url: app.httpUrl + '/ebike-charge/wxXcx/getCzgk.x',
+              data: {
+                cdczno: code
+              },
+              success: (re) => {
+                // 插座不是空闲，跳转到提示页面
+                if (re.data.status != '0') {
+                  // 跳转到提示页面
+                  this.setData({
+                    tzurl: '../tipview/cdview/cdview?status=' + re.data.status
+                  });
+                } else {
+                  this.setData({
+                    tzurl: '../paycharge/paycharge?id=' + code,
+                    qcode: code,
+                  });
+                }
 
-                  wx.navigateTo({
-                    url: that.data.tzurl,
-                  })
-                },
-                fail: () => {
-                  reject({});
-                },
-              });
-            } else if (utils.getQueryString(q, 'device')) {
-              // 绑定手机后跳转到选择插座页面
-              let code = utils.getQueryString(q, 'device');
-              that.setData({
-                tzurl: '../charge/onecharge/onecharge?devno=' + code,
-                qcode: code,
-              });
-              wx.navigateTo({
-                url: that.data.tzurl,
-              })
-            }
+                wx.navigateTo({
+                  url: this.data.tzurl,
+                })
+              },
+              fail: () => {
+              },
+            });
+          } else if (utils.getQueryString(q, 'device')) {
+            // 绑定手机后跳转到选择插座页面
+            let code = utils.getQueryString(q, 'device');
+            this.setData({
+              tzurl: '../charge/onecharge/onecharge?devno=' + code,
+              qcode: code,
+            });
+            wx.navigateTo({
+              url: this.data.tzurl,
+            })
           }
         }
-
-        // 查找是否有充电信息，在首页展示
-        wx.request({
-          url: app.httpUrl + '/ebike-charge/wxxcxUserCenter/getDqCdList.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
-          data: {
-            sessionid: sessionid,
-          },
-          success: (re) => {
-            // 授权成功并且服务器端登录成功
-            var wdqjl  = re.data.wdqjl;
-            var dqcdList =re.data.dqcdList;
-            if(wdqjl == '2'){
-              that.setData({
-                cdxx_tipshow:'1',
-                cdxx_count:dqcdList.length
-              });  
-            }      
-          },
-          fail: () => {
-          },
-        });
-
-        that.getSfread(sessionid);
-        that.sftg();//是否显示推广页面
-        if (that.data.tzurl == '') {
-          that.getJwd();
-        }
-      }      
-    });
+      }
+    
+      this.sftg();//是否显示推广页面
+      if (this.data.tzurl == '') {
+        this.getJwd();
+      }
+    // }      
   },
 
   getJwd:function(){

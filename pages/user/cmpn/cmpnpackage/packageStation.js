@@ -28,7 +28,7 @@ Page({
     });
   },
   confirm: function (e) {
-    this.showStlist(e.detail.value);
+    this.showStlist(e.detail.value,'search');
   },
 
   /**
@@ -39,10 +39,10 @@ Page({
       cmpnid: options.cmpn_id
     })
 
-    this.showStlist('');
+    this.showStlist('','show');
   },
 
-  showStlist(name) {
+  showStlist(name,type) {
     wx.showLoading({
       title: '正在加载中',
     })
@@ -54,10 +54,18 @@ Page({
         name: name
       },
       success: (re) => {
-        console.log(re);
-        that.setData({
-          stList: re.data.reList
-        })
+        if(type == 'search' && re.data.reList.length == '0'){
+          wx.showModal({
+            title: '提示',
+            content: '您搜索的电站不参与此活动',
+            showCancel:false
+          })
+        }else{
+          that.setData({
+            stList: re.data.reList
+          })
+        }
+      },complete:()=>{
         wx.hideLoading();
       }
     });

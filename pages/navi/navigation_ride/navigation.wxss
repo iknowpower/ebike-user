@@ -23,7 +23,7 @@
 .btn{
   height:40px;
   color: #fff;
-  background: #0091ff;
+  background: #24C672;
   width:60px;
   text-align:center;
   line-height:40px;

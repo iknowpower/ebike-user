@@ -32,18 +32,18 @@ Page({
       }],
       jd: option.jd_start,
       wd: option.wd_start,
-      origin: option.jd_start + ',' + option.wd_start,
-      destination: option.jd_end + ',' + option.wd_end
+      origin: option.jd_end,
+      destination: option.wd_end
     })
-
-    console.log(this.data.markers);
     var that = this;
     var key = config.Config.key;
     var myAmapFun = new amapFile.AMapWX({key: key});
+    console.log(myAmapFun);
     myAmapFun.getRidingRoute({
       origin: option.jd_start + ',' + option.wd_start,
       destination: option.jd_end + ',' + option.wd_end,
       success: function(data){
+        console.log(data);
         var points = [];
         if(data.paths && data.paths[0] && data.paths[0].steps){
           var steps = data.paths[0].steps;
@@ -57,7 +57,6 @@ Page({
             } 
           }
         }
-        console.log(data);
         that.setData({
           polyline: [{
             points: points,
@@ -83,8 +82,8 @@ Page({
   },
   goDetail: function(){
     wx.navigateTo({
-      url: '../navigation_ride_detail/navigation?origin= ' + this.data.origin + 
-        '&destination=' + this.data.destination
+      url: '../navigation_ride_detail/navigation?jd_start=' + this.data.jd + '&wd_start=' + this.data.wd + '&jd_end=' + this.data.origin + 
+        '&wd_end=' + this.data.destination
     })
   },
 })

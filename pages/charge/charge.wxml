@@ -26,7 +26,7 @@
             </view>
             <view class="item-kg">
                 <block wx:for="{{item.plugList}}" wx:key="chargeplugNo" wx:for-index="idx" wx:for-item="czItem">
-                        <view class="win-cz-k {{czItem.opStatus === '0'?'color_kx':(czItem.opStatus === '1'?'color_cd':'color_lx')}}" data-cdzt = "{{czItem.opStatus}}" data-cdczno = "{{czItem.chargeplugNo}}" bindtap="goCd">{{czItem.plugSn}}空闲</view>
+                        <view class="win-cz-k {{czItem.opStatus === '0'?'color_kx':(czItem.opStatus === '1'?'color_cd':'color_lx')}}" data-cdzt = "{{czItem.opStatus}}" data-cdczno = "{{czItem.chargeplugNo}}" bindtap="goCd">{{czItem.plugSn}}{{czItem.opStatus === '0'?'空闲':(czItem.opStatus === '1'?'占用':'离线')}}</view>
                 </block>
             </view>  
         </view>

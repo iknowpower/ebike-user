@@ -1,15 +1,2 @@
-<view class="page">
-  <view class="top">
-    <view class="shape_bk">{{question}}</view>
-    <view class="shape_bk1">
-      <view class="item_text"><text>{{answer}}</text></view>
-      <view class="c_flex,buttons">
-        <view class="dHelp">没帮助</view>
-        <view class="helpfulness">有帮助</view>
-      </view>
-
-
-    </view>
-    <view class="box"></view>
-  </view>
-</view>
+<!--pages/user/kfzx/kfzxan/kfzxan.wxml-->
+<text>pages/user/kfzx/kfzxan/kfzxan.wxml</text>

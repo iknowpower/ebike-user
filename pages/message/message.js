@@ -72,7 +72,7 @@ Page({
 
   goHis() {
     wx.navigateTo({
-      url: '../user/hiscd/hiscd',
+      url: '../user/user-cdjl/user-cdjl',
     })
   }
 })

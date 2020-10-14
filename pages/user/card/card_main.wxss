@@ -19,11 +19,10 @@
 }
 
 .card_btn{
-  flex:1;
   height: 48rpx;
   width:96rpx;
   border-radius: 4rpx;
-  border: 1rpx solid #FFFFFF;
+  border: 1px solid #FFFFFF;
   text-align: center;
   line-height: 48rpx;
   margin:0 15rpx;
@@ -183,4 +182,11 @@
 
 .img_m{
   margin-top:5rpx;
+ }
+
+
+ .c_flex_around{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
  }

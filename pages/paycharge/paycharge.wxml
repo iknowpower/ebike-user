@@ -113,7 +113,7 @@
 	</block>
 	<view class="item_tip c_flex_top">
 		<view class="item_tip_img">
-			<image src="/image/tips.png" style="width:12px;height:12px" mode="scaleToFill" />
+			<image src="/image/tips.png" style="width:16rpx;height:16rpx" mode="scaleToFill" />
 		</view>
 		<block wx:if="{{sfmzf=='1'}}">
 			<view>本充电站为您提供免费充电服务！</view>

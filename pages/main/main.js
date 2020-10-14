@@ -710,6 +710,12 @@ Page({
   //     url: '../user/cmpn/cmpnList',
   //   })
   // },
+  handleClickTest() {
+    console.log("我被点了");
+    wx.showToast({
+      title: '哈哈哈哈哈',
+    })
+  },
 
   goClose(){
     this.setData({

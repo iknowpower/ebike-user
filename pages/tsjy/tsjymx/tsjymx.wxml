@@ -22,7 +22,7 @@
 			<block wx:if="{{dcount != 0}}">
 				<block wx:for="{{dinfo}}" wx:key="csworkorderId">
 					<view class="item-text-clsj">{{item.handleSn}}.{{item.handleTime}}</view>
-					<view class="c_flex" style="margin-top:6rpx">
+					<view class="c_flex_space" style="margin-top:6rpx">
 						<view class="text_clr">{{item.handler}}</view>
 						<view class="text_clr1">处理</view>
 					</view>

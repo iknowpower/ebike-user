@@ -1,43 +1,44 @@
 @import "/style/back.wxss";
+
 .page {
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
-  font-size:26rpx;
+  font-size: 26rpx;
 }
 
-.map{
+.map {
   width: 100vw;
   height: 100vh;
 }
 
-.cdxx_panel{
+.cdxx_panel {
   position: absolute;
-  left:3vw;
-  top:20rpx;
-  padding:0 35rpx;
+  left: 3vw;
+  top: 20rpx;
+  padding: 0 35rpx;
   box-sizing: border-box;
 }
 
-.cdxx_txt{
+.cdxx_txt {
   font-size: 32rpx;
   color: #FFFFFF;
 }
 
-.dev_back{
+.dev_back {
   background: #FFFFFF;
   border-radius: 20rpx;
-  width:94vw;
+  width: 94vw;
 }
 
-.dev_panel{
+.dev_panel {
   position: absolute;
-  left:3vw;
-  top:140rpx;
-  padding:5rpx 35rpx 25rpx 20rpx;
+  left: 3vw;
+  top: 140rpx;
+  padding: 5rpx 35rpx 25rpx 20rpx;
   box-sizing: border-box;
 }
 
-.back_icon{
+.back_icon {
   width: 70rpx;
   height: 70rpx;
   background: rgba(255, 255, 255, 0.8);
@@ -45,119 +46,123 @@
   border-radius: 7rpx;
 }
 
-.btn{
-  width: 70rpx;
-  height: 70rpx;
-  opacity: 0;
-}
-
-.main_scan{
+.btn {
   position: absolute;
-  left:25vw;
-  bottom:20rpx;
-  width:50vw;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.main_scan_icon{
-  width:158rpx;
-  height:158rpx;
+.main_scan {
+  position: absolute;
+  left: 25vw;
+  bottom: 20rpx;
+  width: 50vw;
+}
+
+.main_scan_icon {
+  width: 158rpx;
+  height: 158rpx;
   border-radius: 50%;
   background: #24C672;
-  text-align:center;
+  text-align: center;
 }
 
-.main_sacan_text{
+.main_sacan_text {
   font-size: 24rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #FFFFFF;
 }
 
-.main_location{
+.main_location {
   position: absolute;
-  left:4%;
-  top:82%;
+  left: 4%;
+  top: 82%;
 }
 
-.main_msg{
+.main_msg {
   position: absolute;
-  left:86%;
-  top:40%;
+  left: 86%;
+  top: 40%;
 }
 
-.main_cust{
+.main_cust {
   position: absolute;
-  left:86%;
-  top:48%;
+  left: 86%;
+  top: 48%;
 }
 
-.main_tsjy{
+.main_tsjy {
   position: absolute;
-  left:86%;
-  top:56%;
+  left: 86%;
+  top: 56%;
 }
 
-.main_help{
+.main_help {
   position: absolute;
-  left:86%;
-  top:64%;
+  left: 86%;
+  top: 64%;
 }
 
-.main_bottom{
+.main_bottom {
   position: absolute;
-  left:0;
-  bottom:0;
+  left: 0;
+  bottom: 0;
   font-size: 18rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #939393;
-  padding:20rpx 98rpx;
+  padding: 20rpx 98rpx;
   box-sizing: border-box;
 }
 
-.page-tip{
+.page-tip {
   font-size: 26rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #777777;
-  padding:20rpx 0;
+  padding: 20rpx 0;
   box-sizing: border-box;
 }
 
-.tip-czimg{
-  margin-right:5rpx;
-  width:34rpx;
-  height:34rpx;
+.tip-czimg {
+  margin-right: 5rpx;
+  width: 34rpx;
+  height: 34rpx;
   border-radius: 50%;
   text-align: center;
   line-height: 34rpx;
   font-size: 20rpx;
   color: #FFFFFF;
 }
-.tip-czimg:last-child{
-  margin-left:30rpx;
+
+.tip-czimg:last-child {
+  margin-left: 30rpx;
 }
 
-.tip-color-kx{
+.tip-color-kx {
   background: #24C672;
 }
 
-.tip-color-cd{
+.tip-color-cd {
   background: #E8BA2B;
 }
 
-.color-cd{
+.color-cd {
   color: #E8BA2B;
 }
 
-.color-kx{
+.color-kx {
   color: #24C672;
 }
 
-.tip-czs{
-  margin-right:37rpx;
+.tip-czs {
+  margin-right: 37rpx;
 }
 
-.tip-txt{
-  margin-top:10rpx;
+.tip-txt {
+  margin-top: 10rpx;
 }

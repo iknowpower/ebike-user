@@ -11,7 +11,7 @@
       <view class="dc_text">代充</view>
     </view>
   </view>
-  <scroll-view scroll-y="true" style="height: 569px">
+  <scroll-view scroll-y="true" style="height: 1100rpx">
     <block wx:if="{{hasCard==1}}">
       <view wx:for="{{cardList}}" wx:key="card_id"
         class="ye_bk {{item.status == '3'?'card_back_miss': 'card_back' }}">
@@ -26,7 +26,7 @@
           <text class="num_zs">{{item.num_zs}}</text>
           <text class="ye_dw">元</text>
         </view>
-        <view wx:if="{{item.status != '3'}}" class="c_flex ye_btn">
+        <view wx:if="{{item.status != '3'}}" class="c_flex_around">
           <view class="card_btn" bindtap="gocz" data-cardid="{{item.card_id}}">充值</view>
           <view class="card_btn" bindtap="gotocard" data-cardid="{{item.card_id}}">卡转卡</view>
           <view class="card_btn" bindtap="gounbindcard" data-cardid="{{item.card_id}}">解绑</view>

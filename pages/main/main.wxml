@@ -8,15 +8,15 @@
         style="width: 100%; height:{{mainHeight}}"
     >
     <!-- 充电信息提示 -->
-    <cover-view class="cdxx_back cdxx_panel c_flex_space"  wx:if="{{cdxx_tipshow==='1'}}" bindtap="goCdxxDetail">
+    <view class="cdxx_back cdxx_panel c_flex_space"  wx:if="{{cdxx_tipshow==='1'}}" bindtap="goCdxxDetail">
         <cover-view  class="cdxx_txt">
-            当前有{{cdxx_count}}个插座正在充电
+            {{cdxx_count}}辆爱车正在充电中～
         </cover-view>
         <cover-view>
             <cover-image src="/image/mainpage/in.png" style="width:24rpx;height:24rpx" mode="scaleToFill">
             </cover-image>
         </cover-view>
-    </cover-view>
+    </view>
     <!-- 点击地图设备后弹出的充电桩详情页面 -->
     <cover-view class="dev_back {{cdxx_tipshow == '1'? 'dev_panel' :'cdxx_panel'}}"  wx:if="{{dev_tipshow==='1'}}" bindtap="goDetail">
         <cover-view class="page-tip c_flex_space">
@@ -67,15 +67,17 @@
     <cover-view class="back_icon main_msg c_flex_center" data-id="1" bindtap="goMainBtn">
         <cover-image src="/image/mainpage/main_msg.png" style="width:23px;height:23px;"mode="scaleToFill"/>
     </cover-view>
-    <cover-view class="back_icon main_cust c_flex_center">
-        <cover-image src="/image/mainpage/main_cust.png" style="width:23px;height:23px;"mode="scaleToFill"/>
-    </cover-view>
-    <!--让button 透明度为0-->
-    <cover-view class="main_cust">
-        <button open-type="contact" bindcontact="handleContact" class='btn'>
+    <cover-view class="back_icon main_cust c_flex_center" style="position: relative">
+        <button open-type="contact" bindcontact="handleContact" class="btn">
+            <cover-image src="/image/mainpage/main_cust.png" style="width:23px;height:23px;"mode="scaleToFill"/>
         </button>
     </cover-view>
-
+    <!--让button 透明度为0-->
+    <!-- <cover-view class="main_cust" >
+        <button  open-type="contact" bindcontact="handleContact" bindtap="handleClickTest" class='btn' >
+        </button>
+    </cover-view> -->
+  
     <cover-view class="back_icon main_tsjy c_flex_center" data-id="3" bindtap="goMainBtn">
         <cover-image src="/image/mainpage/main_tsjy.png" style="width:23px;height:23px;"mode="scaleToFill"/>
     </cover-view>
@@ -105,7 +107,7 @@
 
     <cover-view class="main_scan c_flex_center">
         <cover-view class="main_scan_icon" data-id="5" bindtap="goMainBtn">
-            <cover-view style="padding:30rpx 30px 16rpx 31px">
+            <cover-view style="padding:30rpx 55rpx 16rpx 55rpx">
                 <cover-image src="/image/mainpage/scan.png" style="height:25px;width:25px;"mode="scaleToFill"/>
             </cover-view>
             <cover-view class="main_sacan_text">

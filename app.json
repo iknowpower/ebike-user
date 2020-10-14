@@ -19,7 +19,7 @@
     "pages/user/user",
     "pages/user/xfjl/xfjl",
     "pages/user/hiscd/hiscd",
-    "pages/user/hiscd/tkd/tkd",
+    "pages/user/user-cdjl/tkd/tkd",
     "pages/user/user-cdjl/user-cdjl",
     "pages/user/bindphone/bindphone",
     "pages/user/about/about",

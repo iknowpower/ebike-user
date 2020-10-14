@@ -5,7 +5,7 @@ Page({
     info:{},
     ycper:'',
     cdgl:'',
-    ycdname:'已充电（分）',
+    ycdname:'充电时间（分）',
     usageAmount:'',
     sycdname:'剩余时间（分）',
     surplusAmount:'',
@@ -20,25 +20,19 @@ Page({
   },
   onLoad(option) {
     const id = option.id;
-    
     var url = '';
     if(option.type =='user-cdxx'){
-      console.log('充电订单id' + id);
       url = app.httpUrl + '/ebike-charge/wxxcxUserCenter/goDqcdxx.x';
       this.setData({
         recordid:id,
         optype:option.type
       })
     }else{
-      console.log('充电插座编号' + id);
       url = app.httpUrl + '/ebike-charge/wxXcx/getDqcdxxDetail.x';
       this.setData({
         cdczno:id,
       })
     }
-
-    console.log(url);
-
     // 根据充电插座获取电站以及计费信息
     wx.request({
         url: url, // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证

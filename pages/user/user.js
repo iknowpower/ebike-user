@@ -14,7 +14,7 @@ Page({
     //this.getUserInfo();
     if (app.globalData.userPhone == '') {
       // 绑定后跳转到首页
-      wx.navigateTo({ url: '../user/bindphone/bindphone?phone=&url=main' });
+      wx.navigateTo({ url: 'bindphone/bindphone?phone=&url=main' });
     }
   },
 

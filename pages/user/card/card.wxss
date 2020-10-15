@@ -25,9 +25,8 @@
 }
 
 .yz_cell {
-  margin: 20rpx 30rpx;
+  margin: 20rpx 30rpx 12rpx 30rpx;
   background: rgba(255, 255, 255, 1);
-  box-shadow: 0px 5px 10px 0px rgba(10, 31, 51, 0.2);
   border-radius: 20rpx;
   padding: 19rpx 0rpx 15rpx 0rpx;
 }
@@ -76,23 +75,24 @@
 
 .item_tip {
   display: flex;
-  height: 36rpx;
-  color: rgba(144, 144, 144, 1);
-  padding-left: 66rpx;
+  align-items: center;
+  margin-left: 54rpx;
 }
 
-.item_tip_img {
-  margin-top: 5rpx;
+.item_tip_img{
   display: flex;
-  margin-right: 10rpx;
   align-items: center;
+  height: 20rpx;
 }
 
 .item_tip_text {
+  margin-top: 1rpx;
+  margin-left: 8rpx;
+  height: 20rpx;
+  font-size: 16rpx;
   color: #666666;
+  line-height: 20rpx;
   text-align: center;
-  height: 38rpx;
-  line-height: 38rpx;
 }
 
 .item_tip_text2 {

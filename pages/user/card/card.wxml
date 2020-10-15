@@ -28,9 +28,7 @@
 
 
   <view class="item_tip">
-    <view class="item_tip_img">
-      <image src="/image/card/tips.png" style="width:12px;height:12px" mode="scaleToFill" />
-    </view>
+    <view class="item_tip_img"><image src="/image/card/tips.png" style="width:16rpx;height:16rpx" mode="scaleToFill" /></view>
     <view class="item_tip_text">请输入充电卡上的标识码</view>
   </view>
   <!-- <view class="item_tip_text2">
@@ -42,5 +40,5 @@
   <view class="item_tip_text2">
     3、充值。
   </view> -->
-  <view class="bd-btn" bindtap="bindCard" >绑定充电卡</view>
+  <button class="bottom_btn" bindtap="bindCard" >绑定充电卡</button>
 </view>

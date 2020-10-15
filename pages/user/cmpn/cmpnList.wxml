@@ -32,7 +32,7 @@
                     </view>
                     <view class="c_flex_baseline">
                         <view class="pkg_text2" catchtap="goSt" data-cmpnid="{{item.cmpn_id}}">
-                            查看适用电站
+                            查看适用电站》
                         </view>
                     </view>
                  </view>

@@ -91,7 +91,7 @@
             <cover-view class="c_flex_row">
                 <cover-image src="/image/mainpage/station.png" style="height:25px;width:25px;"mode="scaleToFill"/>
             </cover-view>
-            <cover-view>
+            <cover-view style="margin-top:2rpx">
                 附近电站
             </cover-view>
         </cover-view>
@@ -99,7 +99,7 @@
             <cover-view class="c_flex_row">
                 <cover-image src="/image/mainpage/center.png" style="height:25px;width:25px;"mode="scaleToFill"/>
             </cover-view>
-            <cover-view>
+            <cover-view style="margin-top:2rpx">
                 个人中心
             </cover-view>
         </cover-view>

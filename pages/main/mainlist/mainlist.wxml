@@ -48,7 +48,7 @@
                     <view class= "tip-czs color-kx">
                         {{devItem.kxnum}}个
                     </view>
-                    <view class="tip-czimg tip-color-cd">
+                    <view class="tip-czimg tip-color-cd" style="margin-left:30rpx">
                         充
                     </view>
                     <view class= "tip-czs color-cd">

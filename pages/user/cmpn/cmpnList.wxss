@@ -46,7 +46,7 @@
 .pkg_text2{
   font-size: 24rpx;
   color: #FFDF05;
-  margin-top:100rpx;
+  margin-top:140rpx;
 }
 
 .bottom_back{

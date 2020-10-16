@@ -21,7 +21,7 @@
                     <view>设备编号：</view><view>{{item.chargedeviceNo}}</view>
                 </view>
                 <view class="dev_name c_flex">
-                    <view>插座：</view><text style="color:#24C672">{{czkxs}}</text><text>{{czzs}}</text>
+                    <view>插座：</view><text style="color:#24C672">{{item.kxnum}}（空闲）</text><text>/{{item.plugCount}}（总）</text>
                 </view>
             </view>
             <view class="item-kg">

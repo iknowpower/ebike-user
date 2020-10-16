@@ -62,7 +62,7 @@
                   <image src="/image/mainpage/station.png" style="width:25px;height:25px;" mode="scaleToFill"/>
                 </view>
                 <view>
-                  1.2km
+                  {{item.distance}}km
                 </view>
               </view>
             </view>

@@ -34,24 +34,22 @@
       </view>
     </view>
     <view class="cdxx_top">
-      <block wx:if="{{info.chargeType!='03'}}">
-        <view class="item_title">
-          收费标准
-        </view>
-        <view class="text-s">
-          <block wx:if="{{sfmzf=='1'}}">
-           （不收费）
+      <view class="item_title">
+        收费标准
+      </view>
+      <view class="text-s">
+        <block wx:if="{{sfmzf=='1'}}">
+          （不收费）
+        </block>
+        <block wx:if="{{sfmzf=='0'}}">
+          <block wx:if="{{info.chargeType =='03'}}">
+          （{{info.chargeTypeName}}收费 支付后即可享受充满为止的充电服务）
           </block>
-          <block wx:if="{{sfmzf=='0'}}">
-            <block wx:if="{{info.chargeType=='03'}}">
-            （{{info.chargeTypeName}}收费）
-           </block>
-            <block wx:if="{{info.chargeType!='03'}}">
-            （{{info.chargeTypeName}}收费 最低消费{{info.minCharge}}元）
-            </block>
+          <block wx:if="{{info.chargeType!='03'}}">
+          （{{info.chargeTypeName}}收费 最低消费{{info.minCharge}}元）
           </block>
-        </view>
-      </block>
+        </block>
+      </view>
       <view wx:if="{{info.chargeType=='01'}}">
         <view class="grid-item-wrapper">
           <view class="item_div1_text {{cdgl=='1'?'item_div1_text-active':''}}">
@@ -75,12 +73,12 @@
         </view>
       </view>
       <view wx:if="{{info.chargeType=='02'}}">
-      <view class="item_div2_text item_div1_text-active">
+      <view class="c_flex item_div2_text item_div1_text-active">
           {{info.unitPrice1}}kWh/元
       </view>
       </view>
       <view wx:if="{{info.chargeType=='03'}}">
-      <view class="item_div2_text item_div1_text-active">
+      <view class="c_flex item_div2_text item_div1_text-active">
         {{info.unitPrice1}}元/次
       </view>
       </view>

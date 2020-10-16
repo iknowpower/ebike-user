@@ -168,3 +168,31 @@ width:80vw;
   color: #666666;
   margin-left:30rpx;
 }
+
+.weui-dialog__btn_primary{
+  height: auto;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #24C672;
+  line-height: auto;
+}
+
+.weui-dialog__btn_default{
+  height: auto;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: auto;
+}
+.weui-dialog__title{
+  text-align: center;
+  height: auto;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: auto;
+
+}

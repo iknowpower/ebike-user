@@ -203,7 +203,8 @@
 	<view class="weui-mask"></view>
 	<view class="weui-dialog">
 			<view class="weui-dialog__hd"><strong class="weui-dialog__title">支付失败</strong></view>
-			<view class="weui-dialog__bd">账户金额不足，请充值使用！</view>
+			<!-- <view class="weui-dialog__bd">账户金额不足，请充值使用！</view> -->
+			<view class="weui-dialog__bd">当前余额不足，请及时充值</view>
 			<view class="weui-dialog__ft">
 					<a class="weui-dialog__btn weui-dialog__btn_default" bindtap="ljzf">继续支付</a>
 					<a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="ljcz">去充值</a>

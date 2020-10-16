@@ -129,7 +129,8 @@ Page({
     if (this.data.zfje == ''){
       wx.showModal({
         content: '请输入支付金额！',
-        showCancel: false
+        showCancel: false,
+        confirmColor: '#333333'
       });
       return;
     }

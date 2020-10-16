@@ -19,7 +19,7 @@
   color: #333333;
   font-size: 32rpx;
   font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 .text_add_pic {
@@ -195,7 +195,7 @@
   height: 45rpx;
   font-size: 32rpx;
   font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 550;
+  font-weight: 500;
   color: #333333;
   line-height: 45rpx;
 }

@@ -51,29 +51,29 @@ Page({
   },
   previewImage(e){
     console.log(e.currentTarget.dataset.imsrc);
-    // wx.previewImage({
-    //   urls: [
-    //     e.currentTarget.dataset.imsrc,
-    //   ],
-    // });
-
-    wx.downloadFile({
-      url: e.currentTarget.dataset.imsrc,
-      success(re) {
-        console.log(re.tempFilePath);
-        if (re.statusCode === 200) {
-          wx.previewImage({
-            urls: [re.tempFilePath]
-          })
-        }
-      },
-      fail(res) {
-        wx.showModal({
-          content: res.errorMessage || res.error,
-          showCancel: false
-        });
-      },
+    wx.previewImage({
+      urls: [
+        e.currentTarget.dataset.imsrc,
+      ],
     });
+
+    // wx.downloadFile({
+    //   url: e.currentTarget.dataset.imsrc,
+    //   success(re) {
+    //     console.log(re.tempFilePath);
+    //     if (re.statusCode === 200) {
+    //       wx.previewImage({
+    //         urls: [re.tempFilePath]
+    //       })
+    //     }
+    //   },
+    //   fail(res) {
+    //     wx.showModal({
+    //       content: res.errorMessage || res.error,
+    //       showCancel: false
+    //     });
+    //   },
+    // });
   },
 
   rePage(e){

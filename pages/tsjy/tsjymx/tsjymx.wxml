@@ -7,7 +7,13 @@
 			</view>
 			<view class="item-text-detail-l1">申请说明 </view>
 			<view class="page-section-demo1">{{info.csworkorderDesc}}</view>
-
+			<block wx:if ="{{imgcount != 0}}">
+				<view class="image-show">
+					<view data-imsrc="{{info.csworkorderAttach}}" bindtap="previewImage" >
+						<image src="{{info.csworkorderAttach}}" class="image"></image>
+					</view>
+				</view>
+	    </block>
 
 			<!-- <block wx:if="{{dcount == 0}}">
 				<view class="item-text-img">
@@ -15,26 +21,20 @@
 				</view>
 			</block>  -->
 		</view>
-
-
-		<view class="item-text-sqxx,box">
+		<block wx:if="{{dcount != 0}}">
+		<view class="item-text-sqxx box">
 			<view class="item-text-title1">处理及反馈信息</view>
-			<block wx:if="{{dcount != 0}}">
 				<block wx:for="{{dinfo}}" wx:key="csworkorderId">
-					<view class="item-text-clsj">{{item.handleSn}}.{{item.handleTime}}</view>
-					<view class="c_flex_space" style="margin-top:6rpx">
-						<view class="text_clr">{{item.handler}}</view>
-						<view class="text_clr1">处理</view>
-					</view>
-					<view class="item-text-clsm"><text>处理说明：{{item.handleDesc}}"</text></view>
-					<view class="item_divider" hidden="{{index===dinfo.length-1?true:false}}"></view>
+						<view class="item-text-clsj">{{item.handleSn}}、{{item.handleTime}}</view>
+						<view class="c_flex_space" style="margin-top:6rpx">
+							<view class="text_clr">{{item.handler}}</view>
+							<view class="text_clr1">处理</view>
+						</view>
+						<view class="item-text-clsm"><text>处理说明：{{item.handleDesc}}</text></view>
+						<view class="item_divider" hidden="{{index===dinfo.length-1?true:false}}"></view>
 				</block>
-			</block>
 		</view>
-
-
-
-
+	</block>
 
 		<!-- <view class="item-text-sqxx">
 			<block wx:if="{{dcount != 0}}">
@@ -61,18 +61,14 @@
 		</view> -->
 		<block wx:if="{{tsjg == 'over'}}">
 			<view class="item-text-sqxx">
-				<view class="item-text-title">
+				<view class="item-text-title1">
 					归档信息
 				</view>
-				<view class="item-text-gd">
-					<view>
-						<view class="item-text-gd-l1">{{info.archiveTimeFormat}}</view>
-						<view class="item-text-gd-l2">归档</view>
+				<view class="c_flex_space" style="margin-top:6rpx">
+						<view class="text_clr">{{info.archiveTimeFormat}}</view>
+						<view class="text_clr1">归档</view>
 					</view>
-					<view>
-						<view class="item-text-gd-l3">{{info.archiveDesc}}</view>
-					</view>
-				</view>
+					<view class="item-text-clsm"><text>{{info.archiveDesc}}</text></view>
 			</view>
 		</block>
 	</view>

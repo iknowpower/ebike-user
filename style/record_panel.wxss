@@ -12,7 +12,7 @@
 }
 
 .panel_top {
-  margin-bottom: 20rpx;
+  margin-bottom: 10rpx;
 }
 
 .panel_title {

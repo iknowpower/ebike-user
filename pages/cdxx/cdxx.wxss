@@ -84,14 +84,13 @@
 }
 
 .item_div2_text {
-	text-align:center;
     color: #24C672;
     font-size:22rpx;
 	border-radius:4rpx;
     padding:17rpx;
     box-sizing: border-box;
     border:solid 1px #24C672;
-    margin:20rpx 30rpx 10rpx 30rpx;
+    margin:20rpx 30rpx 0 30rpx;
     width:60%;
 }
 

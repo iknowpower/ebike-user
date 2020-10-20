@@ -20,7 +20,7 @@
   <view class="list_panel">
     <view class="c_flex_space panel_top">
       <view class="panel_title">
-        消费记录
+        余额明细
       </view>
       <view class="c_flex">
         <view class="list-text">
@@ -41,7 +41,7 @@
             </view>
             <view>
               <view>{{item.payTimeLabel}}</view>
-              <view class="celltext">消费类型：{{item.journalTypeName}}</view>
+              <view class="celltext">类型：{{item.journalTypeName}}</view>
             </view>
           </view>
           <view class="c_flex {{item.journalDir=='1' ?'celltext-add':''}}">

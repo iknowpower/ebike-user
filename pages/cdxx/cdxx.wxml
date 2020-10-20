@@ -1,108 +1,109 @@
 <view class="page">
-    <view class="cdxx_top">
-      <view class="text-n">{{info.cdzname}}</view>
-      <view class="c_flex_center" style="margin-top:10px">
-        <view class="text-s">（设备编号：{{info.chargedeviceNo}} </view>
-        <view class="text-s" style="margin-left:20rpx"> 插座：{{info.plugSn}}）</view>
-      </view>
-      
-      <view class="text-addr">
-            地址：{{info.stationAddr}}
-      </view>
-      <block wx:if="{{info.chargeType =='01' || info.chargeType =='02'}}">
-        <view class="item-colum-t c_flex">
-            <view class="item-colum">
-                  <view class="item-colum-1">{{ycdname}}</view>
-                  <view class="item-colum-2">{{usageAmount}}</view>
-            </view>
-            <view class="item-colum">
-                  <view class="item-colum-1">{{sycdname}}</view>
-                  <view class="item-colum-2">{{surplusAmount}}</view>
-            </view>
-        </view>
-      </block>
+  <view class="cdxx_top">
+    <view class="text-n">{{info.cdzname}}</view>
+    <view class="c_flex_center" style="margin-top:10px">
+      <view class="text-s">（设备编号：{{info.chargedeviceNo}} </view>
+      <view class="text-s" style="margin-left:20rpx"> 插座：{{info.plugSn}}）</view>
+    </view>
+
+    <view class="text-addr">
+      地址：{{info.stationAddr}}
+    </view>
+    <block wx:if="{{info.chargeType =='01' || info.chargeType =='02'}}">
       <view class="item-colum-t c_flex">
-          <view class="item-colum">
-                <view class="item-colum-1">当前功率（W）</view>
-                <view class="item-colum-2">{{info.curPower ? info.curPower :'- -'}}</view>
-          </view>
-          <view class="item-line"><image src="/image/line.png" style="width:1px;height:30px" mode="scaleToFill"/></view>
-          <view class="item-colum">
-                <view class="item-colum-1">最大功率（W）</view>
-                <view class="item-colum-2">{{info.maxPower ? info.maxPower :'- -'}}</view>
-          </view>
+        <view class="item-colum">
+          <view class="item-colum-1">{{ycdname}}</view>
+          <view class="item-colum-2">{{usageAmount}}</view>
+        </view>
+        <view class="item-colum">
+          <view class="item-colum-1">{{sycdname}}</view>
+          <view class="item-colum-2">{{surplusAmount}}</view>
+        </view>
+      </view>
+    </block>
+    <view class="item-colum-t c_flex">
+      <view class="item-colum">
+        <view class="item-colum-1">当前功率（W）</view>
+        <view class="item-colum-2">{{info.curPower ? info.curPower :'- -'}}</view>
+      </view>
+      <view class="item-colum">
+        <view class="item-colum-1">最大功率（W）</view>
+        <view class="item-colum-2">{{info.maxPower ? info.maxPower :'- -'}}</view>
       </view>
     </view>
-    <view class="cdxx_top">
-      <view class="item_title">
-        收费标准
-      </view>
-      <view class="text-s">
-        <block wx:if="{{sfmzf=='1'}}">
-          （不收费）
-        </block>
-        <block wx:if="{{sfmzf=='0'}}">
-          <block wx:if="{{info.chargeType =='03'}}">
+  </view>
+  <view class="cdxx_top">
+    <view class="item_title">
+      收费标准
+    </view>
+    <view class="text-s">
+      <block wx:if="{{sfmzf=='1'}}">
+        （不收费）
+      </block>
+      <block wx:if="{{sfmzf=='0'}}">
+        <block wx:if="{{info.chargeType =='03'}}">
           （{{info.chargeTypeName}}收费 支付后即可享受充满为止的充电服务）
-          </block>
-          <block wx:if="{{info.chargeType!='03'}}">
-          （{{info.chargeTypeName}}收费 最低消费{{info.minCharge}}元）
-          </block>
         </block>
-      </view>
-      <view wx:if="{{info.chargeType=='01'}}">
-        <view class="grid-item-wrapper">
-          <view class="item_div1_text {{cdgl=='1'?'item_div1_text-active':''}}">
-              <view>{{glbz1}}</view>
-              <view>{{info.unitPrice1}}小时/元</view>
-          </view>
-          <view class="item_div1_text {{cdgl=='2'?'item_div1_text-active':''}}">
-              <view>{{glbz2}}</view>
-              <view>{{info.unitPrice2}}小时/元</view>
-            </view>
+        <block wx:if="{{info.chargeType!='03'}}">
+          （{{info.chargeTypeName}}收费 最低消费{{info.minCharge}}元）
+        </block>
+      </block>
+    </view>
+    <block wx:if="{{sfmzf=='0'}}">
+    <view wx:if="{{info.chargeType=='01'}}">
+      <view class="grid-item-wrapper">
+        <view class="item_div1_text {{cdgl=='1'?'item_div1_text-active':''}}">
+          <view>{{glbz1}}</view>
+          <view>{{info.unitPrice1}}小时/元</view>
         </view>
-        <view class="grid-item-wrapper">
-            <view class="item_div1_text {{cdgl=='3'?'item_div1_text-active':''}}">
-              <view>{{glbz3}}</view>
-              <view>{{info.unitPrice3}}小时/元</view>
-            </view>
-            <view class="item_div1_text {{cdgl=='4'?'item_div1_text-active':''}}">
-              <view>{{glbz4}}</view>
-              <view>{{info.unitPrice4}}小时/元</view>
-            </view>
+        <view class="item_div1_text {{cdgl=='2'?'item_div1_text-active':''}}">
+          <view>{{glbz2}}</view>
+          <view>{{info.unitPrice2}}小时/元</view>
         </view>
       </view>
-      <view wx:if="{{info.chargeType=='02'}}">
-      <view class="c_flex item_div2_text item_div1_text-active">
-          {{info.unitPrice1}}kWh/元
+      <view class="grid-item-wrapper">
+        <view class="item_div1_text {{cdgl=='3'?'item_div1_text-active':''}}">
+          <view>{{glbz3}}</view>
+          <view>{{info.unitPrice3}}小时/元</view>
+        </view>
+        <view class="item_div1_text {{cdgl=='4'?'item_div1_text-active':''}}">
+          <view>{{glbz4}}</view>
+          <view>{{info.unitPrice4}}小时/元</view>
+        </view>
       </view>
+    </view>
+    <view class="c_flex_center" wx:if="{{info.chargeType=='02'}}">
+      <view class="c_flex_center item_div2_text item_div1_text-active">
+        {{info.unitPrice1}}kWh/元
       </view>
-      <view wx:if="{{info.chargeType=='03'}}">
-      <view class="c_flex item_div2_text item_div1_text-active">
+    </view>
+    <view class="c_flex_center" wx:if="{{info.chargeType=='03'}}">
+      <view class="c_flex_center item_div2_text item_div1_text-active">
         {{info.unitPrice1}}元/次
       </view>
-      </view>
+    </view>
+    </block>
   </view>
 
-    <view class="item_tip c_flex_top">
-   			<view class="item_tip_img">
-					 <image src="/image/tips.png" style="width:6px;height:6px" mode="scaleToFill"/>
+  <view class="item_tip c_flex_top">
+    <view class="item_tip_img">
+      <image src="/image/tips.png" style="width:6px;height:6px" mode="scaleToFill" />
+    </view>
+    <view wx:if="{{sfmzf=='1'}}">本充电站为您提供免费充电服务！</view>
+    <view wx:if="{{sfmzf=='0'}}">
+      <block wx:if="{{info.chargeType =='03'}}">
+        <view>本充电站为您提供公益性充电服务，不以盈利为目的，仅收取平台运营费，充电不退费。</view>
+      </block>
+      <block wx:if="{{info.chargeType =='01' || info.chargeType =='02'}}">
+        <view wx:if="{{info.isReturn=='N'}}">
+          <view>单次充电充满后未消费的金额不退费，请酌情设定充电金额。</view>
         </view>
-        <view wx:if="{{sfmzf=='1'}}">本充电站为您提供免费充电服务！</view>
-        <view wx:if="{{sfmzf=='0'}}">
-          <block wx:if="{{info.chargeType =='03'}}">
-            <view>本充电站为您提供公益性充电服务，不以盈利为目的，仅收取平台运营费，充电不退费。</view>
-          </block>
-          <block wx:if="{{info.chargeType =='01' || info.chargeType =='02'}}">
-            <view wx:if="{{info.isReturn=='N'}}">
-              <view >单次充电充满后未消费的金额不退费，请酌情设定充电金额。</view>
-            </view>
-            <view wx:if="{{info.isReturn!='N'}}">
-              <view>单次充电充满后未消费的金额将原路退回。</view>
-              <view>计费间隔：{{info.closingPeriod}}分钟</view>
-              <view>（以30分钟计费间隔为例：不到30分钟按照30分钟计费，超过30分钟不到60分钟，按60分钟计费，以此类推。）</view>
-            </view>
-          </block>
+        <view wx:if="{{info.isReturn!='N'}}">
+          <view>单次充电充满后未消费的金额将原路退回。</view>
+          <view>计费间隔：{{info.closingPeriod}}分钟</view>
+          <view>（以30分钟计费间隔为例：不到30分钟按照30分钟计费，超过30分钟不到60分钟，按60分钟计费，以此类推。）</view>
         </view>
-      </view>
+      </block>
+    </view>
+  </view>
 </view>

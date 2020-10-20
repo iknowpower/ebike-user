@@ -24,6 +24,7 @@
 
         <view class="ye_num c_flex_baseline">
           <text class="num_zs">{{item.num_zs}}</text>
+          <text class="num_xs">.{{item.num_xs}}</text>
           <text class="ye_dw">元</text>
         </view>
         <view wx:if="{{item.status != '3'}}" class="c_flex_around">

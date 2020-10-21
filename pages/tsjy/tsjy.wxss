@@ -43,13 +43,14 @@
 
 .item-text-detail-l2 {
 	float: left;
-	width: 82%;
+	width: 65%;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
 	font-size: 26rpx;
 	font-weight: 400;
 	color: #777777;
+
 }
 
 .item-text-detail-l3 {

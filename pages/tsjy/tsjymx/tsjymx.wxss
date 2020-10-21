@@ -114,7 +114,7 @@
 	width: 49.5%;
 	text-align: center;
 	line-height: 98rpx;
-	color: #2DABE5;
+	color: #24C672;
 }
 
 .item-text-cl {
@@ -186,10 +186,16 @@
 
 .item-text-clsj {
 	height: 37rpx;
-	margin-top: 20rpx;
 	font-size: 26rpx;
 	font-weight: 400;
 	color: #777777;
+	line-height: 37rpx;
+}
+.item-text-clsj-no {
+	height: 37rpx;
+	font-size: 26rpx;
+	font-weight: 400;
+	color: #434242;
 	line-height: 37rpx;
 }
 
@@ -200,6 +206,16 @@
 	font-weight: 400;
 	color: #777777;
 	line-height: 37rpx;
+	width: 80%;
+}
+.item-text-clsm-1{
+	height: 37rpx;
+	margin-top: 6rpx;
+	font-size: 26rpx;
+	font-weight: 400;
+	color: #434242;
+	line-height: 37rpx;
+	width: 20%;
 }
 
 .image {
@@ -268,7 +284,7 @@
 	left: 0;
 	width: 100%;
 	bottom: 0;
-	height: 45vh;
+	height: 41vh;
 }
 
 .modal-close {
@@ -315,7 +331,6 @@
 }
 
 .text_clr1 {
-	margin-right: 15rpx;
 	height: 37rpx;
 	font-size: 26rpx;
 	font-weight: 400;

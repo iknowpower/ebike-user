@@ -79,4 +79,10 @@ Page({
   onPullDownRefresh() {
     this.showInfo();
   },
+
+  goCmpn(){
+    wx.navigateTo({
+      url: '../user/cmpn/cmpnList',
+    })
+  }
 });

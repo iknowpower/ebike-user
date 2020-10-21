@@ -11,7 +11,7 @@
   </view>
   <view class="lx-img c_flex_center"><image src="/image/ewm.png" style="width:290rpx;height:290rpx"/></view>
   <view class="phone">
-      添加客服微信二维码
+      截图保存后添加客服微信二维码
   </view>
 
 </view>

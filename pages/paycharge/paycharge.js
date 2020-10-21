@@ -565,5 +565,11 @@ Page({
     this.setData({
       showDialog:false
     })
+  },
+
+  goCmpn(){
+    wx.navigateTo({
+      url: '../user/cmpn/cmpnList',
+    })
   }
 });

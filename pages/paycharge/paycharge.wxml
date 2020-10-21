@@ -14,6 +14,7 @@
 		<view>
 			<view class="item-name c_flex">
 				<text>{{stationinfo.name}}</text>
+				<block wx:if="{{showPackage}}"><text style="color:#24C672;font-size:26rpx;" bindtap="goCmpn">（有活动）</text></block>
 			</view>
 			<view class="item-addr">
 				设备编号：{{stationinfo.chargeDevNo}} 插座：{{pluginfo.plugSn}}
@@ -195,7 +196,7 @@
 		</block>
 	</block>
 	<block wx:else>
-		<button class="bottom_btn" bindtap="mfcd">开始免费支付</button>
+		<button class="bottom_btn" bindtap="mfcd">开始免费充电</button>
 	</block>
 </block>
 

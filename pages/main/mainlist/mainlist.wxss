@@ -48,7 +48,7 @@
 }
 
 .tip-czs{
-  width:auto;
+  width:60rpx;
 }
 
 .tip-color-kx{

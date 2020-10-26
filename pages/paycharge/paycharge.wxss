@@ -199,13 +199,14 @@ width:80vw;
 
 .mask {
   width: 100%;
-  height: 92%;
+  height: 92vh;
   position: absolute;
   background-color: rgba(0,0,0,0.2);
   z-index: 9999;
   top: 0;
   left: 0;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;

@@ -61,10 +61,12 @@ page {
   bottom: 0;
   width:100vw;
   height: 98rpx;
-  background: #FFFFFF;
+  background: #24C672;
   font-size: 32rpx;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
-  color: #24C672;
+  color: #FFFFFF;
   line-height: 98rpx;
+  border: none;
+  border-radius: 0;
 }

@@ -34,7 +34,7 @@
 		</view>
 	</view>
 	
-		<button class="bottom_btn" style="color:#333333" bindtap="tapOneDialogButton">投诉建议</button>
+		<button class="bottom_btn"  bindtap="tapOneDialogButton">投诉建议</button>
 	<view class="mp_dialog">
 		<mp-dialog title="建议类型" extClass="cancel_btn" mask="{{true}}" mask-closable="{{false}}"
 			show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton" buttons="{{oneButton}}">

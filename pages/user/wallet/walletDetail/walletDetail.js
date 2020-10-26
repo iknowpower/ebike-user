@@ -7,7 +7,8 @@ Page({
     check:0,//金额框选中标志
     zfje:'',//支付金额显示
     cmpnList:[],
-    cmpncount:0
+    cmpncount:0,
+    showMask:false
   },
   onLoad() {
     let that = this;
@@ -48,10 +49,21 @@ Page({
     this.setData({
       check:v,
       zfje:v,
+      showMask:!wx.getStorageSync('showMask')
     })
   },
 
   ljcz(e){
+
+    this.setData({
+      showMask:false
+    })
+    //点击立即支付按钮存入标识 以后不再提示
+      wx.setStorage({
+        data: true,
+        key: 'showMask',
+      })
+    
     // 金额不对
     if(parseFloat(this.data.zfje) <=0 || parseFloat(this.data.zfje) >=9999){
         wx.showModal({
@@ -101,4 +113,10 @@ Page({
       zfje: e.detail.value,
     });
   },
+
+  hide: function (e) {
+    this.setData({ 
+      showMask: false 
+    });
+  }
 });

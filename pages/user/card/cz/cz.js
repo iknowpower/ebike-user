@@ -2,17 +2,18 @@ var app = getApp();
 
 Page({
   data: {
-    cardid:'',
-    type:'',// 1为自身充值，2位代充值
-    userid:'',//代充值的时候用
+    cardid: '',
+    type: '',// 1为自身充值，2位代充值
+    userid: '',//代充值的时候用
     phone: '',//代充值的时候用
     num_zs: '',
     num_xs: '',
-    card_1: '', 
+    card_1: '',
     card_2: '',
     card_3: '',
     check: 0,//金额框选中标志
-    zfje: ''//支付金额显示
+    zfje: '',//支付金额显示
+    showMask: false//显示遮罩层
   },
   onLoad(options) {
     this.setData({
@@ -20,7 +21,7 @@ Page({
       type: options.type,
     })
 
-    if (options.type=='2'){
+    if (options.type == '2') {
       this.setData({
         cardid: options.cardid, // 代充值的卡号
         userid: options.userid,//代充值的时候用
@@ -75,10 +76,22 @@ Page({
     this.setData({
       check: v,
       zfje: v,
+      showMask:!wx.getStorageSync('showMask')
     })
+  
   },
 
   ljcz(e) {
+
+    this.setData({
+      showMask:false
+    })
+     //点击立即支付按钮存入标识 以后不再提示
+      wx.setStorage({
+        data: true,
+        key: 'showMask',
+      })
+    
     // 金额不对
     if (parseFloat(this.data.zfje) <= 0 || parseFloat(this.data.zfje) >= 9999) {
       wx.showModal({
@@ -89,16 +102,16 @@ Page({
       return;
     }
 
-var that = this;
+    var that = this;
     wx.request({
       url: app.httpUrl + '/ebike-charge/wxpay/goWxPayCardCz.x',
       data: {
         card_id: this.data.cardid,
         user_id: this.data.userid,
-        phone:this.data.phone,
+        phone: this.data.phone,
         type: this.data.type,
         czje: this.data.zfje,
-        sessionid:app.globalData.sessionid
+        sessionid: app.globalData.sessionid
       },
       success: (re) => {
         // 跳转到充电信息页面
@@ -115,13 +128,13 @@ var that = this;
               wx.showModal({
                 title: '充值成功',
                 showCancel: false,
-                success:(r)=>{
+                success: (r) => {
                   //代充页面回退2
-                  if (that.data.type == '2'){
-                      wx.navigateBack({
-                        detla:2
-                      })
-                  }else{
+                  if (that.data.type == '2') {
+                    wx.navigateBack({
+                      detla: 2
+                    })
+                  } else {
                     wx.navigateBack({
                       detla: 1
                     })
@@ -150,4 +163,16 @@ var that = this;
       zfje: e.detail.value,
     });
   },
+
+  show: function (e) {
+    this.setData({
+      showMask: true
+    });
+  },
+
+  hide: function (e) {
+    this.setData({ 
+      showMask: false 
+    });
+  }
 });

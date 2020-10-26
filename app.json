@@ -40,8 +40,6 @@
     "pages/user/wallet/walletDetail/walletDetail",
     "pages/tsjy/sbgz/sbgz",
     "pages/user/about/about_center",
-    "pages/user/kfzx/kfzx",
-    "pages/user/kfzx/kfzxan/kfzxan",
     "pages/user/about/about_detail"
   ],
   "window": {

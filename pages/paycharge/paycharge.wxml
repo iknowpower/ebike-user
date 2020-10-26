@@ -207,7 +207,7 @@
 			<button class="bottom_btn" bindtap="ljzf">立即支付</button>
 		</block>
 		<block wx:if="{{stationinfo.chargeType =='03'}}">
-			<view class="mask" wx:if="{{showMask}}"  bindtap="hide"  catchtouchmove="true">
+			<view class="mask" wx:if="{{showMaskTimes}}"  bindtap="hide"  catchtouchmove="true">
 		<view class="bottom_btn_mask">点击下方按钮去支付</view>
 		<image src='/image/paperairplane.png' class="paper_airplane"  mode="scaleToFill"></image>
 	</view>

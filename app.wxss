@@ -60,13 +60,14 @@ page {
   position: fixed;
   bottom: 0;
   width:100vw;
-  height: 98rpx;
+  height: 8vh;
+  line-height: 8vh;
+  text-align: center;
   background: #24C672;
   font-size: 32rpx;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #FFFFFF;
-  line-height: 98rpx;
   border: none;
   border-radius: 0;
 }

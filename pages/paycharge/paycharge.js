@@ -26,12 +26,14 @@ Page({
     showPackage: false,
     showUserBtn: false,
     showDialog: false,
-    showMask: false,
-    showMaskFree:false
+    showMask: false,//按时间收费
+    showMaskFree:false,//免费
+    showMaskTimes:false//按次收费
   },
   onLoad(option) {
     this.setData({
-      showMaskFree:!wx.getStorageSync('showMaskFree')
+      showMaskFree:!wx.getStorageSync('showMaskFree'),
+      showMaskTimes:!wx.getStorageSync('showMaskTimes')
     });
     // console.log('option.id ==' + option.id);
     // console.log('sessionid ==' + app.globalData.sessionid);
@@ -85,12 +87,12 @@ Page({
   aczf(e) {
     wx.setStorage({
       data: true,
-      key: 'showMask',
+      key: 'showMaskTimes',
     })
     var v = e.currentTarget.dataset.v;
     this.setData({
       zfje: v,
-      showMask:false,
+      showMaskTimes:false,
     })
     // 如果账户有余额，那么余额支付，否则支付宝支付
     if (parseFloat(this.data.hbaccount) >= parseFloat(this.data.zfje)) {
@@ -599,7 +601,8 @@ Page({
   hide: function (e) {
     this.setData({
       showMask: false,
-      showMaskFree: false
+      showMaskFree: false,
+      showMaskTimes:false
     });
   }
 });

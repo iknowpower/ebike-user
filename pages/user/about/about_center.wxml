@@ -11,4 +11,4 @@
         </view>
     </view>
 </view>
-<button class="bottom_btn cust_btn" bindtap="goAbout">联系客服</button>
+<button class="bottom_btn" bindtap="goAbout">联系客服</button>

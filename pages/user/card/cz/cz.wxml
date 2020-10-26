@@ -60,6 +60,13 @@
         <image src="/image/tips.png" style="width:8px;height:8px" mode="scaleToFill" />
       </view>
       <view class="tiptext">充值余额暂不支持退款和提现，请合理安排充值金额。</view>
-  </view>
+	</view>
+	
+	<view class="mask" wx:if="{{showMask}}"  bindtap="hide"  catchtouchmove="true">
+		<view class="bottom_btn_mask">点击下方按钮去支付</view>
+		<image src='/image/paperairplane.png' class="paper_airplane"  mode="scaleToFill"></image>
+    
+	</view>
 	<button class="bottom_btn" data-zfje="{{zfje}}" bindtap="ljcz">立即充值</button>
+
 </view>

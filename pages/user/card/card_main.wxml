@@ -11,7 +11,7 @@
       <view class="dc_text">代充</view>
     </view>
   </view>
-  <scroll-view scroll-y="true" style="height: 1100rpx">
+  <scroll-view scroll-y="true" >
     <block wx:if="{{hasCard==1}}">
       <view wx:for="{{cardList}}" wx:key="card_id"
         class="ye_bk {{item.status == '3'?'card_back_miss': 'card_back' }}">

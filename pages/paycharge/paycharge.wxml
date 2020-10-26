@@ -179,12 +179,20 @@
 					</view>
 				</radio-group>
 			</view>
+
+			
 			<view class="panel_btn" bindtap="qrzf">
 					确认支付
 			</view>
 		</view>
 </view>
+
+
 <block wx:if="{{showUserBtn}}">
+	<view class="mask" wx:if="{{showMask}}"  bindtap="hide"  catchtouchmove="true">
+		<view class="bottom_btn_mask">点击下方按钮去支付</view>
+		<image src='/image/paperairplane.png' class="paper_airplane"  mode="scaleToFill"></image>
+	</view>
 	<button class="bottom_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="ljzf">
 		立即支付
 	</button>
@@ -192,13 +200,25 @@
 <block wx:else>
 	<block wx:if="{{sfmzf=='0'}}">
 		<block wx:if="{{stationinfo.chargeType =='01'}}">
+			<view class="mask" wx:if="{{showMask}}"  bindtap="hide"  catchtouchmove="true">
+		<view class="bottom_btn_mask">点击下方按钮去支付</view>
+		<image src='/image/paperairplane.png' class="paper_airplane"  mode="scaleToFill"></image>
+	</view>
 			<button class="bottom_btn" bindtap="ljzf">立即支付</button>
 		</block>
 		<block wx:if="{{stationinfo.chargeType =='03'}}">
+			<view class="mask" wx:if="{{showMask}}"  bindtap="hide"  catchtouchmove="true">
+		<view class="bottom_btn_mask">点击下方按钮去支付</view>
+		<image src='/image/paperairplane.png' class="paper_airplane"  mode="scaleToFill"></image>
+	</view>
 			<button class="bottom_btn" bindtap="aczf" data-v="{{stationinfo.unitPrice1}}">立即支付</button>
 		</block>
 	</block>
 	<block wx:else>
+		<view class="mask" wx:if="{{showMask}}"  bindtap="hide"  catchtouchmove="true">
+		<view class="bottom_btn_mask">点击下方按钮免费充电</view>
+		<image src='/image/paperairplane.png' class="paper_airplane"  mode="scaleToFill"></image>
+	</view>
 		<button class="bottom_btn" bindtap="mfcd">开始免费充电</button>
 	</block>
 </block>

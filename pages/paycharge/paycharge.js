@@ -26,9 +26,13 @@ Page({
     showPackage: false,
     showUserBtn: false,
     showDialog: false,
-    showMask: false
+    showMask: false,
+    showMaskFree:false
   },
   onLoad(option) {
+    this.setData({
+      showMaskFree:!wx.getStorageSync('showMaskFree')
+    });
     // console.log('option.id ==' + option.id);
     // console.log('sessionid ==' + app.globalData.sessionid);
     // console.log('app.codeid ==' + app.codeid);
@@ -86,7 +90,7 @@ Page({
     var v = e.currentTarget.dataset.v;
     this.setData({
       zfje: v,
-      showMask:false
+      showMask:false,
     })
     // 如果账户有余额，那么余额支付，否则支付宝支付
     if (parseFloat(this.data.hbaccount) >= parseFloat(this.data.zfje)) {
@@ -197,12 +201,10 @@ Page({
 
   mfcd() {
     this.setData({
-      showMask:false
+      showMaskFree:false
     });
-    wx.setStorage({
-      data: true,
-      key: 'showMask',
-    })
+    wx.setStorageSync('showMaskFree', true);
+    
     var cdczno = this.data.pluginfo.chargeplugNo;
     var sessionid = app.globalData.sessionid;
     var cmpn_id = this.data.cmpn_id;
@@ -596,7 +598,8 @@ Page({
   },
   hide: function (e) {
     this.setData({
-      showMask: false
+      showMask: false,
+      showMaskFree: false
     });
   }
 });

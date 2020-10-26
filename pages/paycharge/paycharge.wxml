@@ -212,7 +212,7 @@
 		</block>
 	</block>
 	<block wx:else>
-		<view class="mask" wx:if="{{showMask}}"  bindtap="hide"  catchtouchmove="true">
+		<view class="mask" wx:if="{{showMaskFree}}"  bindtap="hide"  catchtouchmove="true">
 		<view class="bottom_btn_mask">点击下方按钮免费充电</view>
 		<image src='/image/paperairplane.png' class="paper_airplane"  mode="scaleToFill"></image>
 	</view>

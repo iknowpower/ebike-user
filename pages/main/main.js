@@ -58,10 +58,10 @@ Page({
       });
 
       
-      if (app.globalData.userPhone == '') {
-          // 绑定后跳转到首页
-          wx.navigateTo({ url: '../user/bindphone/bindphone?phone=&url=main' });
-      }
+      // if (app.globalData.userPhone == '') {
+      //     // 绑定后跳转到首页
+      //     wx.navigateTo({ url: '../user/bindphone/bindphone?phone=&url=main' });
+      // }
     });
 
     // 关联二维码等进来时没获取过定位信息等情况

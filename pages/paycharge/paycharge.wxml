@@ -113,13 +113,16 @@
 		</view>
 	</block>
 	<view class="item_tip c_flex_top">
-		<view class="item_tip_img">
-			<image src="/image/tips.png" style="width:16rpx;height:16rpx" mode="scaleToFill" />
-		</view>
 		<block wx:if="{{sfmzf=='1'}}">
+			<view class="item_tip_img">
+				<image src="/image/tips.png" style="width:16rpx;height:16rpx" mode="scaleToFill" />
+			</view>
 			<view>本充电站为您提供免费充电服务！</view>
 		</block>
 		<block wx:if="{{sfmzf=='0'}}">
+			<view class="item_tip_img">
+				<image src="/image/tips.png" style="width:16rpx;height:16rpx" mode="scaleToFill" />
+			</view>
 			<block wx:if="{{stationinfo.chargeType =='03'}}">
 				<view>本充电站为您提供公益性充电服务，不以盈利为目的，仅收取平台运营费，充电不退费。</view>
 			</block>

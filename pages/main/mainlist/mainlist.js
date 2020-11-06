@@ -62,13 +62,13 @@ Page({
         start:this.data.start,
         limit: this.data.limit
     }
-    console.log(param);
+    // console.log(param);
     wx.request({
       url: app.httpUrl + '/ebike-charge/wxXcx/getStationListLb.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
       data: param,
       success: (re) => {
-        console.log("-------------"+that.data.start+"----------");
-        console.log(re);
+        // console.log("-------------"+that.data.start+"----------");
+        // console.log(re);
         var stList = re.data.reList;
         if(this.data.start == 1){
           this.setData({

@@ -69,4 +69,7 @@
           </view>
         </block>
     </view>
+    <view class="bottom_text">
+      <view wx:if="{{loading}}" class="center_flex loading_text"><image wx:if="{{showLoadingGif}}" src="/image/loading.gif" style="width:40rpx;height:40rpx"></image>{{loadTips}}</view>
+    </view>
 </view>

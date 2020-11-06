@@ -71,3 +71,18 @@ page {
   border: none;
   border-radius: 0;
 }
+
+.loading_text{
+	font-size: 14px;
+	color: #9b9b9b;
+
+}
+.center_flex{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.bottom_text{
+  text-align: center;
+  margin: 10px;
+}

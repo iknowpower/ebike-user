@@ -70,6 +70,14 @@
         </block>
     </view>
     <view class="bottom_text">
-      <view wx:if="{{loading}}" class="center_flex loading_text"><image wx:if="{{showLoadingGif}}" src="/image/loading.gif" style="width:40rpx;height:40rpx"></image>{{loadTips}}</view>
+      <view wx:if="{{loadFlag == '1'}}" class="center_flex loading_text">
+        <image wx:if="{{showLoadingGif}}" src="/image/loading.gif" style="width:40rpx;height:40rpx"></image>{{loadTips}}
+      </view>
+      <view wx:elif="{{loadFlag == '2'}}" class="center_flex loading_text">
+        {{noMore}}
+      </view>
+      <view wx:elif="{{loadFlag == '3'}}" class="center_flex loading_text">
+        {{loadingFailed}}
+      </view>
     </view>
 </view>

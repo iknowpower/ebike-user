@@ -1,9 +1,9 @@
 
 App({
   codeid:'',
-  //httpUrl:'https://xcx.ebike-charge.com',//生产
+  httpUrl:'https://xcx.ebike-charge.com',//生产
   //httpUrl:'https://xcxbeta.ebike-charge.com',
-  httpUrl:'https://iesmsappletbeta.ebike-charge.com',//阿土本地测试
+  // httpUrl:'https://iesmsappletbeta.ebike-charge.com',//阿土本地测试
   globalData: {
     hasLogin: false,
     userPhone:'',
@@ -13,7 +13,7 @@ App({
     sessionid:null,
     expiredTime: 0,
     office_tel:'0571-81110722',
-    loading:"正在加载...",
+    loadTips:"正在加载...",
     noMore:"-没有更多了-",
     loadingFailed:"加载失败了,请刷新",
   },
@@ -64,26 +64,5 @@ App({
           });
          }      
        });
-  },
-
-  // 上拉加载  
-  // loading:是否正在加载
-  // loadMore:是否上拉加载
-  // cb:callback回调
-  onLoadMore: function(loading,loadMore,cb){
-    //没有正在加载的情况下
-    if(!loading){
-      //集合长度大于总数 关闭上拉加载
-      if(loadMore){
-        //参数一:是否加载更多loadMore 
-        //参数二:提示文字loadTips  
-        //参数三:是否显示上拉加载的提示文字loading 
-        //是否显示上拉加载gif showLoadingGif 
-        cb(true,this.globalData.loading,true,true);
-      }else{
-        cb(false,this.globalData.noMore,true,false);
-      }
-      cb(this.globalData.loadRe);
-    }
   },
 });

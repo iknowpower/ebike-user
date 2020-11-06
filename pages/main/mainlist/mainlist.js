@@ -6,6 +6,8 @@ Page({
     stList: [],
     longitude: "",
     latitude: "",
+    start:1,
+    limit:10
   },
   showInput: function () {
     this.setData({
@@ -24,7 +26,6 @@ Page({
     });
   },
   inputTyping: function (e) {
-    console.log(e);
     this.setData({
       inputVal: e.detail.value
     });
@@ -34,7 +35,6 @@ Page({
   },
 
   onLoad(option) {
-    console.log(option);
     this.setData({
       longitude: option.longitude,
       latitude: option.latitude,
@@ -53,11 +53,10 @@ Page({
         longitude: that.data.longitude,
         latitude: that.data.latitude,
         name: name,
-        limit: 99,// 99个站点
-        dis: 100,// 100km
+        start:this.data.start,
+        limit: this.data.limit,
       },
       success: (re) => {
-        console.log(re.data);
         that.setData({
           stList: re.data
         })

@@ -6,10 +6,10 @@ Page({
     stList: [],
     longitude: "",
     latitude: "",
-    start:1,
-    limit:10,
+    start: 1,
+    limit: 10,
     total: 0,//数据总条数
-    loadFlag:'',
+    loadFlag: '',
   },
   showInput: function () {
     this.setData({
@@ -36,7 +36,7 @@ Page({
     this.setData({
       start: 1,
       total: 0,//数据总条数
-      loadFlag:'',
+      loadFlag: '',
     });
     this.showStlist(e.detail.value, false);
   },
@@ -45,9 +45,9 @@ Page({
     this.setData({
       longitude: option.longitude,
       latitude: option.latitude,
-      loadTips:app.globalData.loadTips,
-      noMore:app.globalData.noMore,
-      loadingFailed:app.globalData.loadingFailed,
+      loadTips: app.globalData.loadTips,
+      noMore: app.globalData.noMore,
+      loadingFailed: app.globalData.loadingFailed,
     })
 
     this.showStlist('', false);
@@ -56,11 +56,11 @@ Page({
   showStlist(name, sfsx) {
     let that = this;
     const param = {
-        longitude: this.data.longitude,
-        latitude: this.data.latitude,
-        name: name,
-        start:this.data.start,
-        limit: this.data.limit
+      longitude: this.data.longitude,
+      latitude: this.data.latitude,
+      name: name,
+      start: this.data.start,
+      limit: this.data.limit
     }
     // console.log(param);
     wx.request({
@@ -70,38 +70,38 @@ Page({
         // console.log("-------------"+that.data.start+"----------");
         // console.log(re);
         var stList = re.data.reList;
-        if(this.data.start == 1){
+        if (this.data.start == 1) {
           this.setData({
             total: re.data.recount,
             stList: stList
           })
-        }else{
+        } else {
           this.setData({
             stList: this.data.stList.concat(stList)
           })
-          if(this.data.stList.length >= that.data.total){
+          if (this.data.stList.length >= that.data.total) {
             that.setData({
-              loadFlag:'2'
+              loadFlag: '2'
             })
-          }else{
+          } else {
             that.setData({
-              loadFlag:''
+              loadFlag: ''
             })
           }
         }
-      },complete:()=>{
+      }, complete: () => {
         if (sfsx) {
           wx.stopPullDownRefresh();
         }
-      },fail:()=>{
+      }, fail: () => {
         that.setData({
-          loadFlag:'3'
+          loadFlag: '3'
         });
       }
     });
   },
   goDevDetail(e) {
-    wx.navigateTo({ url: '../../charge/charge?id=' + e.currentTarget.dataset.stid + '&cmpnid=' + e.currentTarget.dataset.cmpnid});
+    wx.navigateTo({ url: '../../charge/charge?id=' + e.currentTarget.dataset.stid + '&cmpnid=' + e.currentTarget.dataset.cmpnid });
   },
 
   goNavi(e) {
@@ -118,26 +118,38 @@ Page({
     this.setData({
       start: 1,
       total: 0,//数据总条数
-      loadFlag:'',
+      loadFlag: '',
     });
     this.showStlist(this.data.inputVal, true);
   },
 
   onReachBottom: function (e) {
-    if(this.data.stList.length >= this.data.total){
-      // 如果不是第一页加载完毕的话
-      if(this.data.start != 1){
-         this.setData({
-            loadFlag:'2'
-         })
-      }
-    }else{
+    var _loadFlag = app.getLoadFlag(this.data.stList.length, this.data.total, this.data.start);
+    this.setData({
+      loadFlag: _loadFlag
+    })
+    if (_loadFlag == '1') {
       this.setData({
-          loadFlag:'1',
-          start:this.data.start + 1
+        start: this.data.start + 1
       })
       //开启上拉加载
       this.showStlist(this.data.inputVal, false);
     }
+
+  //   if (this.data.stList.length >= this.data.total) {
+  //     // 如果不是第一页加载完毕的话
+  //     if (this.data.start != 1) {
+  //       this.setData({
+  //         loadFlag: '2'
+  //       })
+  //     }
+  //   } else {
+  //     this.setData({
+  //       loadFlag: '1',
+  //       start: this.data.start + 1
+  //     })
+  //     //开启上拉加载
+  //     this.showStlist(this.data.inputVal, false);
+  //   }
   },
 });

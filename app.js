@@ -65,4 +65,16 @@ App({
          }      
        });
   },
+
+  getLoadFlag(length,total,start){
+    if(length>=total){
+      if(start!=1){
+        return '2';
+      }else{
+        return '';
+      }
+    }else{
+      return '1';
+    }
+  }
 });

@@ -63,7 +63,7 @@ Page({
     }
     app.request('/ebike-charge/wxXcx/getStationListLb.x',param)
     .then(re=>{
-      console.log(re.data);
+      // console.log(re.data);
       var stList = re.data.reList;
         if (this.data.start == 1) {
           this.setData({

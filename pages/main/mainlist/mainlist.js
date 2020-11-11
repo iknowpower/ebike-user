@@ -54,7 +54,6 @@ Page({
   },
 
   showStlist(name, sfsx) {
-    let that = this;
     const param = {
       longitude: this.data.longitude,
       latitude: this.data.latitude,
@@ -62,14 +61,10 @@ Page({
       start: this.data.start,
       limit: this.data.limit
     }
-    // console.log(param);
-    wx.request({
-      url: app.httpUrl + '/ebike-charge/wxXcx/getStationListLb.x', // 该url是自己的服务地址，实现的功能是服务端拿到authcode去开放平台进行token验证
-      data: param,
-      success: (re) => {
-        // console.log("-------------"+that.data.start+"----------");
-        // console.log(re);
-        var stList = re.data.reList;
+    app.request('/ebike-charge/wxXcx/getStationListLb.x',param)
+    .then(re=>{
+      console.log(re.data);
+      var stList = re.data.reList;
         if (this.data.start == 1) {
           this.setData({
             total: re.data.recount,
@@ -79,24 +74,26 @@ Page({
           this.setData({
             stList: this.data.stList.concat(stList)
           })
-          if (this.data.stList.length >= that.data.total) {
-            that.setData({
+          if (this.data.stList.length >= this.data.total) {
+            this.setData({
               loadFlag: '2'
             })
           } else {
-            that.setData({
+            this.setData({
               loadFlag: ''
             })
           }
         }
-      }, complete: () => {
-        if (sfsx) {
-          wx.stopPullDownRefresh();
-        }
-      }, fail: () => {
-        that.setData({
-          loadFlag: '3'
-        });
+    })
+    .catch((e)=>{
+      // console.log(e);
+      this.setData({
+        loadFlag: '3'
+      });
+    })
+    .finally(()=>{
+      if (sfsx) {
+        wx.stopPullDownRefresh();
       }
     });
   },
@@ -123,33 +120,19 @@ Page({
     this.showStlist(this.data.inputVal, true);
   },
 
-  onReachBottom: function (e) {
-    var _loadFlag = app.getLoadFlag(this.data.stList.length, this.data.total, this.data.start);
-    this.setData({
-      loadFlag: _loadFlag
-    })
-    if (_loadFlag == '1') {
+  onReachBottom() {
+    app.getLoadFlag(this.data.stList.length, this.data.total, this.data.start)
+    .then(loadFlag=>{
       this.setData({
-        start: this.data.start + 1
+        loadFlag: loadFlag
       })
-      //开启上拉加载
-      this.showStlist(this.data.inputVal, false);
-    }
-
-  //   if (this.data.stList.length >= this.data.total) {
-  //     // 如果不是第一页加载完毕的话
-  //     if (this.data.start != 1) {
-  //       this.setData({
-  //         loadFlag: '2'
-  //       })
-  //     }
-  //   } else {
-  //     this.setData({
-  //       loadFlag: '1',
-  //       start: this.data.start + 1
-  //     })
-  //     //开启上拉加载
-  //     this.showStlist(this.data.inputVal, false);
-  //   }
+      if (loadFlag == '1') {
+        this.setData({
+          start: this.data.start + 1
+        })
+        //开启上拉加载
+        this.showStlist(this.data.inputVal, false);
+      }
+    });
   },
 });

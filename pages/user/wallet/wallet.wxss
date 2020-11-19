@@ -23,6 +23,7 @@
 .recharge{
   width: 96rpx;
   height: 48rpx;
+  line-height: 48rpx;
   font-size: 28rpx;
   font-weight: 500;
   color: #24C672;

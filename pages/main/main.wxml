@@ -7,8 +7,12 @@
         bindtap="tap"
         style="width: 100%; height:{{mainHeight}}"
     >
-    <!-- 充电信息提示 -->
-    <view class="cdxx_back cdxx_panel c_flex_space"  wx:if="{{cdxx_tipshow==='1'}}" bindtap="goCdxxDetail">
+
+    <cover-view class="charging_tip" wx:if="{{cdxx_tipshow==='1'}}">
+        <cover-image src="/image/charging_tip.png" style="height:auto;width:100%" mode="scaleToFill"></cover-image>
+    </cover-view>
+    <!-- 充电信息提示  wx:if="{{cdxx_tipshow==='1'}}" -->
+    <cover-view class=" cdxx_panel c_flex_space" wx:if="{{cdxx_tipshow==='1'}}"  bindtap="goCdxxDetail">
         <cover-view  class="cdxx_txt">
             {{cdxx_count}}辆爱车正在充电中～
         </cover-view>
@@ -16,9 +20,9 @@
             <cover-image src="/image/mainpage/in.png" style="width:24rpx;height:24rpx" mode="scaleToFill">
             </cover-image>
         </cover-view>
-    </view>
-    <!-- 点击地图设备后弹出的充电桩详情页面 -->
-    <cover-view class="dev_back {{cdxx_tipshow == '1'? 'dev_panel' :'cdxx_panel'}}"  wx:if="{{dev_tipshow==='1'}}" bindtap="goDetail">
+    </cover-view>
+    <!-- 点击地图设备后弹出的充电桩详情页面   wx:if="{{dev_tipshow==='1'}}"-->
+    <cover-view class="dev_back {{cdxx_tipshow == '1'? 'dev_panel' :'cdxx_panel_1'}}"  wx:if="{{dev_tipshow==='1'}}"  bindtap="goDetail">
         <cover-view class="page-tip c_flex_space">
             <cover-view class="c_flex_top">
                 <cover-view class="tip-img">
@@ -86,8 +90,15 @@
         <cover-image src="/image/mainpage/main_help.png" style="width:23px;height:23px;"mode="scaleToFill"/>
     </cover-view>
 
-    <view class="main_bottom main_bottom_back c_flex_space">
-        <cover-view style="width:80rpx;text-align:center"  bindtap="goList">
+    <cover-view class="main_bottom_image" style="z-index:100">
+        <cover-image src="/image/main_bottom_back.png" style="height:116rpx;width:100vw;">
+        </cover-image>
+    </cover-view>
+      
+
+
+    <cover-view class="main_bottom main_bottom_back1 c_flex_space" style="z-index:101">
+    <cover-view style="width:80rpx;text-align:center;z-index:101"  bindtap="goList">
             <cover-view class="c_flex_row">
                 <cover-image src="/image/mainpage/station.png" style="height:25px;width:25px;"mode="scaleToFill"/>
             </cover-view>
@@ -95,7 +106,7 @@
                 附近电站
             </cover-view>
         </cover-view>
-        <cover-view style="width:72rpx;text-align:center" bindtap="goUserCenter">
+        <cover-view style="width:72rpx;text-align:center;z-index:101" bindtap="goUserCenter">
             <cover-view class="c_flex_row">
                 <cover-image src="/image/mainpage/center.png" style="height:25px;width:25px;"mode="scaleToFill"/>
             </cover-view>
@@ -103,9 +114,10 @@
                 个人中心
             </cover-view>
         </cover-view>
-    </view>
+        </cover-view>
+    
 
-    <cover-view class="main_scan c_flex_center">
+    <cover-view class="main_scan c_flex_center" style="z-index:101">
         <cover-view class="main_scan_icon" data-id="5" bindtap="goMainBtn">
             <cover-view style="padding:30rpx 55rpx 16rpx 55rpx">
                 <cover-image src="/image/mainpage/scan.png" style="height:25px;width:25px;"mode="scaleToFill"/>
